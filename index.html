@@ -149,6 +149,7 @@ function exibirCartasAntes() {
   document.getElementById("carta-computador").innerHTML = `
     <img src="./img/${cartaComputador.img || ''}" alt="Imagem">
     <h3>${cartaComputador.nome}</h3>
+    <p><strong>Área:</strong> ${cartaComputador.area}</p>
     <p>${cartaComputador.descricao}</p>
     <p style="color:gray;">(Atributos ocultos)</p>
   `;
@@ -169,9 +170,10 @@ function batalhar(caracteristica) {
 
   // Mostra agora as duas cartas completas
   document.getElementById("carta-computador").innerHTML = `
-    <img src="${cartaComputador.img || ''}" alt="Imagem">
+    <img src="./img/${cartaComputador.img || ''}" alt="Imagem">
     <h3>${cartaComputador.nome}</h3>
     <p><strong>Área:</strong> ${cartaComputador.area}</p>
+     <p>${cartaComputador.descricao}</p>
     <p>🧠 Inteligência: ${cartaComputador.inteligencia}</p>
     <p>💬 Carisma: ${cartaComputador.carisma}</p>
     <p>🔥 Coragem: ${cartaComputador.coragem}</p>
