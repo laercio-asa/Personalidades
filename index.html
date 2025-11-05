@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Batalha de Personalidades</title>
+<style>
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #111;
+    color: #f2f2f2;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+  }
+
+  h1 {
+    color: #f9c74f;
+    margin-bottom: 10px;
+  }
+
+  #contador {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+
+  .cartas-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-top: 25px;
+    flex-wrap: wrap;
+  }
+
+  .carta {
+    background: #222;
+    border-radius: 15px;
+    box-shadow: 0 0 10px #000;
+    padding: 20px;
+    width: 400px;
+    text-align: left;
+    transition: transform 0.3s;
+  }
+
+  .carta img {
+    width: 100%;
+    height: 200px;
+    background: #333;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    object-fit: contain;
+  }
+
+  .botoes {
+    margin-top: 20px;
+  }
+
+  button {
+    margin: 5px;
+    padding: 10px 15px;
+    border: none;
+    background: #f9c74f;
+    color: #111;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #ffb703;
+  }
+
+  #resultado {
+    margin-top: 25px;
+    font-size: 18px;
+  }
+</style>
+</head>
+<body>
+<h1>🔥 Batalha de Personalidades</h1>
+<div id="contador"></div>
+
+<div class="cartas-container">
+  <div class="carta" id="carta-jogador"></div>
+  <div class="carta" id="carta-computador"></div>
+</div>
+
+<div class="botoes" id="botoes"></div>
+
+<p id="resultado"></p>
+
+<script>
+const cartas = [
+  { nome: "Zumbi dos Palmares", inteligencia: 8, carisma: 9, coragem: 10, area: "Liderança / Resistência", img: "0.webp", descricao:"Líder do Quilombo dos Palmares e símbolo da resistência negra contra a escravidão no Brasil." },
+  { nome: "Dandara dos Palmares", inteligencia: 8, carisma: 8, coragem: 10, area: "Liderança / Resistência", img: "1.webp", descricao:"Guerreira e estrategista, lutou ao lado de Zumbi pela liberdade no Quilombo dos Palmares." },
+  { nome: "Luís Gama", inteligencia: 10, carisma: 9, coragem: 9, area: "Direito / Abolicionismo", img: "2.webp", descricao:"Advogado autodidata e abolicionista, libertou centenas de pessoas escravizadas por meio da justiça." },
+  { nome: "Carolina Maria de Jesus", inteligencia: 9, carisma: 8, coragem: 9, area: "Literatura / Sociedade", img: "3.webp", descricao:"Escritora que retratou a vida nas favelas brasileiras em seu livro 'Quarto de Despejo'." },
+  { nome: "Machado de Assis", inteligencia: 10, carisma: 8, coragem: 8, area: "Literatura", img: "4.webp", descricao:"Um dos maiores escritores brasileiros, fundador da Academia Brasileira de Letras." },
+  { nome: "Maria Firmina dos Reis", inteligencia: 9, carisma: 8, coragem: 9, area: "Literatura / Educação", img: "5.webp", descricao:"Primeira romancista negra do Brasil, autora de 'Úrsula', obra pioneira no abolicionismo literário." },
+  { nome: "André Rebouças", inteligencia: 10, carisma: 7, coragem: 9, area: "Engenharia / Abolicionismo", img: "6.webp", descricao:"Engenheiro e inventor, defensor da abolição e de reformas sociais no século XIX." },
+  { nome: "Antonieta Barros", inteligencia: 9, carisma: 8, coragem: 9, area: "Educação / Política", img: "7.webp", descricao:"Primeira mulher negra eleita deputada estadual no Brasil, atuou pela educação e igualdade." },
+  { nome: "José do Patrocínio", inteligencia: 9, carisma: 9, coragem: 9, area: "Jornalismo / Abolicionismo", img: "8.webp", descricao:"Jornalista e líder abolicionista, um dos fundadores da Confederação Abolicionista." },
+  { nome: "Conceição Evaristo", inteligencia: 9, carisma: 8, coragem: 10, area: "Literatura / Ativismo", img: "9.webp", descricao:"Escritora e ativista, conhecida por dar voz às mulheres negras na literatura brasileira." },
+  { nome: "Milton Santos", inteligencia: 10, carisma: 7, coragem: 9, area: "Geografia / Academia", img: "10.webp", descricao:"Geógrafo e intelectual, referência mundial em estudos sobre globalização e território." },
+  { nome: "Chica da Silva", inteligencia: 8, carisma: 9, coragem: 8, area: "Sociedade / História", img: "11.webp", descricao:"Mulher liberta no século XVIII que conquistou destaque social em uma sociedade escravista." },
+  { nome: "Gilberto Gil", inteligencia: 9, carisma: 10, coragem: 8, area: "Música / Cultura", img: "12.webp", descricao:"Músico, compositor e ex-ministro da Cultura, ícone da MPB e da luta por diversidade." },
+  { nome: "Lélia Gonzalez", inteligencia: 10, carisma: 8, coragem: 9, area: "Sociologia / Feminismo Negro", img: "13.webp", descricao:"Intelectual e ativista feminista negra, pioneira nos estudos sobre raça e gênero no Brasil." },
+  { nome: "Nilo Peçanha", inteligencia: 9, carisma: 8, coragem: 8, area: "Política", img: "14.webp", descricao:"Primeiro presidente negro do Brasil, defensor da educação técnica e do desenvolvimento social." },
+  { nome: "Benedita da Silva", inteligencia: 8, carisma: 9, coragem: 9, area: "Política / Direitos Humanos", img: "15.webp", descricao:"Política e ativista social, primeira senadora negra do Brasil e referência na luta por igualdade." },
+  { nome: "Cartola", inteligencia: 8, carisma: 9, coragem: 8, area: "Música / Cultura Popular", img: "16.webp", descricao:"Compositor e sambista, um dos fundadores da Estação Primeira de Mangueira e ícone da MPB." },
+  { nome: "Elza Soares", inteligencia: 8, carisma: 10, coragem: 10, area: "Música / Representatividade", img: "17.webp", descricao:"Cantora de voz marcante, símbolo de resistência, inovação e força feminina na música brasileira." },
+  { nome: "Abdias do Nascimento", inteligencia: 10, carisma: 8, coragem: 10, area: "Artes / Ativismo Político", img: "18.webp", descricao:"Artista, político e ativista do movimento negro, fundador do Teatro Experimental do Negro." },
+  { nome: "Sueli Carneiro", inteligencia: 10, carisma: 8, coragem: 9, area: "Filosofia / Ativismo", img: "19.webp", descricao:"Filósofa e ativista, fundadora do Geledés – Instituto da Mulher Negra e referência no feminismo negro." },
+  { nome: "Aleijadinho", inteligencia: 10, carisma: 7, coragem: 9, area: "Arte / Escultura", img: "20.webp", descricao:"Escultor e arquiteto do período colonial, autor das obras monumentais de Congonhas (MG)." },
+  { nome: "Glória Maria", inteligencia: 9, carisma: 10, coragem: 9, area: "Jornalismo / Comunicação", img: "21.webp", descricao:"Jornalista pioneira na TV brasileira, conhecida por sua coragem e reportagens pelo mundo." },
+  { nome: "Pelé", inteligencia: 8, carisma: 10, coragem: 8, area: "Esporte / Futebol", img: "22.webp", descricao:"O Rei do Futebol, tricampeão mundial e embaixador global do esporte." },
+  { nome: "Tereza de Benguela", inteligencia: 8, carisma: 8, coragem: 10, area: "Liderança / Resistência", img: "23.webp", descricao:"Líder quilombola que comandou o Quilombo do Quariterê, símbolo de resistência feminina." },
+  { nome: "Adhemar Ferreira da Silva", inteligencia: 8, carisma: 9, coragem: 9, area: "Esporte / Atletismo", img: "24.webp", descricao:"Atleta bicampeão olímpico no salto triplo, um dos maiores esportistas da história do Brasil." },
+  { nome: "Enedina Alves Marques", inteligencia: 9, carisma: 7, coragem: 10, area: "Engenharia / Pioneirismo", img: "25.webp", descricao:"Primeira engenheira negra do Brasil, superou preconceitos e marcou a engenharia paranaense." },
+  { nome: "Lima Barreto", inteligencia: 9, carisma: 8, coragem: 9, area: "Literatura / Crítica Social", img: "26.webp", descricao:"Escritor crítico e visionário, autor de 'Triste Fim de Policarpo Quaresma', denunciou o racismo social." },
+  { nome: "Maria Odília Teixeira", inteligencia: 9, carisma: 7, coragem: 9, area: "Medicina / Pioneirismo", img: "27.webp", descricao:"Primeira médica negra do Brasil, pioneira no acesso de mulheres negras ao ensino superior." },
+  { nome: "Milton Nascimento", inteligencia: 9, carisma: 10, coragem: 8, area: "Música / Cultura", img: "28.webp", descricao:"Cantor e compositor, símbolo de união e liberdade através da música brasileira." },
+  { nome: "Marina Silva", inteligencia: 9, carisma: 8, coragem: 9, area: "Política / Meio Ambiente", img: "29.webp", descricao:"Ambientalista e política, defensora das florestas e do desenvolvimento sustentável." }
+];
+
+let baralho = cartas.sort(() => Math.random() - 0.5);
+let jogador = baralho.slice(0, 15);
+let computador = baralho.slice(15);
+
+function atualizarContador() {
+  document.getElementById("contador").innerText =
+    `Cartas - Você: ${jogador.length} | Computador: ${computador.length}`;
+}
+
+function exibirCartasAntes() {
+  let cartaJogador = jogador[0];
+  let cartaComputador = computador[0];
+
+  document.getElementById("carta-jogador").innerHTML = `
+    <img src="./img/${cartaJogador.img || ''}" alt="Imagem">
+    <h3>${cartaJogador.nome}</h3>
+    <p><strong>Área:</strong> ${cartaJogador.area}</p>
+    <p>${cartaJogador.descricao}</p>
+    <p>🧠 Inteligência: ${cartaJogador.inteligencia}</p>
+    <p>💬 Carisma: ${cartaJogador.carisma}</p>
+    <p>🔥 Coragem: ${cartaJogador.coragem}</p>
+  `;
+
+  document.getElementById("carta-computador").innerHTML = `
+    <img src="./img/${cartaComputador.img || ''}" alt="Imagem">
+    <h3>${cartaComputador.nome}</h3>
+    <p>${cartaComputador.descricao}</p>
+    <p style="color:gray;">(Atributos ocultos)</p>
+  `;
+
+  document.getElementById("botoes").innerHTML = `
+    <button onclick="batalhar('inteligencia')">🧠 Inteligência</button>
+    <button onclick="batalhar('carisma')">💬 Carisma</button>
+    <button onclick="batalhar('coragem')">🔥 Coragem</button>
+  `;
+}
+
+function batalhar(caracteristica) {
+  let cartaJogador = jogador[0];
+  let cartaComputador = computador[0];
+  let valorJ = cartaJogador[caracteristica];
+  let valorC = cartaComputador[caracteristica];
+  let resultado = "";
+
+  // Mostra agora as duas cartas completas
+  document.getElementById("carta-computador").innerHTML = `
+    <img src="${cartaComputador.img || ''}" alt="Imagem">
+    <h3>${cartaComputador.nome}</h3>
+    <p><strong>Área:</strong> ${cartaComputador.area}</p>
+    <p>🧠 Inteligência: ${cartaComputador.inteligencia}</p>
+    <p>💬 Carisma: ${cartaComputador.carisma}</p>
+    <p>🔥 Coragem: ${cartaComputador.coragem}</p>
+  `;
+
+  if (valorJ > valorC) {
+    resultado = `🎉 Você venceu esta rodada! (${caracteristica.toUpperCase()})`;
+    jogador.push(cartaJogador);
+  } else if (valorJ < valorC) {
+    resultado = `💀 Você perdeu! (${caracteristica.toUpperCase()}) As cartas foram descartadas.`;
+    // cartas descartadas
+  } else {
+    resultado = `⚖️ Empate! Ambas as cartas foram descartadas.`;
+    // descartadas
+  }
+
+  jogador.shift();
+  computador.shift();
+
+  document.getElementById("resultado").innerText = resultado;
+  document.getElementById("botoes").innerHTML = "";
+
+  setTimeout(proximaRodada, 2500);
+}
+
+function proximaRodada() {
+  if (jogador.length === 0 || computador.length === 0) {
+    let vencedorFinal =
+      jogador.length > computador.length ? "🏆 Você venceu o jogo!" : "O computador venceu!";
+    document.getElementById("resultado").innerText = vencedorFinal;
+    document.getElementById("botoes").innerHTML = "";
+    return;
+  }
+
+  atualizarContador();
+  exibirCartasAntes();
+}
+
+atualizarContador();
+exibirCartasAntes();
+</script>
+</body>
+</html>
