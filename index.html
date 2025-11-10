@@ -47,9 +47,12 @@
           <div id="resultado" class="text-center"></div>
           <div id="pergunta"></div>
           <div id="botoes">
-            <p><button id="btn-inteligencia" class="btn btn-warning btn-escolha w-100 rounded-pill" onclick="batalhar('inteligencia')">🧠 Inteligência</button></p>
-            <p><button id="btn-carisma" class="btn btn-warning btn-escolha w-100 rounded-pill" onclick="batalhar('carisma')">💬 Carisma</button></p>
-            <p><button id="btn-coragem" class="btn btn-warning btn-escolha w-100 rounded-pill" onclick="batalhar('coragem')">🔥 Coragem</button></p>
+            <p><button id="btn-inteligencia" class="btn btn-warning btn-escolha w-100 rounded-pill"
+                onclick="batalhar('inteligencia')">🧠 Inteligência</button></p>
+            <p><button id="btn-carisma" class="btn btn-warning btn-escolha w-100 rounded-pill"
+                onclick="batalhar('carisma')">💬 Carisma</button></p>
+            <p><button id="btn-coragem" class="btn btn-warning btn-escolha w-100 rounded-pill"
+                onclick="batalhar('coragem')">🔥 Coragem</button></p>
           </div>
           <div id="mensagem" class="py-3"></div>
         </div>
@@ -63,6 +66,26 @@
         <small>Dica: você pode trocar um nome arrastando-o outro nome em cima do anterior.</small>
       </div>
     </footer>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">🔥 Batalha de Personalidades</h1>
+        </div>
+        <div class="modal-body text-center">
+          <h3><span style="font-size:3rem">🎉</span><br>Parabéns!</h3>
+          <h5 id="texto-modal" class="my-3"></h5>
+          <h5>Agora você já conhece todos as Personalidade vamos para a Batalha!</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-warning rounded-pill fw-bold px-3" onclick="continuar();" data-bs-dismiss="modal">Continuar</button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"

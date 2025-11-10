@@ -3,7 +3,7 @@ let equipe;
 let opcoes;
 let state;
 let erradas = 0;
-const cartas = 15;
+const cartas = 2;
 let jogador;
 let computador
 let numero = 0;
@@ -193,15 +193,36 @@ function placeNameOnPhoto(zone, name, chip) {
 
     // Vitória simples
     if (state.points === state.total) {
-        setTimeout(() => {
-            alert('🎉 Parabéns! Agora você já conhece todos as Personalidades!\nVamos para a Batalha das Personalidades!');
-            document.getElementById("titulo").innerHTML = "🔥 Batalha de Personalidades";
-            document.getElementById("names").style.display = "none";
-            document.getElementById("board").style.display = "none";
-            document.getElementById("batalha-container").classList.remove("d-none");
-            atualizarContador();
-            exibirCartasAntes();
-        }, 120);
+        totalAcerto = cartas - erradas;
+        if (totalAcerto == cartas) {
+            document.getElementById("texto-modal").innerHTML = `🤗 Você acertou todas as personalidades.`;
+        }
+        else if (totalAcerto > 0) {
+            document.getElementById("texto-modal").innerHTML = `😀 Você acertou de primeira ${totalAcerto} personalidade(s).`;
+        }
+        else {
+            document.getElementById("texto-modal").innerHTML = `😢 Você não acertou nenhuma personalidades de primeira!`;
+        }
+
+        var myModal = new bootstrap.Modal(document.getElementById('staticBackdrop'), {
+            // Opções podem ser configuradas aqui, por exemplo:
+            // keyboard: false
+        });
+
+        // 2. Chame o método show() para abrir o modal
+        myModal.show();
+        /*
+                setTimeout(() => {
+                    //alert('🎉 Parabéns! Agora você já conhece todos as Personalidades!\nVamos para a Batalha das Personalidades!');            
+                    document.getElementById("titulo").innerHTML = "🔥 Batalha de Personalidades";
+                    document.getElementById("names").style.display = "none";
+                    document.getElementById("board").style.display = "none";
+                    document.getElementById("batalha-container").classList.remove("d-none");
+                    atualizarContador();
+                    exibirCartasAntes();
+        
+                }, 120);
+                */
         //console.log(`Vitória com ${erradas} tentativas erradas.`);
     }
 }
@@ -338,7 +359,7 @@ function exibirCartasAntes() {
 
         numero++;
 
-        if (numero <= 5 ) {
+        if (numero <= 5) {
             document.getElementById("progresso").classList.add("bg-warning");
             document.getElementById("mensagem").innerHTML = "";
         }
@@ -437,6 +458,15 @@ function batalhar(caracteristica) {
 
     atualizarContador();
     setTimeout(proximaRodada, 4000);
+}
+
+function continuar() {
+    document.getElementById("titulo").innerHTML = "🔥 Batalha de Personalidades";
+    document.getElementById("names").style.display = "none";
+    document.getElementById("board").style.display = "none";
+    document.getElementById("batalha-container").classList.remove("d-none");
+    atualizarContador();
+    exibirCartasAntes();
 }
 
 function proximaRodada() {
