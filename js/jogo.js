@@ -3,7 +3,7 @@ let equipe;
 let opcoes;
 let state;
 let erradas = 0;
-const cartas = 2;
+const cartas = 10;
 let jogador;
 let computador
 let numero = 0;
@@ -361,14 +361,17 @@ function exibirCartasAntes() {
 
         if (numero <= 5) {
             document.getElementById("progresso").classList.add("bg-warning");
+            document.getElementById("progresso").classList.remove("bg-danger");
             document.getElementById("mensagem").innerHTML = "";
         }
         if (numero > 6 && numero < 10) {
             document.getElementById("progresso").classList.add("bg-danger");
+            document.getElementById("progresso").classList.remove("bg-warning");
             document.getElementById("mensagem").innerHTML = "";
         }
         if (numero == 10) {
             document.getElementById("progresso").classList.add("bg-danger");
+            document.getElementById("progresso").classList.remove("bg-warning");
             document.getElementById("inteligencia").innerHTML = "?";
             document.getElementById("carisma").innerHTML = "?";
             document.getElementById("coragem").innerHTML = "?";
