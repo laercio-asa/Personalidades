@@ -3,10 +3,10 @@ let equipe;
 let opcoes;
 let state;
 let erradas = 0;
-const cartas = 5;
+const cartas = 15;
 let jogador;
 let computador
-
+let numero = 0;
 fetch('./js/personagens.json')
     .then(response => response.json())
     .then(data => personalidades = data)
@@ -19,7 +19,7 @@ function iniciar() {
 
     jogador = equipe;
     computador = selecionados.filter(item => !jogador.includes(item));
-    
+
 
     state = {
         points: 0,
@@ -39,7 +39,7 @@ function iniciar() {
 
 function posicao() {
     const margem = document.getElementById("menu").offsetHeight;
-    document.getElementById("photos").style.marginTop = `${margem}px`;
+    document.getElementById("board").style.marginTop = `${margem}px`;
 }
 
 function sortearSemRepeticao(array, quantidade = cartas) {
@@ -197,7 +197,7 @@ function placeNameOnPhoto(zone, name, chip) {
             alert('🎉 Parabéns! Agora você já conhece todos as Personalidades!\nVamos para a Batalha das Personalidades!');
             document.getElementById("titulo").innerHTML = "🔥 Batalha de Personalidades";
             document.getElementById("names").style.display = "none";
-            document.getElementById("photos").style.display = "none";
+            document.getElementById("board").style.display = "none";
             document.getElementById("batalha-container").classList.remove("d-none");
             atualizarContador();
             exibirCartasAntes();
@@ -254,8 +254,8 @@ window.onscroll = function () {
 
 // batalha das personalidades
 function atualizarContador() {
-    document.getElementById("contador").innerText =
-        `Cartas - Você: ${jogador.length} | Computador: ${computador.length}`;
+    document.getElementById("contador").innerHTML =
+        `🃏 Cartas - <span class="text-primary">Você: ${jogador.length}</span> | <span class="text-success">Computador: ${computador.length}</span>`;
 }
 
 function exibirCartasAntes() {
@@ -272,57 +272,65 @@ function exibirCartasAntes() {
                 <ol class="list-group list-group-flush">
                 <li class="list-group-item list-group-item-black d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
-                    <div class="fw-bold h5">🧠 Inteligência:</div>
+                    <div class="fw-bold h5" >🧠 Inteligência:</div>
                     </div>
-                    <span class="badge text-bg-primary rounded-pill" style="font-size: 1em;">${cartaJogador.inteligencia}</span>
+                    <span id="inteligencia"class="badge text-bg-primary rounded-pill" style="font-size: 1em;">${cartaJogador.inteligencia}</span>
                 </li>
                 <li class="list-group-item list-group-item-black d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
-                    <div class="fw-bold h5">💬 Carisma:</div>
+                    <div class="fw-bold h5" >💬 Carisma:</div>
                     </div>
-                    <span class="badge text-bg-primary rounded-pill" style="font-size: 1em;">${cartaJogador.carisma}</span>
+                    <span id="carisma"class="badge text-bg-primary rounded-pill" style="font-size: 1em;">${cartaJogador.carisma}</span>
                 </li>
                 <li class="list-group-item list-group-item-black d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
                     <div class="fw-bold h5">🔥 Coragem:</div>
                     </div>
-                    <span class="badge text-bg-primary rounded-pill" style="font-size: 1em;">${cartaJogador.coragem}</span>
+                    <span id="coragem" class="badge text-bg-primary rounded-pill" style="font-size: 1em;">${cartaJogador.coragem}</span>
                 </li>
                 </ol>
             </div>
         </div>
-      `;
+    `;
 
     document.getElementById("carta-computador").innerHTML = `
-        <div class="card h-100 bg-black border border-primary text-white" data-aos="flip-left">
-            <h3 class="px-2 bg-primary pb-2">${cartaComputador.nome}</h3>
+        <div class="card h-100 bg-black border border-success text-white" data-aos="flip-left">
+            <h3 class="px-2 bg-success pb-2">${cartaComputador.nome}</h3>
             <img src="./img/${cartaComputador.img || ''}" class="pt-2 card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title bg-primary py-2 px-2">🎯 ${cartaComputador.area}</h5>
+                <h5 class="card-title bg-success py-2 px-2">🎯 ${cartaComputador.area}</h5>
                 <p class="card-text my-4 mx-2">${cartaComputador.descricao}</p>
                 <ol class="list-group list-group-flush">
                 <li class="list-group-item list-group-item-black d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
                     <div class="fw-bold h5">🧠 Inteligência:</div>
                     </div>
-                    <span class="badge text-bg-primary rounded-pill" style="font-size: 1em;">?</span>
+                    <span class="badge text-bg-success rounded-pill" style="font-size: 1em;">?</span>
                 </li>
                 <li class="list-group-item list-group-item-black d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
                     <div class="fw-bold h5">💬 Carisma:</div>
                     </div>
-                    <span class="badge text-bg-primary rounded-pill" style="font-size: 1em;">?</span>
+                    <span class="badge text-bg-success rounded-pill" style="font-size: 1em;">?</span>
                 </li>
                 <li class="list-group-item list-group-item-black d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
                     <div class="fw-bold h5">🔥 Coragem:</div>
                     </div>
-                    <span class="badge text-bg-primary rounded-pill" style="font-size: 1em;">?</span>
+                    <span class="badge text-bg-success rounded-pill" style="font-size: 1em;">?</span>
                 </li>
                 </ol>
             </div>
         </div>
     `;
+
+    document.getElementById("pergunta").innerHTML = `
+        <h2>Qual característica de ${cartaJogador.nome} é mais forte que a de ${cartaComputador.nome}?</h2>
+        <small>Segundo o ChatGPT.</small>
+        <p>Escolha rápido! Você tem 10 segundos.</p>
+    `;
+
+    document.getElementById("progresso").classList.remove("progress-bar-striped");
 
     numero = 0;
     setInterval(() => {
@@ -330,8 +338,25 @@ function exibirCartasAntes() {
 
         numero++;
 
-        if (numero > 10) {
+        if (numero <= 5 ) {
+            document.getElementById("progresso").classList.add("bg-warning");
+            document.getElementById("mensagem").innerHTML = "";
+        }
+        if (numero > 6 && numero < 10) {
+            document.getElementById("progresso").classList.add("bg-danger");
+            document.getElementById("mensagem").innerHTML = "";
+        }
+        if (numero == 10) {
+            document.getElementById("progresso").classList.add("bg-danger");
+            document.getElementById("inteligencia").innerHTML = "?";
+            document.getElementById("carisma").innerHTML = "?";
+            document.getElementById("coragem").innerHTML = "?";
+            document.getElementById("mensagem").innerHTML = "O seu tempo acabou! Agora os valores da sua carta estão ocultos continue jogando.<br>Tente ser mais rápido na próxima rodada.";
             return; // reinicia
+        }
+        else if (numero > 10) {
+            document.getElementById("progresso").classList.add("progress-bar-striped");
+            return;
         }
     }, 1000);
 
@@ -345,32 +370,43 @@ function batalhar(caracteristica) {
     let valorC = cartaComputador[caracteristica];
     let resultado = "";
 
+    numero = 11;
+
+    document.getElementById("btn-inteligencia").style.backgroundColor = (caracteristica === 'inteligencia') ? "#f9c74f" : "#838383";
+    document.getElementById("btn-carisma").style.backgroundColor = (caracteristica === 'carisma') ? "#f9c74f" : "#838383";
+    document.getElementById("btn-coragem").style.backgroundColor = (caracteristica === 'coragem') ? "#f9c74f" : "#838383";
+    document.getElementById("btn-inteligencia").disabled = true;
+    document.getElementById("btn-carisma").disabled = true;
+    document.getElementById("btn-coragem").disabled = true;
+    document.getElementById("mensagem").innerHTML = "";
+
+
     // Mostra agora as duas cartas completas
     document.getElementById("carta-computador").innerHTML = `
-          <div class="card h-100 bg-black border border-primary text-white" data-aos="flip-left">
-            <h3 class="px-2 bg-primary pb-2">${cartaComputador.nome}</h3>
+          <div class="card h-100 bg-black border border-success text-white" data-aos="flip-left">
+            <h3 class="px-2 bg-success pb-2">${cartaComputador.nome}</h3>
             <img src="./img/${cartaComputador.img || ''}" class="pt-2 card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title bg-primary py-2 px-2">🎯 ${cartaComputador.area}</h5>
+                <h5 class="card-title bg-success py-2 px-2">🎯 ${cartaComputador.area}</h5>
                 <p class="card-text my-4 mx-2">${cartaComputador.descricao}</p>
                 <ol class="list-group list-group-flush">
                 <li class="list-group-item list-group-item-black d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
                     <div class="fw-bold h5">🧠 Inteligência:</div>
                     </div>
-                    <span class="badge text-bg-primary rounded-pill" style="font-size: 1em;">${cartaComputador.inteligencia}</span>
+                    <span class="badge text-bg-success rounded-pill" style="font-size: 1em;">${cartaComputador.inteligencia}</span>
                 </li>
                 <li class="list-group-item list-group-item-black d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
                     <div class="fw-bold h5">💬 Carisma:</div>
                     </div>
-                    <span class="badge text-bg-primary rounded-pill" style="font-size: 1em;">${cartaComputador.carisma}</span>
+                    <span class="badge text-bg-success rounded-pill" style="font-size: 1em;">${cartaComputador.carisma}</span>
                 </li>
                 <li class="list-group-item list-group-item-black d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
                     <div class="fw-bold h5">🔥 Coragem:</div>
                     </div>
-                    <span class="badge text-bg-primary rounded-pill" style="font-size: 1em;">${cartaComputador.coragem}</span>
+                    <span class="badge text-bg-success rounded-pill" style="font-size: 1em;">${cartaComputador.coragem}</span>
                 </li>
                 </ol>
             </div>
@@ -378,27 +414,28 @@ function batalhar(caracteristica) {
         `;
 
     if (valorJ > valorC) {
-        resultado = `<span class="font-size:2em">🎉<span><br>Você venceu esta rodada!<br>${caracteristica.toUpperCase()}`;
-        jogador.push(cartaJogador);
-        cor = "#00dd30";
+        resultado = `<span style="font-size:3rem">🎉</span><br>Você venceu esta rodada!`;
+        jogador.push(cartaJogador, cartaComputador);
+        cor = "#516bffff";
     } else if (valorJ < valorC) {
-        resultado = `💀<br>Você perdeu! As cartas foram descartadas.<br>${caracteristica.toUpperCase()}`;
-        cor = "#e20000";
+        resultado = `<span style="font-size:3rem">💀</span><br>Você perdeu!`;
+        computador.push(cartaJogador, cartaComputador);
+        cor = "#59fc39ff";
         // cartas descartadas
     } else {
-        resultado = `⚖️<br>Empate! Ambas as cartas foram descartadas.<br>${caracteristica.toUpperCase()}`;
-        cor = "#e20000";
-        // descartadas
+        resultado = `<span style="font-size:3rem">⚖️</span><br>Empate! Ambas as cartas foram descartadas.`;
+        cor = "#ffc011ff";
     }
 
     jogador.shift();
     computador.shift();
 
-    document.getElementById("resultado").innerHTML = `<h3>${resultado}<h2>`;
+    document.getElementById("resultado").innerHTML = `<h3>${resultado}</h3>`;
     document.getElementById("resultado").style.color = cor;
     document.getElementById("resultado").style.display = "block";
     // document.getElementById("botoes").innerHTML = "";
 
+    atualizarContador();
     setTimeout(proximaRodada, 4000);
 }
 
@@ -408,15 +445,26 @@ function proximaRodada() {
     if (jogador.length === 0 || computador.length === 0) {
         atualizarContador();
         let vencedorFinal =
-            jogador.length > computador.length ? `<h3>🏆 Você venceu o computador e sobrou(aram) ${jogador.length} carta(s).</h3>` : "<h3>O computador venceu!</h3>";
-        document.getElementById("resultado").innerHTML = vencedorFinal;
+            jogador.length == computador.length ? `<span style="color:#ffc011ff;">Empatou, os dois ganharam!</span>` : (jogador.length > computador.length ? `<span style="color:#516bffff;">Você venceu o computador!</span>` : `<span style="color:#59fc39ff;">O computador venceu!</span>`);
+        document.getElementById("resultado").innerHTML = `<h2><span style="font-size:3rem">🏆</span><br>${vencedorFinal}</h2>`;
         document.getElementById("resultado").style.display = "block";
         document.getElementById("resultado").style.color = "#f9c74f";
+        document.getElementById("resultado").style.color = "#f9c74f";
+        document.getElementById("progresso").classList.add("d-none");
+        document.getElementById("pergunta").classList.add("d-none");
+        document.getElementById("botoes").classList.add("d-none");
+        document.getElementById("mensagem").innerHTML = "";
+
         // document.getElementById("botoes").innerHTML = "";
         return;
     }
 
-    atualizarContador();
+    document.getElementById("btn-inteligencia").style.backgroundColor = "#f9c74f";
+    document.getElementById("btn-carisma").style.backgroundColor = "#f9c74f";
+    document.getElementById("btn-coragem").style.backgroundColor = "#f9c74f";
+    document.getElementById("btn-inteligencia").disabled = false;
+    document.getElementById("btn-carisma").disabled = false;
+    document.getElementById("btn-coragem").disabled = false;
     exibirCartasAntes();
 }
 

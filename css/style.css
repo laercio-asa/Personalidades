@@ -109,6 +109,7 @@ button.secondary {
 } */
 
 @media (max-width:768px) {
+
     button,
     .chip {
         padding: 3px 5px !important;
@@ -259,4 +260,9 @@ button.secondary {
 #contador {
     margin-top: 10px;
     font-weight: bold;
+}
+
+.btn-escolha {
+    font-weight: bold;
+    font-size: 1.2rem;   
 }
