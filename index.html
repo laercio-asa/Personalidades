@@ -38,15 +38,18 @@
       <div class="row row-cols-1 row-cols-md-3 g-4" id="batalha">
         <div class="col" id="carta-jogador">
         </div>
-        <div class="col" id="botoes">
+        <div class="col">
           <div id="resultado"></div>
-          <div class="progress" role="progressbar" aria-label="high" aria-valuenow="25" aria-valuemin="0"
+          <div class="progress" role="progressbar" aria-label="high" aria-valuenow="0" aria-valuemin="0"
             aria-valuemax="100" style="height: 30px">
-            <div class="progress-bar" style="width: 25%"></div>
+            <div class="progress-bar" id="progresso" style="width: 0%"></div>
           </div>
-          <h2>Quem tem mais carima?</h2>
-          <button id="btnCarisma" class="primary mb-2">➡️ Personagem 1</button>
-          <button id="btnCarisma" class="primary mb-2">➡️ Personagem 2</button>
+          <h2>Qual caracteristica o seu personagem é mais forte que este ao lado?</h2>
+          <div id="botoes">
+            <button onclick="batalhar('inteligencia')">Inteligência</button>
+            <button onclick="batalhar('carisma')">Carisma</button>
+            <button onclick="batalhar('coragem')">Coragem</button>
+          </div>
         </div>
         <div class="col" id="carta-computador"></div>
       </div>

@@ -3,7 +3,7 @@ let equipe;
 let opcoes;
 let state;
 let erradas = 0;
-const cartas = 15;
+const cartas = 5;
 let jogador;
 let computador
 
@@ -19,8 +19,7 @@ function iniciar() {
 
     jogador = equipe;
     computador = selecionados.filter(item => !jogador.includes(item));
-    console.log("Jogador:", jogador);
-    console.log("Computador:", computador);
+    
 
     state = {
         points: 0,
@@ -203,7 +202,7 @@ function placeNameOnPhoto(zone, name, chip) {
             atualizarContador();
             exibirCartasAntes();
         }, 120);
-        console.log(`Vitória com ${erradas} tentativas erradas.`);
+        //console.log(`Vitória com ${erradas} tentativas erradas.`);
     }
 }
 
@@ -323,7 +322,19 @@ function exibirCartasAntes() {
                 </ol>
             </div>
         </div>
-  `;
+    `;
+
+    numero = 0;
+    setInterval(() => {
+        document.getElementById("progresso").style.width = (numero * 10) + "%";
+
+        numero++;
+
+        if (numero > 10) {
+            return; // reinicia
+        }
+    }, 1000);
+
 
 }
 

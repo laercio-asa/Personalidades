@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Batalha de Personalidades</title>
+<style>
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #111;
+    color: #f2f2f2;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+  }
+
+  h1 {
+    color: #f9c74f;
+    margin-bottom: 10px;
+  }
+
+  .cartas-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+
+  .carta {
+    background: #222;
+    border-radius: 15px;
+    box-shadow: 0 0 10px #000;
+    padding: 20px;
+    width: 250px;
+    text-align: left;
+    transition: transform 0.3s;
+  }
+
+  .carta:hover {
+    transform: scale(1.05);
+  }
+
+  .botoes {
+    margin-top: 20px;
+  }
+
+  button {
+    margin: 5px;
+    padding: 10px 15px;
+    border: none;
+    background: #f9c74f;
+    color: #111;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #ffb703;
+  }
+
+  #resultado {
+    margin-top: 20px;
+    font-size: 18px;
+  }
+
+  #contador {
+    margin-top: 15px;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+<h1>🔥 Batalha de Personalidades</h1>
+<div id="contador"></div>
+
+<div class="cartas-container">
+  <div class="carta" id="carta-jogador"></div>
+  <div class="carta" id="carta-computador"></div>
+</div>
+
+<div class="botoes" id="botoes"></div>
+
+<p id="resultado"></p>
+
+<script>
+const cartas = [
+  { nome: "Zumbi dos Palmares", inteligencia: 8, carisma: 9, coragem: 10, area: "Liderança / Resistência" },
+  { nome: "Dandara dos Palmares", inteligencia: 8, carisma: 8, coragem: 10, area: "Liderança / Resistência" },
+  { nome: "Luís Gama", inteligencia: 10, carisma: 9, coragem: 9, area: "Direito / Abolicionismo" },
+  { nome: "Carolina Maria de Jesus", inteligencia: 9, carisma: 8, coragem: 9, area: "Literatura / Sociedade" },
+  { nome: "Machado de Assis", inteligencia: 10, carisma: 8, coragem: 8, area: "Literatura" },
+  { nome: "Maria Firmina dos Reis", inteligencia: 9, carisma: 8, coragem: 9, area: "Literatura / Educação" },
+  { nome: "André Rebouças", inteligencia: 10, carisma: 7, coragem: 9, area: "Engenharia / Abolicionismo" },
+  { nome: "Antonieta Barros", inteligencia: 9, carisma: 8, coragem: 9, area: "Educação / Política" },
+  { nome: "José do Patrocínio", inteligencia: 9, carisma: 9, coragem: 9, area: "Jornalismo / Abolicionismo" },
+  { nome: "Conceição Evaristo", inteligencia: 9, carisma: 8, coragem: 10, area: "Literatura / Ativismo" },
+  { nome: "Milton Santos", inteligencia: 10, carisma: 7, coragem: 9, area: "Geografia / Academia" },
+  { nome: "Chica da Silva", inteligencia: 8, carisma: 9, coragem: 8, area: "Sociedade / História" },
+  { nome: "Gilberto Gil", inteligencia: 9, carisma: 10, coragem: 8, area: "Música / Cultura" },
+  { nome: "Lélia Gonzalez", inteligencia: 10, carisma: 8, coragem: 9, area: "Sociologia / Feminismo Negro" },
+  { nome: "Nilo Peçanha", inteligencia: 9, carisma: 8, coragem: 8, area: "Política" },
+  { nome: "Benedita da Silva", inteligencia: 8, carisma: 9, coragem: 9, area: "Política / Direitos Humanos" },
+  { nome: "Cartola", inteligencia: 8, carisma: 9, coragem: 8, area: "Música / Cultura Popular" },
+  { nome: "Elza Soares", inteligencia: 8, carisma: 10, coragem: 10, area: "Música / Representatividade" },
+  { nome: "Abdias do Nascimento", inteligencia: 10, carisma: 8, coragem: 10, area: "Artes / Ativismo Político" },
+  { nome: "Sueli Carneiro", inteligencia: 10, carisma: 8, coragem: 9, area: "Filosofia / Ativismo" },
+  { nome: "Aleijadinho", inteligencia: 10, carisma: 7, coragem: 9, area: "Arte / Escultura" },
+  { nome: "Glória Maria", inteligencia: 9, carisma: 10, coragem: 9, area: "Jornalismo / Comunicação" },
+  { nome: "Pelé", inteligencia: 8, carisma: 10, coragem: 8, area: "Esporte / Futebol" },
+  { nome: "Tereza de Benguela", inteligencia: 8, carisma: 8, coragem: 10, area: "Liderança / Resistência" },
+  { nome: "Adhemar Ferreira da Silva", inteligencia: 8, carisma: 9, coragem: 9, area: "Esporte / Atletismo" },
+  { nome: "Enedina Alves Marques", inteligencia: 9, carisma: 7, coragem: 10, area: "Engenharia / Pioneirismo" },
+  { nome: "Lima Barreto", inteligencia: 9, carisma: 8, coragem: 9, area: "Literatura / Crítica Social" },
+  { nome: "Maria Odília Teixeira", inteligencia: 9, carisma: 7, coragem: 9, area: "Medicina / Pioneirismo" },
+  { nome: "Milton Nascimento", inteligencia: 9, carisma: 10, coragem: 8, area: "Música / Cultura" },
+  { nome: "Marina Silva", inteligencia: 9, carisma: 8, coragem: 9, area: "Política / Meio Ambiente" }
+];
+
+let baralho = cartas.sort(() => Math.random() - 0.5);
+let jogador = baralho.slice(0, 15);
+let computador = baralho.slice(15);
+let rodada = 1;
+let vencedorAnterior = "jogador"; // jogador começa escolhendo
+
+function atualizarContador() {
+  document.getElementById("contador").innerText =
+    `Cartas - Você: ${jogador.length} | Computador: ${computador.length}`;
+}
+
+function exibirCartaJogador() {
+  let carta = jogador[0];
+  document.getElementById("carta-jogador").innerHTML = `
+    <h3>${carta.nome}</h3>
+    <p><strong>Área:</strong> ${carta.area}</p>
+    <p>🧠 Inteligência: ${carta.inteligencia}</p>
+    <p>💬 Carisma: ${carta.carisma}</p>
+    <p>🔥 Coragem: ${carta.coragem}</p>
+  `;
+}
+
+function exibirCartaComputador(carta) {
+  document.getElementById("carta-computador").innerHTML = `
+    <h3>${carta.nome}</h3>
+    <p><strong>Área:</strong> ${carta.area}</p>
+  `;
+}
+
+function escolherCaracteristica() {
+  let botoes = `
+    <button onclick="batalhar('inteligencia')">Inteligência</button>
+    <button onclick="batalhar('carisma')">Carisma</button>
+    <button onclick="batalhar('coragem')">Coragem</button>
+  `;
+  document.getElementById("botoes").innerHTML = botoes;
+}
+
+function computadorEscolheCaracteristica(carta) {
+  let valores = [
+    { nome: "inteligencia", valor: carta.inteligencia },
+    { nome: "carisma", valor: carta.carisma },
+    { nome: "coragem", valor: carta.coragem }
+  ];
+  valores.sort((a, b) => b.valor - a.valor);
+
+  // A cada 5 rodadas, escolhe a segunda melhor
+  if (rodada % 5 === 0) {
+    return valores[1].nome;
+  }
+  return valores[0].nome;
+}
+
+function batalhar(caracteristicaEscolhida) {
+  let cartaJogador = jogador[0];
+  let cartaComputador = computador[0];
+  exibirCartaComputador(cartaComputador);
+
+  let resultado = "";
+  let valorJogador = cartaJogador[caracteristicaEscolhida];
+  let valorComputador = cartaComputador[caracteristicaEscolhida];
+
+  if (valorJogador > valorComputador) {
+    resultado = `Você venceu a rodada! (${caracteristicaEscolhida.toUpperCase()})`;
+    jogador.push(cartaJogador, cartaComputador);
+    vencedorAnterior = "jogador";
+  } else if (valorJogador < valorComputador) {
+    resultado = `Computador venceu a rodada! (${caracteristicaEscolhida.toUpperCase()})`;
+    computador.push(cartaJogador, cartaComputador);
+    vencedorAnterior = "computador";
+  } else {
+    resultado = `Empate! As cartas foram descartadas.`;
+    // descartadas (não voltam para ninguém)
+  }
+
+  jogador.shift();
+  computador.shift();
+  rodada++;
+
+  document.getElementById("resultado").innerText = resultado;
+  document.getElementById("botoes").innerHTML = "";
+
+  setTimeout(() => proximaRodada(), 2000);
+}
+
+function proximaRodada() {
+  if (jogador.length === 0 || computador.length === 0) {
+    let vencedorFinal =
+      jogador.length > computador.length ? "Você venceu o jogo!" : "O computador venceu!";
+    document.getElementById("resultado").innerText = vencedorFinal;
+    document.getElementById("botoes").innerHTML = "";
+    return;
+  }
+
+  atualizarContador();
+  document.getElementById("carta-computador").innerHTML = "";
+
+  if (vencedorAnterior === "jogador") {
+    exibirCartaJogador();
+    escolherCaracteristica();
+  } else {
+    let cartaComp = computador[0];
+    let atributo = computadorEscolheCaracteristica(cartaComp);
+    exibirCartaJogador();
+    document.getElementById("botoes").innerHTML = "O computador está escolhendo...";
+    setTimeout(() => batalhar(atributo), 2000);
+  }
+}
+
+atualizarContador();
+exibirCartaJogador();
+escolherCaracteristica();
+</script>
+</body>
+</html>
