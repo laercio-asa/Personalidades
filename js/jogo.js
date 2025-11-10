@@ -236,7 +236,8 @@ var prevScrollpos = window.pageYOffset; // Pega a posição inicial da rolagem
 window.onscroll = function () {
     var currentScrollPos = window.pageYOffset; // Pega a posição atual
 
-    if (prevScrollpos > currentScrollPos) {
+    // if (prevScrollpos > currentScrollPos) {
+    if (currentScrollPos < 20) {
         // Rolando para cima: mostra a navbar (top: 0)
         document.getElementById("titulo").style.display = "block";
         document.getElementById("controls").style.display = "flex";

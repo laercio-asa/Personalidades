@@ -438,5 +438,123 @@
         "area": "Música / Cinema",
         "descricao": "Cantor e ator brasileiro de projeção internacional.",
         "img": "Seu_Jorge.jpg"
+    },
+    {
+        "id": "44",
+        "nome": "Conceição Evaristo",
+        "inteligencia": 9.5,
+        "carisma": 8.5,
+        "coragem": 10,
+        "area": "Literatura / Ativismo",
+        "descricao": "Escritora e ativista, criadora do conceito de escrevivência, que destaca a vivência das mulheres negras na literatura.",
+        "img": "Conceicao_Evaristo.jpg"
+    },
+    {
+        "nome": "Milton Santos",
+        "inteligencia": 10,
+        "carisma": 7.5,
+        "coragem": 9,
+        "area": "Geografia / Academia",
+        "descricao": "Um dos maiores geógrafos do mundo, crítico da globalização e vencedor do prêmio Vautrin Lud.",
+        "img": "Milton_Santos.jpg"
+    },
+    {
+        "nome": "Abdias do Nascimento",
+        "inteligencia": 10,
+        "carisma": 9,
+        "coragem": 10,
+        "area": "Ativismo / Política / Arte",
+        "descricao": "Ativista, artista e político, fundador do Teatro Experimental do Negro e referência do movimento negro brasileiro.",
+        "img": "Abdias_Nascimento.jpg"
+    },
+    {
+        "nome": "Sueli Carneiro",
+        "inteligencia": 10,
+        "carisma": 8.5,
+        "coragem": 9,
+        "area": "Filosofia / Direitos Humanos",
+        "descricao": "Filósofa e ativista feminista negra, fundadora do Geledés — Instituto da Mulher Negra.",
+        "img": "Sueli_Carneiro.jpg"
+    },
+    {
+        "nome": "Mano Brown",
+        "inteligencia": 9,
+        "carisma": 10,
+        "coragem": 9.5,
+        "area": "Música / Cultura Periférica",
+        "descricao": "Líder dos Racionais MC's, uma das figuras mais influentes da música e da política cultural brasileira.",
+        "img": "Mano_Brown.jpg"
+    },
+    {
+        "nome": "Linn da Quebrada",
+        "inteligencia": 8.5,
+        "carisma": 9.5,
+        "coragem": 10,
+        "area": "Música / Performance / Ativismo",
+        "descricao": "Cantora, atriz e performer, figura importante na luta por direitos LGBTQIA+ e na arte contemporânea.",
+        "img": "Linn_Quebrada.jpg"
+    },
+    {
+        "nome": "Gilberto Gil",
+        "inteligencia": 10,
+        "carisma": 10,
+        "coragem": 9,
+        "area": "Música / Cultura / Política",
+        "descricao": "Músico, ex-ministro da Cultura e um dos maiores nomes da música brasileira e da Tropicália.",
+        "img": "Gilberto_Gil.jpg"
+    },
+    {
+        "nome": "Ayo Edebiri",
+        "inteligencia": 9.0,
+        "carisma": 9.5,
+        "coragem": 8.5,
+        "area": "Cinema / TV / Humor",
+        "descricao": "Atriz, roteirista e comediante norte-americana, vencedora do Emmy pela série 'The Bear'.",
+        "img": "Ayo_Edebiri.jpg"
+    },
+    {
+        "nome": "Kendrick Lamar",
+        "inteligencia": 9.5,
+        "carisma": 10,
+        "coragem": 9.5,
+        "area": "Música / Cultura",
+        "descricao": "Rapper norte-americano vencedor do Pulitzer, considerado um dos maiores letristas contemporâneos.",
+        "img": "Kendrick_Lamar.jpg"
+    },
+    {
+        "nome": "Liniker",
+        "inteligencia": 8.5,
+        "carisma": 9.5,
+        "coragem": 10,
+        "area": "Música / Performance",
+        "descricao": "Cantora e compositora brasileira, primeira artista trans a vencer o Grammy Latino.",
+        "img": "Liniker.jpg"
+    },
+    {
+        "nome": "Zumbi dos Palmares",
+        "inteligencia": 8.5,
+        "carisma": 9.0,
+        "coragem": 10,
+        "area": "Liderança / Resistência",
+        "descricao": "Líder do Quilombo dos Palmares e símbolo histórico da resistência contra a escravidão no Brasil.",
+        "img": "Zumbi_Palmares.jpg"
+    },
+    {
+        "nome": "Dandara dos Palmares",
+        "inteligencia": 8.5,
+        "carisma": 8.5,
+        "coragem": 10,
+        "area": "Liderança / Resistência",
+        "descricao": "Guerreira quilombola, estrategista e uma das maiores lideranças femininas da luta contra a escravidão.",
+        "img": "Dandara_Palmares.jpg"
+    },
+    {
+        "nome": "Jaden Smith",
+        "inteligencia": 8.0,
+        "carisma": 9.0,
+        "coragem": 8.5,
+        "area": "Cinema / Música / Ativismo",
+        "descricao": "Ator, rapper e ativista ambiental, criador do projeto JUST Water e de ações humanitárias.",
+        "img": "Jaden_Smith.jpg"
     }
 ]
