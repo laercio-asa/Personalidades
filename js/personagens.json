@@ -450,6 +450,7 @@
         "img": "Conceicao_Evaristo.jpg"
     },
     {
+        "id": "45",
         "nome": "Milton Santos",
         "inteligencia": 10,
         "carisma": 7.5,
@@ -459,6 +460,7 @@
         "img": "Milton_Santos.jpg"
     },
     {
+        "id": "46",
         "nome": "Abdias do Nascimento",
         "inteligencia": 10,
         "carisma": 9,
@@ -468,6 +470,7 @@
         "img": "Abdias_Nascimento.jpg"
     },
     {
+        "id": "47",
         "nome": "Sueli Carneiro",
         "inteligencia": 10,
         "carisma": 8.5,
@@ -477,6 +480,7 @@
         "img": "Sueli_Carneiro.jpg"
     },
     {
+        "id": "48",
         "nome": "Mano Brown",
         "inteligencia": 9,
         "carisma": 10,
@@ -486,6 +490,7 @@
         "img": "Mano_Brown.jpg"
     },
     {
+        "id": "49",
         "nome": "Linn da Quebrada",
         "inteligencia": 8.5,
         "carisma": 9.5,
@@ -495,6 +500,7 @@
         "img": "Linn_Quebrada.jpg"
     },
     {
+        "id": "50",
         "nome": "Gilberto Gil",
         "inteligencia": 10,
         "carisma": 10,
@@ -504,6 +510,7 @@
         "img": "Gilberto_Gil.jpg"
     },
     {
+        "id": "51",
         "nome": "Ayo Edebiri",
         "inteligencia": 9.0,
         "carisma": 9.5,
@@ -513,6 +520,7 @@
         "img": "Ayo_Edebiri.jpg"
     },
     {
+        "id": "52",
         "nome": "Kendrick Lamar",
         "inteligencia": 9.5,
         "carisma": 10,
@@ -522,6 +530,7 @@
         "img": "Kendrick_Lamar.jpg"
     },
     {
+        "id": "53",
         "nome": "Liniker",
         "inteligencia": 8.5,
         "carisma": 9.5,
@@ -531,6 +540,7 @@
         "img": "Liniker.jpg"
     },
     {
+        "id": "54",
         "nome": "Zumbi dos Palmares",
         "inteligencia": 8.5,
         "carisma": 9.0,
@@ -540,6 +550,7 @@
         "img": "Zumbi_Palmares.jpg"
     },
     {
+        "id": "55",
         "nome": "Dandara dos Palmares",
         "inteligencia": 8.5,
         "carisma": 8.5,
@@ -549,6 +560,7 @@
         "img": "Dandara_Palmares.jpg"
     },
     {
+        "id": "56",
         "nome": "Jaden Smith",
         "inteligencia": 8.0,
         "carisma": 9.0,
