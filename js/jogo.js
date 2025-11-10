@@ -347,13 +347,34 @@ function batalhar(caracteristica) {
 
     // Mostra agora as duas cartas completas
     document.getElementById("carta-computador").innerHTML = `
-          <img src="./img/${cartaComputador.img || ''}" alt="Imagem">
-          <h2>${cartaComputador.nome}</h2>
-          <p><strong>Área:</strong> ${cartaComputador.area}</p>
-          <p>${cartaComputador.descricao}</p>
-          <p>🧠 Inteligência: ${cartaComputador.inteligencia}</p>
-          <p>💬 Carisma: ${cartaComputador.carisma}</p>
-          <p>🔥 Coragem: ${cartaComputador.coragem}</p>
+          <div class="card h-100 bg-black border border-primary text-white" data-aos="flip-left">
+            <h3 class="px-2 bg-primary pb-2">${cartaComputador.nome}</h3>
+            <img src="./img/${cartaComputador.img || ''}" class="pt-2 card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title bg-primary py-2 px-2">🎯 ${cartaComputador.area}</h5>
+                <p class="card-text my-4 mx-2">${cartaComputador.descricao}</p>
+                <ol class="list-group list-group-flush">
+                <li class="list-group-item list-group-item-black d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                    <div class="fw-bold h5">🧠 Inteligência:</div>
+                    </div>
+                    <span class="badge text-bg-primary rounded-pill" style="font-size: 1em;">${cartaComputador.inteligencia}</span>
+                </li>
+                <li class="list-group-item list-group-item-black d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                    <div class="fw-bold h5">💬 Carisma:</div>
+                    </div>
+                    <span class="badge text-bg-primary rounded-pill" style="font-size: 1em;">${cartaComputador.carisma}</span>
+                </li>
+                <li class="list-group-item list-group-item-black d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                    <div class="fw-bold h5">🔥 Coragem:</div>
+                    </div>
+                    <span class="badge text-bg-primary rounded-pill" style="font-size: 1em;">${cartaComputador.coragem}</span>
+                </li>
+                </ol>
+            </div>
+        </div>
         `;
 
     if (valorJ > valorC) {
@@ -378,7 +399,7 @@ function batalhar(caracteristica) {
     document.getElementById("resultado").style.display = "block";
     // document.getElementById("botoes").innerHTML = "";
 
-    setTimeout(proximaRodada, 2500);
+    setTimeout(proximaRodada, 4000);
 }
 
 function proximaRodada() {
