@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batalha de Personalidades</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #111;
+      color: #f2f2f2;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      /* color: #f9c74f; */
+      margin-bottom: 10px;
+    }
+
+    #contador {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .cartas-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: stretch;
+      margin-top: 25px;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .carta {
+      background: #222;
+      border-radius: 15px;
+      box-shadow: 0 0 10px #000;
+      padding: 20px;
+      width: 400px;
+      text-align: left;
+      transition: transform 0.3s;
+      min-height: 100%;
+    }
+
+    .carta img {
+      width: 100%;
+      height: 200px;
+      background: #333;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      object-fit: contain;
+    }
+
+    .botoes {
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+
+    .botao-escolha {
+      margin: 5px;
+      padding: 10px 15px;
+      background: #ffb703;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    button {
+      /* margin: 5px; */
+      /* padding: 10px 15px; */
+      border: none;
+      background: #ffffff00;
+      /* color: #111; */
+      /* font-weight: bold; */
+      border-radius: 8px;
+      cursor: pointer;
+      /* display: block; */
+      text-align: center;
+      /* width: 180px; */
+      font-size: 1.3em;
+      /* margin-bottom: 20px; */
+    }
+
+    #botoes {
+      width: 190px;
+    }
+
+    button:hover {
+      /* background: #ffb703; */
+    }
+
+    button:disabled {
+      background: #333;
+    }
+
+    #resultado {
+      margin-top: 25px;
+      font-size: 18px;
+      padding: 20px;
+      background-color: #000000;
+      top: calc(50% - 200px);
+      left: 20%;
+      right: 20%;
+      border-radius: 20px;
+      box-shadow: #5a3f00 5px 5px 10px;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>🔥 Batalha de Personalidades</h1>
+  <div id="contador"></div>
+
+  <div class="cartas-container">
+
+    <div class="carta" id="carta-jogador"></div>
+    <div class="botoes" id="botoes">
+      <div id="resultado"></div>
+    </div>
+    <div class="carta" id="carta-computador"></div>
+  </div>
+
+
+
+
+
+  <script>
+    const cartas = [
+      {
+        nome: "Emicida",
+        inteligencia: 9,
+        carisma: 10,
+        coragem: 9,
+        area: "Música / Cultura",
+        descricao: "Rapper, produtor e uma das vozes mais influentes da cultura negra no Brasil.",
+        img: "emicida.jpg"
+      },
+      {
+        nome: "Lázaro Ramos",
+        inteligencia: 9,
+        carisma: 10,
+        coragem: 8,
+        area: "Cinema / TV",
+        descricao: "Ator, diretor e escritor, referência na representatividade negra no audiovisual.",
+        img: "lazaro_ramos.jpg"
+      },
+      {
+        nome: "Taís Araújo",
+        inteligencia: 9,
+        carisma: 10,
+        coragem: 9,
+        area: "Cinema / TV",
+        descricao: "Atriz e ativista, pioneira como protagonista negra em novelas brasileiras.",
+        img: "tais_araujo.jpg"
+      },
+      {
+        nome: "Djonga",
+        inteligencia: 8,
+        carisma: 9,
+        coragem: 9,
+        area: "Música / Cultura urbana",
+        descricao: "Rapper mineiro reconhecido pela força crítica e poética de suas letras.",
+        img: "djonga.jpg"
+      },
+      {
+        nome: "Baco Exu do Blues",
+        inteligencia: 8,
+        carisma: 9,
+        coragem: 9,
+        area: "Música / Arte",
+        descricao: "Cantor e compositor que mistura rap, pop e afrofuturismo.",
+        img: "baco_exu.jpg"
+      },
+      {
+        nome: "Mahershala Ali",
+        inteligencia: 9,
+        carisma: 10,
+        coragem: 8,
+        area: "Cinema",
+        descricao: "Ator norte-americano vencedor de dois Oscars.",
+        img: "mahershala_ali.jpg"
+      },
+      {
+        nome: "Viola Davis",
+        inteligencia: 10,
+        carisma: 10,
+        coragem: 9,
+        area: "Cinema / Teatro",
+        descricao: "Atriz multipremiada e ativista pelos direitos sociais.",
+        img: "viola_davis.jpg"
+      },
+      {
+        nome: "Donald Glover",
+        inteligencia: 10,
+        carisma: 9,
+        coragem: 8,
+        area: "Música / Cinema",
+        descricao: "Ator, roteirista e músico, também conhecido como Childish Gambino.",
+        img: "donald_glover.jpg"
+      },
+      {
+        nome: "Beyoncé",
+        inteligencia: 9,
+        carisma: 10,
+        coragem: 10,
+        area: "Música / Negócios",
+        descricao: "Cantora, produtora e ícone global da arte e do empoderamento feminino.",
+        img: "beyonce.jpg"
+      },
+      {
+        nome: "Itamar Vieira Junior",
+        inteligencia: 10,
+        carisma: 8,
+        coragem: 8,
+        area: "Literatura",
+        descricao: "Escritor brasileiro premiado, autor do fenômeno 'Torto Arado'.",
+        img: "itamar_viera.jpg"
+      },
+      {
+        nome: "Djamila Ribeiro",
+        inteligencia: 10,
+        carisma: 9,
+        coragem: 9,
+        area: "Filosofia / Direitos Humanos",
+        descricao: "Filósofa e uma das principais vozes sobre feminismo negro no Brasil.",
+        img: "djamila_ribeiro.jpg"
+      },
+      {
+        nome: "Chimamanda Ngozi Adichie",
+        inteligencia: 10,
+        carisma: 10,
+        coragem: 9,
+        area: "Literatura / Ativismo",
+        descricao: "Escritora nigeriana, referência mundial em debates sobre feminismo e identidade.",
+        img: "chimamanda.jpg"
+      },
+      {
+        nome: "Trevor Noah",
+        inteligencia: 9,
+        carisma: 10,
+        coragem: 8,
+        area: "Humor / Jornalismo",
+        descricao: "Comediante sul-africano e ex-apresentador do The Daily Show.",
+        img: "trevor_noah.jpg"
+      },
+      {
+        nome: "Sônia Guimarães",
+        inteligencia: 10,
+        carisma: 8,
+        coragem: 9,
+        area: "Ciência / Física",
+        descricao: "Primeira mulher negra doutora em física no ITA e referência em educação.",
+        img: "sonia_guimaraes.jpg"
+      },
+      {
+        nome: "Timnit Gebru",
+        inteligencia: 10,
+        carisma: 8,
+        coragem: 10,
+        area: "Tecnologia / IA",
+        descricao: "Cientista da computação e líder global em ética da inteligência artificial.",
+        img: "timnit_gebru.JPG"
+      },
+      {
+        nome: "Neil deGrasse Tyson",
+        inteligencia: 10,
+        carisma: 10,
+        coragem: 8,
+        area: "Ciência / Astrofísica",
+        descricao: "Astrofísico e divulgador científico reconhecido mundialmente.",
+        img: "neil_tyson.png"
+      },
+      {
+        nome: "Marina Silva",
+        inteligencia: 9,
+        carisma: 8,
+        coragem: 10,
+        area: "Política / Meio Ambiente",
+        descricao: "Ambientalista brasileira e uma das maiores lideranças ecológicas do mundo.",
+        img: "marina_silva.jpg"
+      },
+      {
+        nome: "Erika Hilton",
+        inteligencia: 9,
+        carisma: 9,
+        coragem: 10,
+        area: "Política / Direitos Humanos",
+        descricao: "Primeira deputada federal trans negra do Brasil, referência em direitos civis.",
+        img: "erica_hilton3.jpg"
+      },
+      {
+        nome: "Angela Davis",
+        inteligencia: 10,
+        carisma: 10,
+        coragem: 10,
+        area: "Direitos Humanos / Filosofia",
+        descricao: "Intelectual e ativista global pelos direitos civis.",
+        img: "angela_davis.jpg"
+      },
+      {
+        nome: "Patrisse Cullors",
+        inteligencia: 9,
+        carisma: 8,
+        coragem: 10,
+        area: "Ativismo / Direitos Humanos",
+        descricao: "Co-fundadora do movimento Black Lives Matter.",
+        img: "patrisse_cullors.jpg"
+      },
+      {
+        nome: "Barack Obama",
+        inteligencia: 10,
+        carisma: 10,
+        coragem: 9,
+        area: "Política",
+        descricao: "44º presidente dos EUA e símbolo de liderança e inclusão.",
+        img: "barack_obama.jpg"
+      },
+      {
+        nome: "Michelle Obama",
+        inteligencia: 10,
+        carisma: 10,
+        coragem: 9,
+        area: "Política / Liderança",
+        descricao: "Advogada, escritora e ex-primeira-dama dos EUA, referência global.",
+        img: "michelle_obama.jpg"
+      },
+      {
+        nome: "Vinícius Júnior",
+        inteligencia: 8,
+        carisma: 9,
+        coragem: 10,
+        area: "Esporte / Futebol",
+        descricao: "Jogador brasileiro do Real Madrid e símbolo do combate ao racismo.",
+        img: "vinícius_junior.jpg"
+      },
+      {
+        nome: "Rebeca Andrade",
+        inteligencia: 8,
+        carisma: 9,
+        coragem: 10,
+        area: "Esporte / Ginástica",
+        descricao: "Campeã olímpica e maior ginasta brasileira da história.",
+        img: "rebeca_andrade.jpg"
+      },
+      {
+        nome: "Serena Williams",
+        inteligencia: 9,
+        carisma: 10,
+        coragem: 10,
+        area: "Esporte / Tênis",
+        descricao: "Considerada a maior tenista de todos os tempos.",
+        img: "serena_williams.jpg"
+      },
+      {
+        nome: "LeBron James",
+        inteligencia: 9,
+        carisma: 10,
+        coragem: 9,
+        area: "Esporte / Basquete",
+        descricao: "Jogador da NBA e líder social e filantrópico.",
+        img: "LeBron_James.jpg"
+      },
+      {
+        nome: "Lewis Hamilton",
+        inteligencia: 10,
+        carisma: 9,
+        coragem: 10,
+        area: "Esporte / F1",
+        descricao: "Heptacampeão mundial de Fórmula 1 e ativista antirracismo.",
+        img: "Lewis_Hamilton.jpg"
+      },
+      {
+        nome: "Kylian Mbappé",
+        inteligencia: 8,
+        carisma: 9,
+        coragem: 8,
+        area: "Esporte / Futebol",
+        descricao: "Craque francês, campeão mundial e fenômeno global.",
+        img: "Kylian_Mbappe.jpg"
+      },
+      {
+        nome: "Nina Silva",
+        inteligencia: 10,
+        carisma: 9,
+        coragem: 9,
+        area: "Negócios / Tecnologia",
+        descricao: "Fundadora do Movimento Black Money e referência em diversidade no mercado.",
+        img: "Nina_Silva.jpg"
+      },
+      {
+        nome: "Oprah Winfrey",
+        inteligencia: 10,
+        carisma: 10,
+        coragem: 10,
+        area: "Mídia / Negócios",
+        descricao: "Apresentadora e empresária bilionária, referência global de influência.",
+        img: "Oprah_Winfrey.jpg"
+      },
+      {
+        nome: "Rihanna",
+        inteligencia: 9,
+        carisma: 10,
+        coragem: 10,
+        area: "Música / Negócios",
+        descricao: "Cantora e dona da Fenty Beauty, uma das mulheres mais influentes do mundo.",
+        img: "Rihanna.png"
+      },
+      {
+        nome: "Virgil Abloh",
+        inteligencia: 10,
+        carisma: 9,
+        coragem: 8,
+        area: "Moda / Design",
+        descricao: "Estilista e ex-diretor artístico da Louis Vuitton.",
+        img: "Virgil_Abloh.jpg"
+      },
+      {
+        nome: "Zendaya",
+        inteligencia: 8,
+        carisma: 10,
+        coragem: 9,
+        area: "Cinema / Moda",
+        descricao: "Atriz e modelo premiada, ícone da moda e da representatividade jovem.",
+        img: "Zendaya.jpg"
+      },
+      {
+        nome: "Jordan Peele",
+        inteligencia: 10,
+        carisma: 8,
+        coragem: 9,
+        area: "Cinema / Direção",
+        descricao: "Diretor vencedor do Oscar, criador de 'Corra!' e responsável por renovar o terror social.",
+        img: "Jordan_Peele.jpg"
+      },
+      {
+        nome: "Letitia Wright",
+        inteligencia: 8,
+        carisma: 9,
+        coragem: 8,
+        area: "Cinema",
+        descricao: "Atriz de 'Pantera Negra', destaque internacional.",
+        img: "Letitia_Wright.jpg"
+      },
+      {
+        nome: "Iza",
+        inteligencia: 8,
+        carisma: 10,
+        coragem: 9,
+        area: "Música",
+        descricao: "Cantora e apresentadora brasileira, símbolo de empoderamento.",
+        img: "Iza.jpg"
+      },
+      {
+        nome: "Majur",
+        inteligencia: 8,
+        carisma: 9,
+        coragem: 9,
+        area: "Música",
+        descricao: "Artista baiana em ascensão e referência LGBTQIA+.",
+        img: "Majur.jpg"
+      },
+      {
+        nome: "Paulo Vieira",
+        inteligencia: 8,
+        carisma: 10,
+        coragem: 8,
+        area: "Humor / TV",
+        descricao: "Humorista e apresentador brasileiro, em ascensão nacional.",
+        img: "Paulo_Vieira.jpg"
+      },
+      {
+        nome: "Maju Coutinho",
+        inteligencia: 9,
+        carisma: 10,
+        coragem: 9,
+        area: "Jornalismo",
+        descricao: "Primeira mulher negra apresentadora do Jornal Nacional.",
+        img: "Maju_Coutinho.jpg"
+      },
+      {
+        nome: "Thelma Assis",
+        inteligencia: 9,
+        carisma: 9,
+        coragem: 9,
+        area: "Saúde / Entretenimento",
+        descricao: "Médica anestesista e vencedora do BBB 20.",
+        img: "Thelma_Assis.jpg"
+      },
+      {
+        nome: "Colman Domingo",
+        inteligencia: 9,
+        carisma: 9,
+        coragem: 8,
+        area: "Cinema",
+        descricao: "Ator em ascensão indicado ao Oscar, destaque em 'Rustin'.",
+        img: "Colman_Domingo.jpg"
+      },
+      {
+        nome: "John Boyega",
+        inteligencia: 8,
+        carisma: 10,
+        coragem: 9,
+        area: "Cinema / Ativismo",
+        descricao: "Ator de Star Wars e voz ativa contra o racismo no cinema.",
+        img: "John_Boyega.jpg"
+      },
+      {
+        nome: "Janelle Monáe",
+        inteligencia: 9,
+        carisma: 10,
+        coragem: 9,
+        area: "Música / Cinema",
+        descricao: "Cantora e atriz, destaque no afrofuturismo.",
+        img: "Janelle_Monae.jpg"
+      },
+      {
+        nome: "Gabriele Medvedovski",
+        inteligencia: 8,
+        carisma: 9,
+        coragem: 8,
+        area: "Artes / TV",
+        descricao: "Atriz brasileira conhecida por papéis marcantes em novelas.",
+        img: "https://upload.wikimedia.org/wikipedia/commons/0/03/Actress_avatar.png"
+      },
+      {
+        nome: "Derrick Johnson",
+        inteligencia: 9,
+        carisma: 8,
+        coragem: 9,
+        area: "Direitos Civis",
+        descricao: "Presidente da NAACP, uma das maiores organizações de direitos civis dos EUA.",
+        img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Derrick_Johnson_2017.jpg"
+      },
+      {
+        nome: "Amanda Gorman",
+        inteligencia: 10,
+        carisma: 10,
+        coragem: 9,
+        area: "Poesia / Ativismo",
+        descricao: "Poeta norte-americana que ganhou destaque na posse de Joe Biden.",
+        img: "https://upload.wikimedia.org/wikipedia/commons/e/e5/Amanda_Gorman_2021.jpg"
+      },
+      {
+        nome: "Gustavo Silva (Boka)",
+        inteligencia: 9,
+        carisma: 8,
+        coragem: 9,
+        area: "Artes Visuais",
+        descricao: "Artista plástico brasileiro conhecido por murais e arte urbana.",
+        img: "https://upload.wikimedia.org/wikipedia/commons/0/03/Artist_avatar.png"
+      },
+      {
+        nome: "Rincon Sapiência",
+        inteligencia: 9,
+        carisma: 9,
+        coragem: 9,
+        area: "Música",
+        descricao: "Rapper brasileiro com forte identidade afro-brasileira.",
+        img: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Rincon_Sapiencia_2019.jpg"
+      },
+      {
+        nome: "Mc Soffia",
+        inteligencia: 8,
+        carisma: 10,
+        coragem: 9,
+        area: "Música / Ativismo",
+        descricao: "Rapper brasileira que começou a carreira ainda criança defendendo causas sociais.",
+        img: "https://upload.wikimedia.org/wikipedia/commons/8/8e/MC_Soffia_2017.jpg"
+      },
+      {
+        nome: "Lewis Madiba Mokoena",
+        inteligencia: 9,
+        carisma: 8,
+        coragem: 9,
+        area: "Política / Direitos Humanos",
+        descricao: "Líder jovem sul-africano envolvido em causas sociais.",
+        img: "https://upload.wikimedia.org/wikipedia/commons/3/32/Activist_avatar.png"
+      },
+      {
+        nome: "Tati Quebra Barraco",
+        inteligencia: 7,
+        carisma: 9,
+        coragem: 8,
+        area: "Música / Cultura",
+        descricao: "Pioneira do funk carioca e figura marcante da cultura popular.",
+        img: "https://upload.wikimedia.org/wikipedia/commons/a/a1/Tati_Quebra_Barraco_2016.jpg"
+      },
+      {
+        nome: "Nelson Freitas",
+        inteligencia: 8,
+        carisma: 9,
+        coragem: 8,
+        area: "Música / Produção",
+        descricao: "Cantor e produtor de origem cabo-verdiana.",
+        img: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Nelson_Freitas_2014.jpg"
+      },
+      {
+        nome: "Nego Bala",
+        inteligencia: 8,
+        carisma: 9,
+        coragem: 10,
+        area: "Música / Cultura periférica",
+        descricao: "Artista da quebrada paulista com letras fortes sobre vivência urbana.",
+        img: "Nego_Bala.jpg"
+      },
+      {
+        nome: "Seu Jorge",
+        inteligencia: 9,
+        carisma: 10,
+        coragem: 9,
+        area: "Música / Cinema",
+        descricao: "Cantor e ator brasileiro de projeção internacional.",
+        img: "Seu_Jorge.jpg"
+      },
+      {
+        nome: "Carlinhos Brown",
+        inteligencia: 9,
+        carisma: 10,
+        coragem: 9,
+        area: "Música / Cultura",
+        descricao: "Multi-instrumentista brasileiro e líder cultural da Bahia.",
+        img: "Carlinhos_Brown.jpg"
+      },
+      {
+        nome: "Lélia Gonzalez",
+        inteligencia: 10,
+        carisma: 9,
+        coragem: 10,
+        area: "Sociologia / Feminismo Negro",
+        descricao: "Intelectual, antropóloga e ativista que se tornou referência nos estudos sobre raça e gênero no Brasil e no mundo.",
+        img: "https://upload.wikimedia.org/wikipedia/commons/7/7a/Lelia_Gonzalez.jpg"
+      },
+      {
+        nome: "Conceição Evaristo",
+        inteligencia: 9.5,
+        carisma: 8.5,
+        coragem: 10,
+        area: "Literatura / Ativismo",
+        descricao: "Escritora e ativista, criadora do conceito de escrevivência, que destaca a vivência das mulheres negras na literatura.",
+        img: "https://upload.wikimedia.org/wikipedia/commons/1/1c/Conceição_Evaristo_2018.jpg"
+      },
+      {
+        nome: "Milton Santos",
+        inteligencia: 10,
+        carisma: 7.5,
+        coragem: 9,
+        area: "Geografia / Academia",
+        descricao: "Um dos maiores geógrafos do mundo, crítico da globalização e vencedor do prêmio Vautrin Lud.",
+        img: "https://upload.wikimedia.org/wikipedia/commons/9/9d/Milton_Santos.jpg"
+      },
+      {
+        nome: "Abdias do Nascimento",
+        inteligencia: 10,
+        carisma: 9,
+        coragem: 10,
+        area: "Ativismo / Política / Arte",
+        descricao: "Ativista, artista e político, fundador do Teatro Experimental do Negro e referência do movimento negro brasileiro.",
+        img: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Abdias_do_Nascimento.jpg"
+      },
+      {
+        nome: "Sueli Carneiro",
+        inteligencia: 10,
+        carisma: 8.5,
+        coragem: 9,
+        area: "Filosofia / Direitos Humanos",
+        descricao: "Filósofa e ativista feminista negra, fundadora do Geledés — Instituto da Mulher Negra.",
+        img: "https://upload.wikimedia.org/wikipedia/commons/4/4f/Sueli_Carneiro_2019.jpg"
+      },
+      {
+        nome: "Jorge Ben Jor",
+        inteligencia: 9,
+        carisma: 10,
+        coragem: 8.5,
+        area: "Música / Cultura Brasileira",
+        descricao: "Cantor e compositor fundamental para o samba-rock, MPB e a música brasileira moderna.",
+        img: "https://upload.wikimedia.org/wikipedia/commons/3/34/Jorge_Ben_Jor_2010.jpg"
+      },
+      {
+        nome: "Mano Brown",
+        inteligencia: 9,
+        carisma: 10,
+        coragem: 9.5,
+        area: "Música / Cultura Periférica",
+        descricao: "Líder dos Racionais MC's, uma das figuras mais influentes da música e da política cultural brasileira.",
+        img: "https://upload.wikimedia.org/wikipedia/commons/f/fd/Mano_Brown_2016.jpg"
+      },
+      {
+        nome: "Linn da Quebrada",
+        inteligencia: 8.5,
+        carisma: 9.5,
+        coragem: 10,
+        area: "Música / Performance / Ativismo",
+        descricao: "Cantora, atriz e performer, figura importante na luta por direitos LGBTQIA+ e na arte contemporânea.",
+        img: "https://upload.wikimedia.org/wikipedia/commons/6/6c/Linn_da_Quebrada_2022.jpg"
+      },
+      {
+        nome: "Gilberto Gil",
+        inteligencia: 10,
+        carisma: 10,
+        coragem: 9,
+        area: "Música / Cultura / Política",
+        descricao: "Músico, ex-ministro da Cultura e um dos maiores nomes da música brasileira e da Tropicália.",
+        img: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Gilberto_Gil_2012.jpg"
+      }
+    ];
+
+    let baralho = cartas.sort(() => Math.random() - 0.5);
+    let jogador = baralho.slice(0, 15);
+    let computador = baralho.slice(15);
+
+    function atualizarContador() {
+      document.getElementById("contador").innerText =
+        `Cartas - Você: ${jogador.length} | Computador: ${computador.length}`;
+    }
+
+    function exibirCartasAntes() {
+      let cartaJogador = jogador[0];
+      let cartaComputador = computador[0];
+
+      let posicao = Math.floor(Math.random() * 3);
+      let personalidade = [];
+      for (let i = 0; i < 3; i++) {
+        if (posicao == i) {
+          personalidade.push([cartaJogador.nome, 1]);
+        }
+        else {
+          let outro = 0;
+          do {
+            outro = Math.floor(Math.random() * cartas.length);
+          }
+          while (cartas[outro].nome == cartaJogador.nome);
+          personalidade.push([cartas[outro].nome, 0]);
+        }
+      }
+
+      document.getElementById("carta-jogador").innerHTML = `
+        <img src="./img/${cartaJogador.img || ''}" alt="Imagem">
+        <p>Quem sou eu?</p>
+        <button class="botao-escolha" style="width:100%" onclick="quem(0, ${personalidade[0][1]})">${personalidade[0][0]}</button>
+        <button class="botao-escolha" style="width:100%" onclick="quem(1, ${personalidade[1][1]})">${personalidade[1][0]}</button>
+        <button class="botao-escolha" style="width:100%" onclick="quem(2, ${personalidade[2][1]})">${personalidade[2][0]}</button>
+        <p><strong>Área:</strong> ${cartaJogador.area}</p>
+        <p>${cartaJogador.descricao}</p>
+        <div style="font-size: 1.1em;">
+        <p>🧠 Inteligência: ${cartaJogador.inteligencia} <button onclick="batalhar('inteligencia')">➡️</button></p>
+        <p>💬 Carisma: ${cartaJogador.carisma} <button onclick="batalhar('carisma')">➡️</button></p>
+        <p>🔥 Coragem: ${cartaJogador.coragem} <button onclick="batalhar('coragem')">➡️</button></p>
+        </div>
+      `;
+
+      document.getElementById("carta-computador").innerHTML = `
+    <img src="./img/${cartaComputador.img || ''}" alt="Imagem">
+    <h2>${cartaComputador.nome}</h2>
+    <p><strong>Área:</strong> ${cartaComputador.area}</p>
+    <p>${cartaComputador.descricao}</p>
+    <p style="color:gray;"></p>
+  `;
+
+    }
+
+    function batalhar(caracteristica) {
+      let cartaJogador = jogador[0];
+      let cartaComputador = computador[0];
+      let valorJ = cartaJogador[caracteristica];
+      let valorC = cartaComputador[caracteristica];
+      let resultado = "";
+
+      // Mostra agora as duas cartas completas
+      document.getElementById("carta-computador").innerHTML = `
+          <img src="./img/${cartaComputador.img || ''}" alt="Imagem">
+          <h2>${cartaComputador.nome}</h2>
+          <p><strong>Área:</strong> ${cartaComputador.area}</p>
+          <p>${cartaComputador.descricao}</p>
+          <p>🧠 Inteligência: ${cartaComputador.inteligencia}</p>
+          <p>💬 Carisma: ${cartaComputador.carisma}</p>
+          <p>🔥 Coragem: ${cartaComputador.coragem}</p>
+        `;
+
+      if (valorJ > valorC) {
+        resultado = `<span class="font-size:2em">🎉<span><br>Você venceu esta rodada!<br>${caracteristica.toUpperCase()}`;
+        jogador.push(cartaJogador);
+        cor = "#00dd30";
+      } else if (valorJ < valorC) {
+        resultado = `💀<br>Você perdeu! As cartas foram descartadas.<br>${caracteristica.toUpperCase()}`;
+        cor = "#e20000";
+        // cartas descartadas
+      } else {
+        resultado = `⚖️<br>Empate! Ambas as cartas foram descartadas.<br>${caracteristica.toUpperCase()}`;
+        cor = "#e20000";
+        // descartadas
+      }
+
+      jogador.shift();
+      computador.shift();
+
+      document.getElementById("resultado").innerHTML = `<h3>${resultado}<h2>`;
+      document.getElementById("resultado").style.color = cor;
+      document.getElementById("resultado").style.display = "block";
+      // document.getElementById("botoes").innerHTML = "";
+
+      setTimeout(proximaRodada, 2500);
+    }
+
+    function proximaRodada() {
+      // document.getElementById("resultado").innerHTML = "";
+      document.getElementById("resultado").style.display = "none";
+      if (jogador.length === 0 || computador.length === 0) {
+        atualizarContador();
+        let vencedorFinal =
+          jogador.length > computador.length ? `<h3>🏆 Você venceu o computador e sobrou(aram) ${jogador.length} carta(s).</h3>` : "<h3>O computador venceu!</h3>";
+        document.getElementById("resultado").innerHTML = vencedorFinal;
+        document.getElementById("resultado").style.display = "block";
+        document.getElementById("resultado").style.color = "#f9c74f";
+        // document.getElementById("botoes").innerHTML = "";
+        return;
+      }
+
+      atualizarContador();
+      exibirCartasAntes();
+    }
+
+    atualizarContador();
+    exibirCartasAntes();
+
+    function quem(id, valor) {
+      document.getElementsByClassName("botao-escolha")[0].disabled = (valor == 0 && id == 0);
+      document.getElementsByClassName("botao-escolha")[1].disabled = (valor == 0 && id == 1);
+      document.getElementsByClassName("botao-escolha")[2].disabled = (valor == 0 && id == 2);
+    }
+  </script>
+</body>
+
+</html>

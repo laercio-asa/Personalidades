@@ -1,0 +1,163 @@
+
+     {
+        "nome": "Gabriele Medvedovski",
+        "inteligencia": 8,
+        "carisma": 9,
+        "coragem": 8,
+        "area": "Artes / TV",
+        "descricao": "Atriz brasileira conhecida por papéis marcantes em novelas.",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/0/03/Actress_avatar.png"
+    },
+    {
+        "nome": "Derrick Johnson",
+        "inteligencia": 9,
+        "carisma": 8,
+        "coragem": 9,
+        "area": "Direitos Civis",
+        "descricao": "Presidente da NAACP, uma das maiores organizações de direitos civis dos EUA.",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Derrick_Johnson_2017.jpg"
+    },
+    {
+        "nome": "Amanda Gorman",
+        "inteligencia": 10,
+        "carisma": 10,
+        "coragem": 9,
+        "area": "Poesia / Ativismo",
+        "descricao": "Poeta norte-americana que ganhou destaque na posse de Joe Biden.",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Amanda_Gorman_2021.jpg"
+    },
+    {
+        "nome": "Gustavo Silva (Boka)",
+        "inteligencia": 9,
+        "carisma": 8,
+        "coragem": 9,
+        "area": "Artes Visuais",
+        "descricao": "Artista plástico brasileiro conhecido por murais e arte urbana.",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/0/03/Artist_avatar.png"
+    },
+    {
+        "nome": "Rincon Sapiência",
+        "inteligencia": 9,
+        "carisma": 9,
+        "coragem": 9,
+        "area": "Música",
+        "descricao": "Rapper brasileiro com forte identidade afro-brasileira.",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Rincon_Sapiencia_2019.jpg"
+    },
+    {
+        "nome": "Mc Soffia",
+        "inteligencia": 8,
+        "carisma": 10,
+        "coragem": 9,
+        "area": "Música / Ativismo",
+        "descricao": "Rapper brasileira que começou a carreira ainda criança defendendo causas sociais.",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/8/8e/MC_Soffia_2017.jpg"
+    },
+    {
+        "nome": "Lewis Madiba Mokoena",
+        "inteligencia": 9,
+        "carisma": 8,
+        "coragem": 9,
+        "area": "Política / Direitos Humanos",
+        "descricao": "Líder jovem sul-africano envolvido em causas sociais.",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/3/32/Activist_avatar.png"
+    },
+    {
+        "nome": "Tati Quebra Barraco",
+        "inteligencia": 7,
+        "carisma": 9,
+        "coragem": 8,
+        "area": "Música / Cultura",
+        "descricao": "Pioneira do funk carioca e figura marcante da cultura popular.",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Tati_Quebra_Barraco_2016.jpg"
+    },
+    {
+        "nome": "Nelson Freitas",
+        "inteligencia": 8,
+        "carisma": 9,
+        "coragem": 8,
+        "area": "Música / Produção",
+        "descricao": "Cantor e produtor de origem cabo-verdiana.",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Nelson_Freitas_2014.jpg"
+    },
+    {
+        "nome": "Lélia Gonzalez",
+        "inteligencia": 10,
+        "carisma": 9,
+        "coragem": 10,
+        "area": "Sociologia / Feminismo Negro",
+        "descricao": "Intelectual, antropóloga e ativista que se tornou referência nos estudos sobre raça e gênero no Brasil e no mundo.",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Lelia_Gonzalez.jpg"
+    },
+    {
+        "nome": "Conceição Evaristo",
+        "inteligencia": 9.5,
+        "carisma": 8.5,
+        "coragem": 10,
+        "area": "Literatura / Ativismo",
+        "descricao": "Escritora e ativista, criadora do conceito de escrevivência, que destaca a vivência das mulheres negras na literatura.",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Conceição_Evaristo_2018.jpg"
+    },
+    {
+        "nome": "Milton Santos",
+        "inteligencia": 10,
+        "carisma": 7.5,
+        "coragem": 9,
+        "area": "Geografia / Academia",
+        "descricao": "Um dos maiores geógrafos do mundo, crítico da globalização e vencedor do prêmio Vautrin Lud.",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Milton_Santos.jpg"
+    },
+    {
+        "nome": "Abdias do Nascimento",
+        "inteligencia": 10,
+        "carisma": 9,
+        "coragem": 10,
+        "area": "Ativismo / Política / Arte",
+        "descricao": "Ativista, artista e político, fundador do Teatro Experimental do Negro e referência do movimento negro brasileiro.",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Abdias_do_Nascimento.jpg"
+    },
+    {
+        "nome": "Sueli Carneiro",
+        "inteligencia": 10,
+        "carisma": 8.5,
+        "coragem": 9,
+        "area": "Filosofia / Direitos Humanos",
+        "descricao": "Filósofa e ativista feminista negra, fundadora do Geledés — Instituto da Mulher Negra.",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Sueli_Carneiro_2019.jpg"
+    },
+    {
+        "nome": "Jorge Ben Jor",
+        "inteligencia": 9,
+        "carisma": 10,
+        "coragem": 8.5,
+        "area": "Música / Cultura Brasileira",
+        "descricao": "Cantor e compositor fundamental para o samba-rock, MPB e a música brasileira moderna.",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/3/34/Jorge_Ben_Jor_2010.jpg"
+    },
+    {
+        "nome": "Mano Brown",
+        "inteligencia": 9,
+        "carisma": 10,
+        "coragem": 9.5,
+        "area": "Música / Cultura Periférica",
+        "descricao": "Líder dos Racionais MC's, uma das figuras mais influentes da música e da política cultural brasileira.",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Mano_Brown_2016.jpg"
+    },
+    {
+        "nome": "Linn da Quebrada",
+        "inteligencia": 8.5,
+        "carisma": 9.5,
+        "coragem": 10,
+        "area": "Música / Performance / Ativismo",
+        "descricao": "Cantora, atriz e performer, figura importante na luta por direitos LGBTQIA+ e na arte contemporânea.",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Linn_da_Quebrada_2022.jpg"
+    },
+    {
+        "nome": "Gilberto Gil",
+        "inteligencia": 10,
+        "carisma": 10,
+        "coragem": 9,
+        "area": "Música / Cultura / Política",
+        "descricao": "Músico, ex-ministro da Cultura e um dos maiores nomes da música brasileira e da Tropicália.",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Gilberto_Gil_2012.jpg"
+    }
