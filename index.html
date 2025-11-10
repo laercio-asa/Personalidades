@@ -13,10 +13,16 @@
 
 <body>
   <div class="wrap container-fluid">
-    <header class="position-fixed" id="menu">
-      <h1 id="titulo">👤 Acerte o nome da sua equipe para começar a batalha!</h1>
-      <div class="controls" id="controls">
-        <button id="resetBtn" class="secondary" title="Reiniciar jogo">↺ Reiniciar</button>
+    <header class="position-fixed pe-4 w-100" id="menu">
+      <div class="row">
+        <div class="col">
+          <h1 id="titulo">👤 Acerte o nome da sua equipe para começar!</h1>
+        </div>
+        <div class="col-auto">
+          <div class="controls" id="controls">
+            <button id="resetBtn" class="secondary" title="Reiniciar jogo">↺ Reiniciar</button>
+          </div>
+        </div>
       </div>
       <aside class="names" id="names">
         <div class="pool" id="namePool"></div>
@@ -27,13 +33,20 @@
       <section class="photos row row-cols-1 row-cols-md-5 g-4" id="photos"></section>
     </div>
 
-    <div class="container my-5 pt-3 d-none" id="batalha-container">
+    <div class="container my-5 d-none" id="batalha-container">
       <div id="contador" class="text-center"></div>
       <div class="row row-cols-1 row-cols-md-3 g-4" id="batalha">
         <div class="col" id="carta-jogador">
         </div>
         <div class="col" id="botoes">
           <div id="resultado"></div>
+          <div class="progress" role="progressbar" aria-label="high" aria-valuenow="25" aria-valuemin="0"
+            aria-valuemax="100" style="height: 30px">
+            <div class="progress-bar" style="width: 25%"></div>
+          </div>
+          <h2>Quem tem mais carima?</h2>
+          <button id="btnCarisma" class="primary mb-2">➡️ Personagem 1</button>
+          <button id="btnCarisma" class="primary mb-2">➡️ Personagem 2</button>
         </div>
         <div class="col" id="carta-computador"></div>
       </div>
