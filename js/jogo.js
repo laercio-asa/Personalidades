@@ -70,10 +70,10 @@ function renderPhotos() {
     container.innerHTML = '';
     equipe.forEach((p, idx) => {
         const card = document.createElement('article');
-        card.className = 'card';
+        card.className = 'card border-0';
         card.setAttribute('data-aos', 'flip-left');
         card.innerHTML = `
-          <div class="badge2" data-bs-custom-class="custom-popover" data-bs-toggle="popover" data-bs-title="Dica" data-bs-content="${p.descricao}">🚨</div>
+          <div class="badge2" tabindex="0" data-bs-custom-class="custom-popover" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-title="Dica" data-bs-content="${p.descricao}">🚨</div>
           <div class="imgbox">
             <img src="./img/${p.img}" alt="Foto para adivinhar o personagem ${idx + 1}" onerror="this.alt='Falha ao carregar imagem'; this.style.objectFit='contain'; this.style.background='#0b1220'"/>
             <div class="dropZone" data-photo="${p.id}" aria-label="Solte um nome aqui" role="button" tabindex="0">
@@ -239,7 +239,7 @@ window.onscroll = function () {
     if (prevScrollpos > currentScrollPos) {
         // Rolando para cima: mostra a navbar (top: 0)
         document.getElementById("titulo").style.display = "block";
-        document.getElementById("controls").style.display = "block";
+        document.getElementById("controls").style.display = "flex";
     } else {
         // Rolando para baixo: esconde a navbar (top: -[altura da navbar])
         // Substitua '-60px' pela altura real da sua barra de navegação para um melhor efeito
