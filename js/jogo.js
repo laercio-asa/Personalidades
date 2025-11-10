@@ -3,7 +3,7 @@ let equipe;
 let opcoes;
 let state;
 let erradas = 0;
-const cartas = 5;
+const cartas = 15;
 let jogador;
 let computador
 

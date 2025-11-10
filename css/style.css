@@ -34,7 +34,7 @@ body {
 }
 
 .wrap {
-    margin: 16px auto;
+    margin: 0px auto 16px;
     display: grid;
     gap: 20px;
     grid-template-columns: 1fr;
@@ -107,6 +107,21 @@ button.secondary {
         grid-template-columns: 1fr 1fr
     }
 } */
+
+@media (max-width:768px) {
+    button,
+    .chip {
+        padding: 3px 5px !important;
+    }
+
+    .pool {
+        gap: 5px !important;
+    }
+
+    .names {
+        padding: 8px !important;
+    }
+}
 
 .card {
     position: relative;
