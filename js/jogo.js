@@ -287,33 +287,42 @@ function atualizarContador() {
 function exibirCartasAntes() {
     let cartaJogador = jogador[0];
     let cartaComputador = computador[0];
-    
+
     $raro = cartaJogador.raridade == "raro" ? 'border border-5 border-warning' : 'border border-primary';
     document.getElementById("carta-jogador").innerHTML = `
-        <div class="card h-100 bg-black ${$raro} text-white" data-aos="flip-left">
-            <h3 class="px-2 bg-primary pb-2">${cartaJogador.nome}</h3>
-            <img src="./img/${cartaJogador.img || ''}" class="pt-2 card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title bg-primary py-2 px-2">🎯 ${cartaJogador.area}</h5>
-                <p class="card-text my-4 mx-2">${cartaJogador.descricao}</p>
+        <div class="card h-100 bg-black ${$raro} text-white" data-aos="flip-left" data-aos-offset="0">
+            <h5 class="text-center p-1 mb-0">SUA CARTA!</h5>
+            <h4 class="text-center bg-primary p-2 mb-0">${cartaJogador.nome}</h4>
+            <div style="
+                height: 180px;
+                background-image: url(./img/${cartaJogador.img || ''});
+                background-position: center;
+                background-size: contain;
+            "></div>
+            <div class="card-body p-1">
+                <h5 class="card-title bg-primary p-1">🎯 ${cartaJogador.area}</h5>
+                <p class="card-text p-2">${cartaJogador.descricao}</p>
                 <ol class="list-group list-group-flush">
                 <li class="list-group-item list-group-item-black d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
-                    <div class="fw-bold h5" >🧠 Inteligência:</div>
+                    <div class="fw-bold" ><button id="btn-inteligencia" class="btn btn-warning btn-escolha rounded-pill"
+                onclick="batalhar('inteligencia')">🧠 Inteligência</button></div>
                     </div>
-                    <span id="inteligencia"class="badge text-bg-primary rounded-pill" style="font-size: 1em;">${cartaJogador.inteligencia}</span>
+                    <span id="inteligencia"class="badge text-bg-primary rounded-pill" style="font-size: 1em; margin-top:5px;">${cartaJogador.inteligencia}</span>
                 </li>
                 <li class="list-group-item list-group-item-black d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
-                    <div class="fw-bold h5" >💬 Carisma:</div>
+                    <div class="fw-bold" ><button id="btn-carisma" class="btn btn-warning btn-escolha rounded-pill" onclick="batalhar('carisma')">💬
+                Carisma</button></div>
                     </div>
-                    <span id="carisma"class="badge text-bg-primary rounded-pill" style="font-size: 1em;">${cartaJogador.carisma}</span>
+                    <span id="carisma"class="badge text-bg-primary rounded-pill" style="font-size: 1em; margin-top:5px;">${cartaJogador.carisma}</span>
                 </li>
                 <li class="list-group-item list-group-item-black d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
-                    <div class="fw-bold h5">🔥 Coragem:</div>
+                    <div class="fw-bold"><button id="btn-coragem" class="btn btn-warning btn-escolha rounded-pill" onclick="batalhar('coragem')">🔥
+                Coragem</button></div>
                     </div>
-                    <span id="coragem" class="badge text-bg-primary rounded-pill" style="font-size: 1em;">${cartaJogador.coragem}</span>
+                    <span id="coragem" class="badge text-bg-primary rounded-pill" style="font-size: 1em; margin-top:5px;">${cartaJogador.coragem}</span>
                 </li>
                 </ol>
             </div>
@@ -322,12 +331,18 @@ function exibirCartasAntes() {
 
     $raro = cartaComputador.raridade == "raro" ? 'border border-5 border-warning' : 'border border-success';
     document.getElementById("carta-computador").innerHTML = `
-        <div class="card h-100 bg-black ${$raro} text-white" data-aos="flip-left">
-            <h3 class="px-2 bg-success pb-2">${cartaComputador.nome}</h3>
-            <img src="./img/${cartaComputador.img || ''}" class="pt-2 card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title bg-success py-2 px-2">🎯 ${cartaComputador.area}</h5>
-                <p class="card-text my-4 mx-2">${cartaComputador.descricao}</p>
+        <div class="card h-100 bg-black ${$raro} text-white" data-aos="flip-left" data-aos-offset="0">
+            <h5 class="text-center p-1 mb-0">CARTA COMPUTADOR!</h5>
+            <h4 class="text-center bg-success p-2 mb-0">${cartaComputador.nome}</h4>
+            <div style="
+                height: 180px;
+                background-image: url(./img/${cartaComputador.img || ''});
+                background-position: center;
+                background-size: contain;
+            "></div>
+            <div class="card-body p-1">
+                <h5 class="card-title bg-success p-1">🎯 ${cartaComputador.area}</h5>
+                <p class="card-text p-2">${cartaComputador.descricao}</p>
                 <ol class="list-group list-group-flush">
                 <li class="list-group-item list-group-item-black d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
@@ -369,20 +384,14 @@ function exibirCartasAntes() {
         if (numero <= 5) {
             document.getElementById("progresso").classList.add("bg-warning");
             document.getElementById("progresso").classList.remove("bg-danger");
-            document.getElementById("mensagem").innerHTML = "";
         }
         if (numero > 6 && numero < 10) {
             document.getElementById("progresso").classList.add("bg-danger");
             document.getElementById("progresso").classList.remove("bg-warning");
-            document.getElementById("mensagem").innerHTML = "";
         }
         if (numero == 10) {
             document.getElementById("progresso").classList.add("bg-danger");
             document.getElementById("progresso").classList.remove("bg-warning");
-            document.getElementById("inteligencia").innerHTML = "?";
-            document.getElementById("carisma").innerHTML = "?";
-            document.getElementById("coragem").innerHTML = "?";
-            document.getElementById("mensagem").innerHTML = "O seu tempo acabou! Agora os valores da sua carta estão ocultos continue jogando.<br>Tente ser mais rápido na próxima rodada.";
             return; // reinicia
         }
         else if (numero > 10) {
@@ -409,7 +418,6 @@ function batalhar(caracteristica) {
     document.getElementById("btn-inteligencia").disabled = true;
     document.getElementById("btn-carisma").disabled = true;
     document.getElementById("btn-coragem").disabled = true;
-    document.getElementById("mensagem").innerHTML = "";
 
 
     // Mostra agora as duas cartas completas
@@ -494,7 +502,6 @@ function proximaRodada() {
         document.getElementById("progresso").classList.add("d-none");
         document.getElementById("pergunta").classList.add("d-none");
         document.getElementById("botoes").classList.add("d-none");
-        document.getElementById("mensagem").innerHTML = "";
 
         // document.getElementById("botoes").innerHTML = "";
         return;

@@ -9,6 +9,9 @@
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link href="./css/style.css" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -36,27 +39,21 @@
 
     <div class="container my-5 d-none" id="batalha-container">
       <div id="contador" class="text-center rounded-pill border border-warning bg-dark py-3 h3 my-4"></div>
-      <div class="row row-cols-1 row-cols-md-3 g-4" id="batalha">
-        <div class="col" id="carta-jogador">
-        </div>
-        <div class="col">
-          <div class="progress my-2" role="progressbar" aria-label="high" aria-valuenow="0" aria-valuemin="0"
-            aria-valuemax="100" style="height: 30px">
-            <div class="progress-bar bg-warning" id="progresso" style="width: 0%"></div>
+      <div class="row" id="batalha">
+        <div class="row col-md-8 m-auto">
+          <div class="col-12">
+            <div class="progress my-2" role="progressbar" aria-label="high" aria-valuenow="0" aria-valuemin="0"
+              aria-valuemax="100" style="height: 30px">
+              <div class="progress-bar bg-warning" id="progresso" style="width: 0%"></div>
+            </div>
+            <div id="resultado" class="text-center"></div>
+            <div id="pergunta"></div>
           </div>
-          <div id="resultado" class="text-center"></div>
-          <div id="pergunta"></div>
-          <div id="botoes">
-            <p><button id="btn-inteligencia" class="btn btn-warning btn-escolha w-100 rounded-pill"
-                onclick="batalhar('inteligencia')">🧠 Inteligência</button></p>
-            <p><button id="btn-carisma" class="btn btn-warning btn-escolha w-100 rounded-pill"
-                onclick="batalhar('carisma')">💬 Carisma</button></p>
-            <p><button id="btn-coragem" class="btn btn-warning btn-escolha w-100 rounded-pill"
-                onclick="batalhar('coragem')">🔥 Coragem</button></p>
-          </div>
-          <div id="mensagem" class="py-3"></div>
+
+          <div class="col-md-6" id="carta-jogador"></div>
+          <div class="col-md-6" id="carta-computador"></div>
+
         </div>
-        <div class="col" id="carta-computador"></div>
       </div>
     </div>
 
@@ -82,7 +79,8 @@
           <h5>Agora você já conhece todos as Personalidade vamos para a Batalha!</h5>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-warning rounded-pill fw-bold px-3" onclick="continuar();" data-bs-dismiss="modal">Continuar</button>
+          <button type="button" class="btn btn-warning rounded-pill fw-bold px-3" onclick="continuar();"
+            data-bs-dismiss="modal">Continuar</button>
         </div>
       </div>
     </div>
