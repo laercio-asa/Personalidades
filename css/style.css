@@ -15,7 +15,7 @@
     /* indigo-500 */
     --chip: #1f2937;
     /* gray-800 */
-    
+
 }
 
 * {
@@ -25,7 +25,10 @@
 body {
     margin: 0;
     font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-    background: radial-gradient(1200px 800px at 10% 10%, #0b1225 0%, #0a0f1f 40%, var(--bg) 100%);
+    /* background: radial-gradient(1200px 800px at 10% 10%, #0b1225 0%, #0a0f1f 40%, var(--bg) 100%); */
+    background-image: url(../img/bg_jogo.jpg);
+    background-position: center;
+    background-size: cover;
     font-family: "Comfortaa", sans-serif !important;
     color: var(--text);
 }
@@ -267,4 +270,15 @@ button.secondary {
 
 .btn-escolha {
     font-weight: bold;
+    font-size: 1.05rem;
+}
+
+#resultado {
+    position: absolute;
+    background-color: #161615;
+    width: 700px;
+    margin-top: 200px;
+    padding: 50px;
+    display: none;
+    z-index: 1080;
 }
