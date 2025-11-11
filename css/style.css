@@ -234,6 +234,7 @@ button.secondary {
 }
 
 .chip.locked {
+    display: none;
     opacity: .6;
     cursor: not-allowed
 }

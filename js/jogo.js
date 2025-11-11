@@ -3,7 +3,7 @@ let equipe;
 let opcoes;
 let state;
 let erradas = 0;
-const cartas = 10;
+const cartas = 2;
 let jogador;
 let computador
 let numero = 0;
@@ -170,6 +170,10 @@ function placeNameOnPhoto(zone, name, chip) {
     const photo = equipe.find(p => p.id == photoId);
 
     const correct = photo.nome == name;
+
+    if (zone.classList.contains('correct')) {
+        return; // já está correto ali
+    }
 
     // Se já havia um nome nessa foto, devolve para a pool
     if (state.placed.has(photoId)) {
