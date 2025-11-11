@@ -460,7 +460,7 @@ function batalhar(caracteristica) {
         document.getElementById("resultado").style.marginLeft = `${tamanho}px`;
     }
     // document.getElementById("botoes").innerHTML = "";
-
+    document.getElementById("progresso").focus();
     atualizarContador();
     setTimeout(proximaRodada, 4000);
 }
