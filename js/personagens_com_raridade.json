@@ -8,7 +8,7 @@
         "area": "Música / Cultura",
         "descricao": "Rapper, produtor e uma das vozes mais influentes da cultura negra no Brasil.",
         "img": "emicida.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "1",
@@ -19,7 +19,7 @@
         "area": "Cinema / TV",
         "descricao": "Ator, diretor e escritor, referência na representatividade negra no audiovisual.",
         "img": "lazaro_ramos.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "2",
@@ -30,7 +30,7 @@
         "area": "Cinema / TV",
         "descricao": "Atriz e ativista, pioneira como protagonista negra em novelas brasileiras.",
         "img": "tais_araujo.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "3",
@@ -63,7 +63,7 @@
         "area": "Cinema",
         "descricao": "Ator norte-americano vencedor de dois Oscars.",
         "img": "mahershala_ali.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "6",
@@ -85,7 +85,7 @@
         "area": "Música / Cinema",
         "descricao": "Ator, roteirista e músico, também conhecido como Childish Gambino.",
         "img": "donald_glover.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "8",
@@ -118,7 +118,7 @@
         "area": "Filosofia / Direitos Humanos",
         "descricao": "Filósofa e uma das principais vozes sobre feminismo negro no Brasil.",
         "img": "djamila_ribeiro.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "11",
@@ -140,7 +140,7 @@
         "area": "Humor / Jornalismo",
         "descricao": "Comediante sul-africano e ex-apresentador do The Daily Show.",
         "img": "trevor_noah.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "13",
@@ -151,7 +151,7 @@
         "area": "Ciência / Física",
         "descricao": "Primeira mulher negra doutora em física no ITA e referência em educação.",
         "img": "sonia_guimaraes.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "14",
@@ -162,7 +162,7 @@
         "area": "Tecnologia / IA",
         "descricao": "Cientista da computação e líder global em ética da inteligência artificial.",
         "img": "timnit_gebru.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "15",
@@ -173,7 +173,7 @@
         "area": "Ciência / Astrofísica",
         "descricao": "Astrofísico e divulgador científico reconhecido mundialmente.",
         "img": "neil_tyson.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "16",
@@ -184,7 +184,7 @@
         "area": "Política / Meio Ambiente",
         "descricao": "Ambientalista brasileira e uma das maiores lideranças ecológicas do mundo.",
         "img": "marina_silva.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "17",
@@ -195,7 +195,7 @@
         "area": "Política / Direitos Humanos",
         "descricao": "Primeira deputada federal trans negra do Brasil, referência em direitos civis.",
         "img": "erica_hilton.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "18",
@@ -217,7 +217,7 @@
         "area": "Ativismo / Direitos Humanos",
         "descricao": "Co-fundadora do movimento Black Lives Matter.",
         "img": "patrisse_cullors.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "20",
@@ -250,7 +250,7 @@
         "area": "Esporte / Futebol",
         "descricao": "Jogador brasileiro do Real Madrid e símbolo do combate ao racismo.",
         "img": "vinícius_junior.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "23",
@@ -261,7 +261,7 @@
         "area": "Esporte / Ginástica",
         "descricao": "Campeã olímpica e maior ginasta brasileira da história.",
         "img": "rebeca_andrade.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "24",
@@ -283,7 +283,7 @@
         "area": "Esporte / Basquete",
         "descricao": "Jogador da NBA e líder social e filantrópico.",
         "img": "LeBron_James.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "26",
@@ -316,7 +316,7 @@
         "area": "Negócios / Tecnologia",
         "descricao": "Fundadora do Movimento Black Money e referência em diversidade no mercado.",
         "img": "Nina_Silva.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "29",
@@ -349,7 +349,7 @@
         "area": "Moda / Design",
         "descricao": "Estilista e ex-diretor artístico da Louis Vuitton.",
         "img": "Virgil_Abloh.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "32",
@@ -360,7 +360,7 @@
         "area": "Cinema / Moda",
         "descricao": "Atriz e modelo premiada, ícone da moda e da representatividade jovem.",
         "img": "Zendaya.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "33",
@@ -371,7 +371,7 @@
         "area": "Cinema / Direção",
         "descricao": "Diretor vencedor do Oscar, criador de 'Corra!' e responsável por renovar o terror social.",
         "img": "Jordan_Peele.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "34",
@@ -393,7 +393,7 @@
         "area": "Música",
         "descricao": "Cantora e apresentadora brasileira, símbolo de empoderamento.",
         "img": "Iza.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "36",
@@ -426,7 +426,7 @@
         "area": "Jornalismo",
         "descricao": "Primeira mulher negra apresentadora do Jornal Nacional.",
         "img": "Maju_Coutinho.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "39",
@@ -437,7 +437,7 @@
         "area": "Saúde / Entretenimento",
         "descricao": "Médica anestesista e vencedora do BBB 20.",
         "img": "Thelma_Assis.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "40",
@@ -459,7 +459,7 @@
         "area": "Cinema / Ativismo",
         "descricao": "Ator de Star Wars e voz ativa contra o racismo no cinema.",
         "img": "John_Boyega.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "42",
@@ -470,7 +470,7 @@
         "area": "Música / Cinema",
         "descricao": "Cantora e atriz, destaque no afrofuturismo.",
         "img": "Janelle_Monae.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "43",
@@ -481,7 +481,7 @@
         "area": "Música / Cinema",
         "descricao": "Cantor e ator brasileiro de projeção internacional.",
         "img": "Seu_Jorge.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "44",
@@ -492,7 +492,7 @@
         "area": "Literatura / Ativismo",
         "descricao": "Escritora e ativista, criadora do conceito de escrevivência, que destaca a vivência das mulheres negras na literatura.",
         "img": "Conceicao_Evaristo.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "45",
@@ -525,7 +525,7 @@
         "area": "Filosofia / Direitos Humanos",
         "descricao": "Filósofa e ativista feminista negra, fundadora do Geledés — Instituto da Mulher Negra.",
         "img": "Sueli_Carneiro.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "48",
@@ -536,7 +536,7 @@
         "area": "Música / Cultura Periférica",
         "descricao": "Líder dos Racionais MC's, uma das figuras mais influentes da música e da política cultural brasileira.",
         "img": "Mano_Brown.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "49",
@@ -547,7 +547,7 @@
         "area": "Música / Performance / Ativismo",
         "descricao": "Cantora, atriz e performer, figura importante na luta por direitos LGBTQIA+ e na arte contemporânea.",
         "img": "Linn_Quebrada.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "50",
@@ -569,7 +569,7 @@
         "area": "Cinema / TV / Humor",
         "descricao": "Atriz, roteirista e comediante norte-americana, vencedora do Emmy pela série 'The Bear'.",
         "img": "Ayo_Edebiri.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "52",
@@ -591,7 +591,7 @@
         "area": "Música / Performance",
         "descricao": "Cantora e compositora brasileira, primeira artista trans a vencer o Grammy Latino.",
         "img": "Liniker.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "54",
@@ -602,7 +602,7 @@
         "area": "Liderança / Resistência",
         "descricao": "Líder do Quilombo dos Palmares e símbolo histórico da resistência contra a escravidão no Brasil.",
         "img": "Zumbi_Palmares.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "55",
@@ -613,7 +613,7 @@
         "area": "Liderança / Resistência",
         "descricao": "Guerreira quilombola, estrategista e uma das maiores lideranças femininas da luta contra a escravidão.",
         "img": "Dandara_Palmares.jpg",
-        "raridade": "comum"
+        "raridade": "raro"
     },
     {
         "id": "56",

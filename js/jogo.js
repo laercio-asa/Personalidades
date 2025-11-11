@@ -71,10 +71,11 @@ function renderPhotos() {
         const card = document.createElement('article');
         card.className = 'card border-0';
         card.setAttribute('data-aos', 'flip-left');
+        const raridade = p.raridade == "raro" ? 'border border-5 border-warning' : '';
         card.innerHTML = `
           <div class="badge2" tabindex="0" data-bs-custom-class="custom-popover" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-title="Dica" data-bs-content="${p.descricao}">🚨</div>
           <div class="imgbox">
-            <img src="./img/${p.img}" alt="Foto para adivinhar o personagem ${idx + 1}" onerror="this.alt='Falha ao carregar imagem'; this.style.objectFit='contain'; this.style.background='#0b1220'"/>
+            <img class="${raridade}" src="./img/${p.img}" alt="Foto para adivinhar o personagem ${idx + 1}" onerror="this.alt='Falha ao carregar imagem'; this.style.objectFit='contain'; this.style.background='#0b1220'"/>
             <div class="dropZone" data-photo="${p.id}" aria-label="Solte um nome aqui" role="button" tabindex="0">
               Solte o nome aqui
             </div>
@@ -282,9 +283,10 @@ function atualizarContador() {
 function exibirCartasAntes() {
     let cartaJogador = jogador[0];
     let cartaComputador = computador[0];
-
+    
+    $raro = cartaJogador.raridade == "raro" ? 'border border-5 border-warning' : 'border border-primary';
     document.getElementById("carta-jogador").innerHTML = `
-        <div class="card h-100 bg-black border border-primary text-white" data-aos="flip-left">
+        <div class="card h-100 bg-black ${$raro} text-white" data-aos="flip-left">
             <h3 class="px-2 bg-primary pb-2">${cartaJogador.nome}</h3>
             <img src="./img/${cartaJogador.img || ''}" class="pt-2 card-img-top" alt="...">
             <div class="card-body">
@@ -314,8 +316,9 @@ function exibirCartasAntes() {
         </div>
     `;
 
+    $raro = cartaComputador.raridade == "raro" ? 'border border-5 border-warning' : 'border border-success';
     document.getElementById("carta-computador").innerHTML = `
-        <div class="card h-100 bg-black border border-success text-white" data-aos="flip-left">
+        <div class="card h-100 bg-black ${$raro} text-white" data-aos="flip-left">
             <h3 class="px-2 bg-success pb-2">${cartaComputador.nome}</h3>
             <img src="./img/${cartaComputador.img || ''}" class="pt-2 card-img-top" alt="...">
             <div class="card-body">
@@ -406,8 +409,9 @@ function batalhar(caracteristica) {
 
 
     // Mostra agora as duas cartas completas
+    $raro = cartaComputador.raridade == "raro" ? 'border border-5 border-warning' : 'border border-success';
     document.getElementById("carta-computador").innerHTML = `
-          <div class="card h-100 bg-black border border-success text-white" data-aos="flip-left">
+          <div class="card h-100 bg-black ${$raro} text-white" data-aos="flip-left">
             <h3 class="px-2 bg-success pb-2">${cartaComputador.nome}</h3>
             <img src="./img/${cartaComputador.img || ''}" class="pt-2 card-img-top" alt="...">
             <div class="card-body">

@@ -2,200 +2,182 @@
     {
         "id": "0",
         "nome": "Emicida",
-        "inteligencia": 9.0,
+        "inteligencia": 9,
         "carisma": 10,
-        "coragem": 9.0,
+        "coragem": 9,
         "area": "Música / Cultura",
         "descricao": "Rapper, produtor e uma das vozes mais influentes da cultura negra no Brasil.",
-        "img": "emicida.jpg",
-        "raridade": "comum"
+        "img": "emicida.jpg"
     },
     {
         "id": "1",
         "nome": "Lázaro Ramos",
-        "inteligencia": 9.0,
+        "inteligencia": 9,
         "carisma": 10,
-        "coragem": 8.0,
+        "coragem": 8,
         "area": "Cinema / TV",
         "descricao": "Ator, diretor e escritor, referência na representatividade negra no audiovisual.",
-        "img": "lazaro_ramos.jpg",
-        "raridade": "comum"
+        "img": "lazaro_ramos.jpg"
     },
     {
         "id": "2",
         "nome": "Taís Araújo",
-        "inteligencia": 9.0,
+        "inteligencia": 9,
         "carisma": 10,
-        "coragem": 9.0,
+        "coragem": 9,
         "area": "Cinema / TV",
         "descricao": "Atriz e ativista, pioneira como protagonista negra em novelas brasileiras.",
-        "img": "tais_araujo.jpg",
-        "raridade": "comum"
+        "img": "tais_araujo.jpg"
     },
     {
         "id": "3",
         "nome": "Djonga",
-        "inteligencia": 8.0,
-        "carisma": 9.0,
-        "coragem": 9.0,
+        "inteligencia": 8,
+        "carisma": 9,
+        "coragem": 9,
         "area": "Música / Cultura urbana",
         "descricao": "Rapper mineiro reconhecido pela força crítica e poética de suas letras.",
-        "img": "djonga.jpg",
-        "raridade": "comum"
+        "img": "djonga.jpg"
     },
     {
         "id": "4",
         "nome": "Baco Exu do Blues",
-        "inteligencia": 8.0,
-        "carisma": 9.0,
-        "coragem": 9.0,
+        "inteligencia": 8,
+        "carisma": 9,
+        "coragem": 9,
         "area": "Música / Arte",
         "descricao": "Cantor e compositor que mistura rap, pop e afrofuturismo.",
-        "img": "baco_exu.jpg",
-        "raridade": "comum"
+        "img": "baco_exu.jpg"
     },
     {
         "id": "5",
         "nome": "Mahershala Ali",
-        "inteligencia": 9.0,
+        "inteligencia": 9,
         "carisma": 10,
-        "coragem": 8.0,
+        "coragem": 8,
         "area": "Cinema",
         "descricao": "Ator norte-americano vencedor de dois Oscars.",
-        "img": "mahershala_ali.jpg",
-        "raridade": "comum"
+        "img": "mahershala_ali.jpg"
     },
     {
         "id": "6",
         "nome": "Viola Davis",
         "inteligencia": 10,
         "carisma": 10,
-        "coragem": 9.0,
+        "coragem": 9,
         "area": "Cinema / Teatro",
         "descricao": "Atriz multipremiada e ativista pelos direitos sociais.",
-        "img": "viola_davis.jpg",
-        "raridade": "raro"
+        "img": "viola_davis.jpg"
     },
     {
         "id": "7",
         "nome": "Donald Glover",
         "inteligencia": 10,
-        "carisma": 9.0,
-        "coragem": 8.0,
+        "carisma": 9,
+        "coragem": 8,
         "area": "Música / Cinema",
         "descricao": "Ator, roteirista e músico, também conhecido como Childish Gambino.",
-        "img": "donald_glover.jpg",
-        "raridade": "comum"
+        "img": "donald_glover.jpg"
     },
     {
         "id": "8",
         "nome": "Beyoncé",
-        "inteligencia": 9.0,
+        "inteligencia": 9,
         "carisma": 10,
         "coragem": 10,
         "area": "Música / Negócios",
         "descricao": "Cantora, produtora e ícone global da arte e do empoderamento feminino.",
-        "img": "beyonce.jpg",
-        "raridade": "raro"
+        "img": "beyonce.jpg"
     },
     {
         "id": "9",
         "nome": "Itamar Vieira Junior",
         "inteligencia": 10,
-        "carisma": 8.0,
-        "coragem": 8.0,
+        "carisma": 8,
+        "coragem": 8,
         "area": "Literatura",
         "descricao": "Escritor brasileiro premiado, autor do fenômeno 'Torto Arado'.",
-        "img": "itamar_viera.jpg",
-        "raridade": "comum"
+        "img": "itamar_viera.jpg"
     },
     {
         "id": "10",
         "nome": "Djamila Ribeiro",
         "inteligencia": 10,
-        "carisma": 9.0,
-        "coragem": 9.0,
+        "carisma": 9,
+        "coragem": 9,
         "area": "Filosofia / Direitos Humanos",
         "descricao": "Filósofa e uma das principais vozes sobre feminismo negro no Brasil.",
-        "img": "djamila_ribeiro.jpg",
-        "raridade": "comum"
+        "img": "djamila_ribeiro.jpg"
     },
     {
         "id": "11",
         "nome": "Chimamanda Ngozi Adichie",
         "inteligencia": 10,
         "carisma": 10,
-        "coragem": 9.0,
+        "coragem": 9,
         "area": "Literatura / Ativismo",
         "descricao": "Escritora nigeriana, referência mundial em debates sobre feminismo e identidade.",
-        "img": "chimamanda.jpg",
-        "raridade": "raro"
+        "img": "chimamanda.jpg"
     },
     {
         "id": "12",
         "nome": "Trevor Noah",
-        "inteligencia": 9.0,
+        "inteligencia": 9,
         "carisma": 10,
-        "coragem": 8.0,
+        "coragem": 8,
         "area": "Humor / Jornalismo",
         "descricao": "Comediante sul-africano e ex-apresentador do The Daily Show.",
-        "img": "trevor_noah.jpg",
-        "raridade": "comum"
+        "img": "trevor_noah.jpg"
     },
     {
         "id": "13",
         "nome": "Sônia Guimarães",
         "inteligencia": 10,
-        "carisma": 8.0,
-        "coragem": 9.0,
+        "carisma": 8,
+        "coragem": 9,
         "area": "Ciência / Física",
         "descricao": "Primeira mulher negra doutora em física no ITA e referência em educação.",
-        "img": "sonia_guimaraes.jpg",
-        "raridade": "comum"
+        "img": "sonia_guimaraes.jpg"
     },
     {
         "id": "14",
         "nome": "Timnit Gebru",
         "inteligencia": 10,
-        "carisma": 8.0,
+        "carisma": 8,
         "coragem": 10,
         "area": "Tecnologia / IA",
         "descricao": "Cientista da computação e líder global em ética da inteligência artificial.",
-        "img": "timnit_gebru.jpg",
-        "raridade": "comum"
+        "img": "timnit_gebru.jpg"
     },
     {
         "id": "15",
         "nome": "Neil deGrasse Tyson",
         "inteligencia": 10,
         "carisma": 10,
-        "coragem": 8.0,
+        "coragem": 8,
         "area": "Ciência / Astrofísica",
         "descricao": "Astrofísico e divulgador científico reconhecido mundialmente.",
-        "img": "neil_tyson.jpg",
-        "raridade": "comum"
+        "img": "neil_tyson.jpg"
     },
     {
         "id": "16",
         "nome": "Marina Silva",
-        "inteligencia": 9.0,
-        "carisma": 8.0,
+        "inteligencia": 9,
+        "carisma": 8,
         "coragem": 10,
         "area": "Política / Meio Ambiente",
         "descricao": "Ambientalista brasileira e uma das maiores lideranças ecológicas do mundo.",
-        "img": "marina_silva.jpg",
-        "raridade": "comum"
+        "img": "marina_silva.jpg"
     },
     {
         "id": "17",
         "nome": "Erika Hilton",
-        "inteligencia": 9.0,
-        "carisma": 9.0,
+        "inteligencia": 9,
+        "carisma": 9,
         "coragem": 10,
         "area": "Política / Direitos Humanos",
         "descricao": "Primeira deputada federal trans negra do Brasil, referência em direitos civis.",
-        "img": "erica_hilton.jpg",
-        "raridade": "comum"
+        "img": "erica_hilton.jpg"
     },
     {
         "id": "18",
@@ -205,118 +187,107 @@
         "coragem": 10,
         "area": "Direitos Humanos / Filosofia",
         "descricao": "Intelectual e ativista global pelos direitos civis.",
-        "img": "angela_davis.jpg",
-        "raridade": "raro"
+        "img": "angela_davis.jpg"
     },
     {
         "id": "19",
         "nome": "Patrisse Cullors",
-        "inteligencia": 9.0,
-        "carisma": 8.0,
+        "inteligencia": 9,
+        "carisma": 8,
         "coragem": 10,
         "area": "Ativismo / Direitos Humanos",
         "descricao": "Co-fundadora do movimento Black Lives Matter.",
-        "img": "patrisse_cullors.jpg",
-        "raridade": "comum"
+        "img": "patrisse_cullors.jpg"
     },
     {
         "id": "20",
         "nome": "Barack Obama",
         "inteligencia": 10,
         "carisma": 10,
-        "coragem": 9.0,
+        "coragem": 9,
         "area": "Política",
         "descricao": "44º presidente dos EUA e símbolo de liderança e inclusão.",
-        "img": "barack_obama.jpg",
-        "raridade": "raro"
+        "img": "barack_obama.jpg"
     },
     {
         "id": "21",
         "nome": "Michelle Obama",
         "inteligencia": 10,
         "carisma": 10,
-        "coragem": 9.0,
+        "coragem": 9,
         "area": "Política / Liderança",
         "descricao": "Advogada, escritora e ex-primeira-dama dos EUA, referência global.",
-        "img": "michelle_obama.jpg",
-        "raridade": "raro"
+        "img": "michelle_obama.jpg"
     },
     {
         "id": "22",
         "nome": "Vinícius Júnior",
-        "inteligencia": 8.0,
-        "carisma": 9.0,
+        "inteligencia": 8,
+        "carisma": 9,
         "coragem": 10,
         "area": "Esporte / Futebol",
         "descricao": "Jogador brasileiro do Real Madrid e símbolo do combate ao racismo.",
-        "img": "vinícius_junior.jpg",
-        "raridade": "comum"
+        "img": "vinícius_junior.jpg"
     },
     {
         "id": "23",
         "nome": "Rebeca Andrade",
-        "inteligencia": 8.0,
-        "carisma": 9.0,
+        "inteligencia": 8,
+        "carisma": 9,
         "coragem": 10,
         "area": "Esporte / Ginástica",
         "descricao": "Campeã olímpica e maior ginasta brasileira da história.",
-        "img": "rebeca_andrade.jpg",
-        "raridade": "comum"
+        "img": "rebeca_andrade.jpg"
     },
     {
         "id": "24",
         "nome": "Serena Williams",
-        "inteligencia": 9.0,
+        "inteligencia": 9,
         "carisma": 10,
         "coragem": 10,
         "area": "Esporte / Tênis",
         "descricao": "Considerada a maior tenista de todos os tempos.",
-        "img": "serena_williams.jpg",
-        "raridade": "raro"
+        "img": "serena_williams.jpg"
     },
     {
         "id": "25",
         "nome": "LeBron James",
-        "inteligencia": 9.0,
+        "inteligencia": 9,
         "carisma": 10,
-        "coragem": 9.0,
+        "coragem": 9,
         "area": "Esporte / Basquete",
         "descricao": "Jogador da NBA e líder social e filantrópico.",
-        "img": "LeBron_James.jpg",
-        "raridade": "comum"
+        "img": "LeBron_James.jpg"
     },
     {
         "id": "26",
         "nome": "Lewis Hamilton",
         "inteligencia": 10,
-        "carisma": 9.0,
+        "carisma": 9,
         "coragem": 10,
         "area": "Esporte / F1",
         "descricao": "Heptacampeão mundial de Fórmula 1 e ativista antirracismo.",
-        "img": "Lewis_Hamilton.jpg",
-        "raridade": "raro"
+        "img": "Lewis_Hamilton.jpg"
     },
     {
         "id": "27",
         "nome": "Kylian Mbappé",
-        "inteligencia": 8.0,
-        "carisma": 9.0,
-        "coragem": 8.0,
+        "inteligencia": 8,
+        "carisma": 9,
+        "coragem": 8,
         "area": "Esporte / Futebol",
         "descricao": "Craque francês, campeão mundial e fenômeno global.",
-        "img": "Kylian_Mbappe.jpg",
-        "raridade": "comum"
+        "img": "Kylian_Mbappe.jpg"
     },
     {
         "id": "28",
         "nome": "Nina Silva",
         "inteligencia": 10,
-        "carisma": 9.0,
-        "coragem": 9.0,
+        "carisma": 9,
+        "coragem": 9,
         "area": "Negócios / Tecnologia",
         "descricao": "Fundadora do Movimento Black Money e referência em diversidade no mercado.",
-        "img": "Nina_Silva.jpg",
-        "raridade": "comum"
+        "img": "Nina_Silva.jpg"
     },
     {
         "id": "29",
@@ -326,162 +297,147 @@
         "coragem": 10,
         "area": "Mídia / Negócios",
         "descricao": "Apresentadora e empresária bilionária, referência global de influência.",
-        "img": "Oprah_Winfrey.jpg",
-        "raridade": "raro"
+        "img": "Oprah_Winfrey.jpg"
     },
     {
         "id": "30",
         "nome": "Rihanna",
-        "inteligencia": 9.0,
+        "inteligencia": 9,
         "carisma": 10,
         "coragem": 10,
         "area": "Música / Negócios",
         "descricao": "Cantora e dona da Fenty Beauty, uma das mulheres mais influentes do mundo.",
-        "img": "Rihanna.jpg",
-        "raridade": "raro"
+        "img": "Rihanna.jpg"
     },
     {
         "id": "31",
         "nome": "Virgil Abloh",
         "inteligencia": 10,
-        "carisma": 9.0,
-        "coragem": 8.0,
+        "carisma": 9,
+        "coragem": 8,
         "area": "Moda / Design",
         "descricao": "Estilista e ex-diretor artístico da Louis Vuitton.",
-        "img": "Virgil_Abloh.jpg",
-        "raridade": "comum"
+        "img": "Virgil_Abloh.jpg"
     },
     {
         "id": "32",
         "nome": "Zendaya",
-        "inteligencia": 8.0,
+        "inteligencia": 8,
         "carisma": 10,
-        "coragem": 9.0,
+        "coragem": 9,
         "area": "Cinema / Moda",
         "descricao": "Atriz e modelo premiada, ícone da moda e da representatividade jovem.",
-        "img": "Zendaya.jpg",
-        "raridade": "comum"
+        "img": "Zendaya.jpg"
     },
     {
         "id": "33",
         "nome": "Jordan Peele",
         "inteligencia": 10,
-        "carisma": 8.0,
-        "coragem": 9.0,
+        "carisma": 8,
+        "coragem": 9,
         "area": "Cinema / Direção",
         "descricao": "Diretor vencedor do Oscar, criador de 'Corra!' e responsável por renovar o terror social.",
-        "img": "Jordan_Peele.jpg",
-        "raridade": "comum"
+        "img": "Jordan_Peele.jpg"
     },
     {
         "id": "34",
         "nome": "Letitia Wright",
-        "inteligencia": 8.0,
-        "carisma": 9.0,
-        "coragem": 8.0,
+        "inteligencia": 8,
+        "carisma": 9,
+        "coragem": 8,
         "area": "Cinema",
         "descricao": "Atriz de 'Pantera Negra', destaque internacional.",
-        "img": "Letitia_Wright.jpg",
-        "raridade": "comum"
+        "img": "Letitia_Wright.jpg"
     },
     {
         "id": "35",
         "nome": "Iza",
-        "inteligencia": 8.0,
+        "inteligencia": 8,
         "carisma": 10,
-        "coragem": 9.0,
+        "coragem": 9,
         "area": "Música",
         "descricao": "Cantora e apresentadora brasileira, símbolo de empoderamento.",
-        "img": "Iza.jpg",
-        "raridade": "comum"
+        "img": "Iza.jpg"
     },
     {
         "id": "36",
         "nome": "Majur",
-        "inteligencia": 8.0,
-        "carisma": 9.0,
-        "coragem": 9.0,
+        "inteligencia": 8,
+        "carisma": 9,
+        "coragem": 9,
         "area": "Música",
         "descricao": "Artista baiana em ascensão e referência LGBTQIA+.",
-        "img": "Majur.jpg",
-        "raridade": "comum"
+        "img": "Majur.jpg"
     },
     {
         "id": "37",
         "nome": "Paulo Vieira",
-        "inteligencia": 8.0,
+        "inteligencia": 8,
         "carisma": 10,
-        "coragem": 8.0,
+        "coragem": 8,
         "area": "Humor / TV",
         "descricao": "Humorista e apresentador brasileiro, em ascensão nacional.",
-        "img": "Paulo_Vieira.jpg",
-        "raridade": "comum"
+        "img": "Paulo_Vieira.jpg"
     },
     {
         "id": "38",
         "nome": "Maju Coutinho",
-        "inteligencia": 9.0,
+        "inteligencia": 9,
         "carisma": 10,
-        "coragem": 9.0,
+        "coragem": 9,
         "area": "Jornalismo",
         "descricao": "Primeira mulher negra apresentadora do Jornal Nacional.",
-        "img": "Maju_Coutinho.jpg",
-        "raridade": "comum"
+        "img": "Maju_Coutinho.jpg"
     },
     {
         "id": "39",
         "nome": "Thelma Assis",
-        "inteligencia": 9.0,
-        "carisma": 9.0,
-        "coragem": 9.0,
+        "inteligencia": 9,
+        "carisma": 9,
+        "coragem": 9,
         "area": "Saúde / Entretenimento",
         "descricao": "Médica anestesista e vencedora do BBB 20.",
-        "img": "Thelma_Assis.jpg",
-        "raridade": "comum"
+        "img": "Thelma_Assis.jpg"
     },
     {
         "id": "40",
         "nome": "Colman Domingo",
-        "inteligencia": 9.0,
-        "carisma": 9.0,
-        "coragem": 8.0,
+        "inteligencia": 9,
+        "carisma": 9,
+        "coragem": 8,
         "area": "Cinema",
         "descricao": "Ator em ascensão indicado ao Oscar, destaque em 'Rustin'.",
-        "img": "Colman_Domingo.jpg",
-        "raridade": "comum"
+        "img": "Colman_Domingo.jpg"
     },
     {
         "id": "41",
         "nome": "John Boyega",
-        "inteligencia": 8.0,
+        "inteligencia": 8,
         "carisma": 10,
-        "coragem": 9.0,
+        "coragem": 9,
         "area": "Cinema / Ativismo",
         "descricao": "Ator de Star Wars e voz ativa contra o racismo no cinema.",
-        "img": "John_Boyega.jpg",
-        "raridade": "comum"
+        "img": "John_Boyega.jpg"
     },
     {
         "id": "42",
         "nome": "Janelle Monáe",
-        "inteligencia": 9.0,
+        "inteligencia": 9,
         "carisma": 10,
-        "coragem": 9.0,
+        "coragem": 9,
         "area": "Música / Cinema",
         "descricao": "Cantora e atriz, destaque no afrofuturismo.",
-        "img": "Janelle_Monae.jpg",
-        "raridade": "comum"
+        "img": "Janelle_Monae.jpg"
     },
     {
         "id": "43",
         "nome": "Seu Jorge",
-        "inteligencia": 9.0,
+        "inteligencia": 9,
         "carisma": 10,
-        "coragem": 9.0,
+        "coragem": 9,
         "area": "Música / Cinema",
         "descricao": "Cantor e ator brasileiro de projeção internacional.",
-        "img": "Seu_Jorge.jpg",
-        "raridade": "comum"
+        "img": "Seu_Jorge.jpg"
     },
     {
         "id": "44",
@@ -491,52 +447,47 @@
         "coragem": 10,
         "area": "Literatura / Ativismo",
         "descricao": "Escritora e ativista, criadora do conceito de escrevivência, que destaca a vivência das mulheres negras na literatura.",
-        "img": "Conceicao_Evaristo.jpg",
-        "raridade": "comum"
+        "img": "Conceicao_Evaristo.jpg"
     },
     {
         "id": "45",
         "nome": "Milton Santos",
         "inteligencia": 10,
         "carisma": 7.5,
-        "coragem": 9.0,
+        "coragem": 9,
         "area": "Geografia / Academia",
         "descricao": "Um dos maiores geógrafos do mundo, crítico da globalização e vencedor do prêmio Vautrin Lud.",
-        "img": "Milton_Santos.jpg",
-        "raridade": "comum"
+        "img": "Milton_Santos.jpg"
     },
     {
         "id": "46",
         "nome": "Abdias do Nascimento",
         "inteligencia": 10,
-        "carisma": 9.0,
+        "carisma": 9,
         "coragem": 10,
         "area": "Ativismo / Política / Arte",
         "descricao": "Ativista, artista e político, fundador do Teatro Experimental do Negro e referência do movimento negro brasileiro.",
-        "img": "Abdias_Nascimento.jpg",
-        "raridade": "raro"
+        "img": "Abdias_Nascimento.jpg"
     },
     {
         "id": "47",
         "nome": "Sueli Carneiro",
         "inteligencia": 10,
         "carisma": 8.5,
-        "coragem": 9.0,
+        "coragem": 9,
         "area": "Filosofia / Direitos Humanos",
         "descricao": "Filósofa e ativista feminista negra, fundadora do Geledés — Instituto da Mulher Negra.",
-        "img": "Sueli_Carneiro.jpg",
-        "raridade": "comum"
+        "img": "Sueli_Carneiro.jpg"
     },
     {
         "id": "48",
         "nome": "Mano Brown",
-        "inteligencia": 9.0,
+        "inteligencia": 9,
         "carisma": 10,
         "coragem": 9.5,
         "area": "Música / Cultura Periférica",
         "descricao": "Líder dos Racionais MC's, uma das figuras mais influentes da música e da política cultural brasileira.",
-        "img": "Mano_Brown.jpg",
-        "raridade": "comum"
+        "img": "Mano_Brown.jpg"
     },
     {
         "id": "49",
@@ -546,19 +497,17 @@
         "coragem": 10,
         "area": "Música / Performance / Ativismo",
         "descricao": "Cantora, atriz e performer, figura importante na luta por direitos LGBTQIA+ e na arte contemporânea.",
-        "img": "Linn_Quebrada.jpg",
-        "raridade": "comum"
+        "img": "Linn_Quebrada.jpg"
     },
     {
         "id": "50",
         "nome": "Gilberto Gil",
         "inteligencia": 10,
         "carisma": 10,
-        "coragem": 9.0,
+        "coragem": 9,
         "area": "Música / Cultura / Política",
         "descricao": "Músico, ex-ministro da Cultura e um dos maiores nomes da música brasileira e da Tropicália.",
-        "img": "Gilberto_Gil.jpg",
-        "raridade": "raro"
+        "img": "Gilberto_Gil.jpg"
     },
     {
         "id": "51",
@@ -568,8 +517,7 @@
         "coragem": 8.5,
         "area": "Cinema / TV / Humor",
         "descricao": "Atriz, roteirista e comediante norte-americana, vencedora do Emmy pela série 'The Bear'.",
-        "img": "Ayo_Edebiri.jpg",
-        "raridade": "comum"
+        "img": "Ayo_Edebiri.jpg"
     },
     {
         "id": "52",
@@ -579,8 +527,7 @@
         "coragem": 9.5,
         "area": "Música / Cultura",
         "descricao": "Rapper norte-americano vencedor do Pulitzer, considerado um dos maiores letristas contemporâneos.",
-        "img": "Kendrick_Lamar.jpg",
-        "raridade": "raro"
+        "img": "Kendrick_Lamar.jpg"
     },
     {
         "id": "53",
@@ -590,8 +537,7 @@
         "coragem": 10,
         "area": "Música / Performance",
         "descricao": "Cantora e compositora brasileira, primeira artista trans a vencer o Grammy Latino.",
-        "img": "Liniker.jpg",
-        "raridade": "comum"
+        "img": "Liniker.jpg"
     },
     {
         "id": "54",
@@ -601,8 +547,7 @@
         "coragem": 10,
         "area": "Liderança / Resistência",
         "descricao": "Líder do Quilombo dos Palmares e símbolo histórico da resistência contra a escravidão no Brasil.",
-        "img": "Zumbi_Palmares.jpg",
-        "raridade": "comum"
+        "img": "Zumbi_Palmares.jpg"
     },
     {
         "id": "55",
@@ -612,8 +557,7 @@
         "coragem": 10,
         "area": "Liderança / Resistência",
         "descricao": "Guerreira quilombola, estrategista e uma das maiores lideranças femininas da luta contra a escravidão.",
-        "img": "Dandara_Palmares.jpg",
-        "raridade": "comum"
+        "img": "Dandara_Palmares.jpg"
     },
     {
         "id": "56",
@@ -623,7 +567,6 @@
         "coragem": 8.5,
         "area": "Cinema / Música / Ativismo",
         "descricao": "Ator, rapper e ativista ambiental, criador do projeto JUST Water e de ações humanitárias.",
-        "img": "Jaden_Smith.jpg",
-        "raridade": "comum"
+        "img": "Jaden_Smith.jpg"
     }
 ]

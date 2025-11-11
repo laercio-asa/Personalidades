@@ -1,106 +1,87 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-bs-theme="dark">
+<html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Personalidades pretas da atualidade, você conhece?</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link href="./css/style.css" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jogo das Personalidades Negras</title>
+  <!-- Bootstrap CSS (versão 5) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #1a1a1a;
+      color: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .intro-container {
+      text-align: center;
+      padding: 2rem;
+      max-width: 600px;
+      background: #222;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .intro-container h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #ffcc00;
+    }
+
+    .intro-container p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn-start {
+      font-size: 1.2rem;
+      padding: 0.75rem 2rem;
+    }
+
+    .logo {
+      max-width: 120px;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 576px) {
+      .intro-container h1 {
+        font-size: 2rem;
+      }
+    }
+
+    body {
+      background-image: url(./img/bg.jpg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: right;
+      background-color: #9D8DF8;
+    }
+  </style>
 </head>
 
 <body>
-  <div class="wrap container-fluid">
-    <header class="position-fixed pe-4 w-100" id="menu">
-      <div class="row">
-        <div class="col">
-          <h1 id="titulo" class="py-2">👤 Acerte o nome da sua equipe para começar!</h1>
-        </div>
-        <div class="col-auto">
-          <div class="controls py-2" id="controls">
-            <button id="resetBtn" class="secondary" title="Reiniciar jogo">↺ Reiniciar</button>
-          </div>
-        </div>
-      </div>
-      <aside class="names" id="names">
-        <div class="pool" id="namePool"></div>
-      </aside>
-    </header>
-
-    <div id="board" class="board mb-5" role="application" aria-label="Jogo de associação de nomes a fotos">
-      <div class="py-2">🚨 - Clique na sirene para ver uma breve descrição da Personalidade.</div>
-      <section class="photos row row-cols-1 row-cols-md-5 g-4" id="photos"></section>
-    </div>
-
-    <div class="container my-5 d-none" id="batalha-container">
-      <div id="contador" class="text-center rounded-pill border border-warning bg-dark py-3 h3 my-4"></div>
-      <div class="row row-cols-1 row-cols-md-3 g-4" id="batalha">
-        <div class="col" id="carta-jogador">
-        </div>
-        <div class="col">
-          <div class="progress my-2" role="progressbar" aria-label="high" aria-valuenow="0" aria-valuemin="0"
-            aria-valuemax="100" style="height: 30px">
-            <div class="progress-bar bg-warning" id="progresso" style="width: 0%"></div>
-          </div>
-          <div id="resultado" class="text-center"></div>
-          <div id="pergunta"></div>
-          <div id="botoes">
-            <p><button id="btn-inteligencia" class="btn btn-warning btn-escolha w-100 rounded-pill"
-                onclick="batalhar('inteligencia')">🧠 Inteligência</button></p>
-            <p><button id="btn-carisma" class="btn btn-warning btn-escolha w-100 rounded-pill"
-                onclick="batalhar('carisma')">💬 Carisma</button></p>
-            <p><button id="btn-coragem" class="btn btn-warning btn-escolha w-100 rounded-pill"
-                onclick="batalhar('coragem')">🔥 Coragem</button></p>
-          </div>
-          <div id="mensagem" class="py-3"></div>
-        </div>
-        <div class="col" id="carta-computador"></div>
-      </div>
-    </div>
-
-    <footer class="fixed-bottom bg-dark">
-      <div id="photo-personagens" class="footer">
-        <div class="score">Acertos: <span id="points">0</span>/<span id="total">0</span></div>
-        <small>Dica: você pode trocar um nome arrastando-o outro nome em cima do anterior.</small>
-      </div>
-    </footer>
+  <div class="intro-container">
+    <!-- Logo opcional -->
+    <h1>Jogo das Personalidades Pretas</h1>
+    <p>Conheça grandes personalidades pretas e teste seu conhecimento!<br>
+      Na <strong>primeira fase</strong>, acerte os Personagens de suas cartas.<br>
+      Na <strong>segunda fase</strong>, desafie o Computador em um jogo no estilo Super Trunfo!</p>
+    <button type="button" class="btn btn-warning btn-start fw-bold" onclick="startGame()">Começar o Jogo</button>
   </div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="staticBackdropLabel">🔥 Batalha de Personalidades</h1>
-        </div>
-        <div class="modal-body text-center">
-          <h3><span style="font-size:3rem">🎉</span><br>Parabéns!</h3>
-          <h5 id="texto-modal" class="my-3"></h5>
-          <h5>Agora você já conhece todos as Personalidade vamos para a Batalha!</h5>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-warning rounded-pill fw-bold px-3" onclick="continuar();" data-bs-dismiss="modal">Continuar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-    crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Bootstrap JS (opcional) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    AOS.init();
+    function startGame() {
+      // Aqui vai o código que inicia o jogo ou redireciona
+      window.location.href = "jogo.html"; // Exemplo de redirecionamento
+    }
   </script>
-  <script>
-    let popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-    let popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
-  </script>
-  <script src="./js/jogo.js"></script>
-
 </body>
 
 </html>
