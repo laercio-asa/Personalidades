@@ -281,7 +281,7 @@ window.onscroll = function () {
 // batalha das personalidades
 function atualizarContador() {
     document.getElementById("contador").innerHTML =
-        `🃏 Cartas - <span class="text-primary">Você: ${jogador.length}</span> | <span class="text-success">Computador: ${computador.length}</span>`;
+        `<span class="text-primary d-block d-md-inline">Você: ${jogador.length} 🃏</span><span class="d-none d-md-inline"> | </span><span class="text-success d-block d-md-inline">Computador: ${computador.length} 🃏</span>`;
 }
 
 function exibirCartasAntes() {
@@ -460,7 +460,7 @@ function batalhar(caracteristica) {
         document.getElementById("resultado").style.marginLeft = `${tamanho}px`;
     }
     // document.getElementById("botoes").innerHTML = "";
-    document.getElementById("progresso").focus();
+    document.getElementById("progresso").scrollIntoView();
     atualizarContador();
     setTimeout(proximaRodada, 4000);
 }
@@ -472,6 +472,7 @@ function continuar() {
     document.getElementById("batalha-container").classList.remove("d-none");
     atualizarContador();
     exibirCartasAntes();
+    document.getElementById("progresso").scrollIntoView();
 }
 
 function proximaRodada() {
