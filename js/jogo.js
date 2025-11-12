@@ -26,13 +26,38 @@ function iniciar() {
     posicao();
 }
 
+function mostrarPersonalidades() {
+    equipe = personalidades;
+    equipe.sort((a, b) => a.nome.localeCompare(b.nome));;
+    renderPhotos(1);
+    popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+    popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+}
+
 function iniciar_jogo(c) {
+
+    setInterval(atualizarTempo, 1000);
+
     cartas = c;
+
+    if (c == 5) {
+        iconeNivel = 'semente.png';
+    }
+    else if (c == 10) {
+        iconeNivel = 'quilombo.png';
+    }
+    else if (c == 15) {
+        iconeNivel = 'baoba.png';
+    }
+    else if (c == 20) {
+        iconeNivel = 'ori.png';
+    }
 
     nomeJogador = prompt("Deseja informar seu nome?");
     nomeJogador = nomeJogador ? nomeJogador.trim() : "Jogador";
 
     document.querySelector(".nome-jogador").textContent = nomeJogador + " ";
+    document.querySelector(".icone-nivel").src = "../img/" + iconeNivel;
 
     const selecionados = sortearSemRepeticao(personalidades, (cartas * 2));
     equipe = sortearSemRepeticao(selecionados, cartas);
@@ -47,7 +72,7 @@ function iniciar_jogo(c) {
         placed: new Map(), // photoId -> name
     };
 
-    renderPhotos();
+    renderPhotos(0);
     renderOptions();
     updateScore();
 
@@ -84,7 +109,7 @@ const $$ = (sel, el = document) => Array.from(el.querySelectorAll(sel));
 const shuffle = arr => arr.sort();
 
 // ======= Render =======
-function renderPhotos() {
+function renderPhotos(tipo = 0) {
     const container = $('#photos');
     container.innerHTML = '';
     equipe.forEach((p, idx) => {
@@ -92,13 +117,20 @@ function renderPhotos() {
         card.className = 'card border-0';
         card.setAttribute('data-aos', 'flip-left');
         const raridade = p.raridade == "raro" ? 'border border-5 border-warning' : '';
+        if (tipo == 1) { 
+            zone = `<div class="dropZone correct" data-photo="${p.id}" role="button" tabindex="0">
+              ${p.nome}
+            </div>`;
+        } else {
+            zone = `<div class="dropZone" data-photo="${p.id}" aria-label="Solte um nome aqui" role="button" tabindex="0">
+              Solte o nome aqui
+            </div>`;
+        };
         card.innerHTML = `
           <div class="badge2" tabindex="0" data-bs-custom-class="custom-popover" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-title="Dica" data-bs-content="${p.descricao}">🚨</div>
           <div class="imgbox">
             <img class="${raridade}" src="./img/${p.img}" alt="Foto para adivinhar o personagem ${idx + 1}" onerror="this.alt='Falha ao carregar imagem'; this.style.objectFit='contain'; this.style.background='#0b1220'"/>
-            <div class="dropZone" data-photo="${p.id}" aria-label="Solte um nome aqui" role="button" tabindex="0">
-              Solte o nome aqui
-            </div>
+            ${zone}
           </div>`;
         container.appendChild(card);
     });
@@ -263,7 +295,7 @@ $('#shuffleBtn')?.addEventListener('click', () => {
 });
 
 $('#resetBtn')?.addEventListener('click', () => {
-    state.points = 0; state.placed.clear(); updateScore(); renderPhotos(); renderOptions();
+    state.points = 0; state.placed.clear(); updateScore(); renderPhotos(0); renderOptions();
     iniciar();
 });
 
@@ -447,14 +479,14 @@ function batalhar(caracteristica) {
     if (valorJ > valorC) {
         resultado = `<img src="../img/vitoria.png" height="100"><br>Você venceu esta rodada!`;
         jogador.push(cartaJogador, cartaComputador);
-        cor = "#fc1212ff";
+        cor = "#fcec12ff";
     } else if (valorJ < valorC) {
         resultado = `<img src="../img/derrota.png" height="100"><br>Você perdeu!`;
         computador.push(cartaJogador, cartaComputador);
         cor = "#8606dbff";
         // cartas descartadas
     } else {
-        resultado = `<img src="../img/empate.png" height="100"><br>Empate! Ambas as cartas foram descartadas.`;
+        resultado = `<img src="../img/empate.png" height="100"><br>Empate!<br>Ambas as cartas foram descartadas.`;
         cor = "#ffc011ff";
     }
 
@@ -489,17 +521,30 @@ function proximaRodada() {
     // document.getElementById("resultado").innerHTML = "";
     if (jogador.length === 0 || computador.length === 0) {
         atualizarContador();
+
+        const min = Math.floor(segundos / 60);
+        const sec = segundos % 60;
+        const tempoTotal = `<h4>Tempo Total: ${String(min).padStart(2, '0')}:${String(sec).padStart(2, '0')}</h4>`;
+
+        const totalPersonalidade = `<h4>Você acertou ${cartas - erradas} personalidade(s).</h4>`
+
+        const totalCartas = `<h4>Você ficou com ${jogador.length} cartas(s).</h4>`
+
+
         let vencedorFinal =
-            jogador.length == computador.length ? `<span style="color:#ffc011ff;">Empatou, os dois ganharam!</span>` : (jogador.length > computador.length ? `<span style="color:#516bffff;">Você venceu o computador!</span>` : `<span style="color:#59fc39ff;">O computador venceu!</span>`);
-        document.getElementById("resultado").innerHTML = `<h2><span style="font-size:3rem">🏆</span><br>${vencedorFinal}</h2>`;
-        document.getElementById("resultado").style.display = "block";
-        document.getElementById("resultado").style.color = "#f9c74f";
-        document.getElementById("resultado").style.color = "#f9c74f";
+            jogador.length == computador.length ? `<span style="color:#ffc011ff;">Empatou, os dois ganharam!</span>` : (jogador.length > computador.length ? `<span style="color:#516bffff;"><img src="../img/ganhou.png" height="100"><br>Você venceu o computador!</span>` : `<span style="color:#59fc39ff;"><img src="../img/perdeu.png" height="100"><br>O computador venceu!</span>`);
+        document.getElementById("resultadoFinal").innerHTML = `<h2>${vencedorFinal}</h2>${tempoTotal}${totalPersonalidade}${totalCartas}`;
+        document.getElementById("resultadoFinal").style.display = "block";
+        document.getElementById("resultadoFinal").style.color = "#f9c74f";
+        document.getElementById("resultadoFinal").style.color = "#f9c74f";
         document.getElementById("pergunta").classList.add("d-none");
         document.getElementById("carta-jogador").classList.add("d-none");
         document.getElementById("carta-computador").classList.add("d-none");
 
-        var myModal = new bootstrap.Modal(document.getElementById('resultadoModal'), {});
+
+
+
+        var myModal = new bootstrap.Modal(document.getElementById('finalModal'), {});
         myModal.show();
 
         // document.getElementById("botoes").innerHTML = "";
