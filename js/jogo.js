@@ -327,7 +327,7 @@ function exibirCartasAntes() {
                 <div class="col-6 col-md-12 d-md-none d-block p-0 m-0">
                     <h6 class="text-center p-1 mb-0 text-success fw-bold">Computador!</h6>
                     <h4 class="text-center bg-success p-2 mb-0">${cartaComputador.nome}</h4>
-                    <div class="badge2" tabindex="0" data-bs-custom-class="custom-popover" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-title="Dica" data-bs-content="${cartaComputador.descricao}">🚨</div>
+                    <div class="badge2"><a href="#carta-computador">🚨</a></div>
                     
                     <div class="img-batalha" style="
                         background-image: url(./img/${cartaComputador.img || ''});
