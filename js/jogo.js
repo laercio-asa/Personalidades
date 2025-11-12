@@ -14,8 +14,6 @@ fetch('./js/personagens.json')
 
 function iniciar() {
 
-    posicao();
-
     var myModal = new bootstrap.Modal(document.getElementById('inicialModal'), {
         // Opções podem ser configuradas aqui, por exemplo:
         // keyboard: false
@@ -26,6 +24,7 @@ function iniciar() {
 
     document.getElementById("nome-jogador").focus();
 
+    posicao();
 }
 
 function iniciar_jogo(c) {
@@ -317,14 +316,24 @@ function exibirCartasAntes() {
     $raro = cartaJogador.raridade == "raro" ? 'border border-5 border-warning' : 'border border-primary';
     document.getElementById("carta-jogador").innerHTML = `
         <div class="card h-100 bg-black ${$raro} text-white" data-aos="flip-left" data-aos-offset="0">
-            <h6 class="text-center p-1 mb-0 text-primary fw-bold">SUA CARTA!</h6>
-            <h4 class="text-center bg-primary p-2 mb-0">${cartaJogador.nome}</h4>
-            <div style="
-                height: 180px;
-                background-image: url(./img/${cartaJogador.img || ''});
-                background-position: center;
-                background-size: contain;
-            "></div>
+            <div class="row p-0 m-0">
+                <div class="col-6 col-md-12 p-0 m-0">
+                    <h6 class="text-center p-1 mb-0 text-primary fw-bold">SUA CARTA!</h6>
+                    <h4 class="text-center bg-primary p-2 mb-0">${cartaJogador.nome}</h4>
+                    <div class="img-batalha" style="
+                        background-image: url(./img/${cartaJogador.img || ''});
+                    "></div>
+                </div>
+                <div class="col-6 col-md-12 d-md-none d-block p-0 m-0">
+                    <h6 class="text-center p-1 mb-0 text-success fw-bold">Computador!</h6>
+                    <h4 class="text-center bg-success p-2 mb-0">${cartaComputador.nome}</h4>
+                    <div class="badge2" tabindex="0" data-bs-custom-class="custom-popover" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-title="Dica" data-bs-content="${cartaComputador.descricao}">🚨</div>
+                    
+                    <div class="img-batalha" style="
+                        background-image: url(./img/${cartaComputador.img || ''});
+                    "></div>
+                </div>
+            </div>
             <div class="card-body p-1">
                 <h5 class="card-title bg-primary p-1">🎯 ${cartaJogador.area}</h5>
                 <p class="card-text p-2" id="desc-jogador">${cartaJogador.descricao}</p>
