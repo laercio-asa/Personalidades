@@ -32,6 +32,8 @@ function iniciar_jogo(c) {
     nomeJogador = prompt("Deseja informar seu nome?");
     nomeJogador = nomeJogador ? nomeJogador.trim() : "Jogador";
 
+    document.querySelector(".nome-jogador").textContent = nomeJogador + " ";
+
     const selecionados = sortearSemRepeticao(personalidades, (cartas * 2));
     equipe = sortearSemRepeticao(selecionados, cartas);
     opcoes = selecionados.map(item => item.nome);
@@ -443,16 +445,16 @@ function batalhar(caracteristica) {
 
 
     if (valorJ > valorC) {
-        resultado = `<span style="font-size:3rem">🎉</span><br>Você venceu esta rodada!`;
+        resultado = `<img src="../img/vitoria.png" height="100"><br>Você venceu esta rodada!`;
         jogador.push(cartaJogador, cartaComputador);
-        cor = "#8698fdff";
+        cor = "#fc1212ff";
     } else if (valorJ < valorC) {
-        resultado = `<span style="font-size:3rem">💀</span><br>Você perdeu!`;
+        resultado = `<img src="../img/derrota.png" height="100"><br>Você perdeu!`;
         computador.push(cartaJogador, cartaComputador);
-        cor = "#87fa70ff";
+        cor = "#8606dbff";
         // cartas descartadas
     } else {
-        resultado = `<span style="font-size:3rem">⚖️</span><br>Empate! Ambas as cartas foram descartadas.`;
+        resultado = `<img src="../img/empate.png" height="100"><br>Empate! Ambas as cartas foram descartadas.`;
         cor = "#ffc011ff";
     }
 
