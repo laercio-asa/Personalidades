@@ -6,7 +6,6 @@ let erradas = 0;
 const cartas = 10;
 let jogador;
 let computador
-let numero = 0;
 fetch('./js/personagens.json')
     .then(response => response.json())
     .then(data => personalidades = data)
@@ -281,7 +280,17 @@ window.onscroll = function () {
 // batalha das personalidades
 function atualizarContador() {
     document.getElementById("contador").innerHTML =
-        `<span class="text-primary d-block d-md-inline">Você: ${jogador.length} 🃏</span><span class="d-none d-md-inline"> | </span><span class="text-success d-block d-md-inline">Computador: ${computador.length} 🃏</span>`;
+        `
+        <div class="row d-md-flex d-none">
+            <div class="col-auto h2 fw-bold py-2 px-4 ms-5 bg-primary rounded-pill">${jogador.length}</div>
+            <div class="col-md col-8 text-primary pt-3 h3  text-start">👤 você</div>
+            <div class="col-md-auto d-md-flex d-none h3 pt-3">x</div>
+            <div class="col-md col-8 ms-auto text-success pt-3 h3 text-end">computador 💻</div>
+            <div class="col-auto h2 fw-bold py-2 px-4 me-5 bg-primary rounded-pill">${computador.length}</div>
+        </div>
+        `;
+    document.getElementById("valor-jogador").innerHTML = jogador.length;
+    document.getElementById("valor-computador").innerHTML = computador.length;
 }
 
 function exibirCartasAntes() {
@@ -371,8 +380,6 @@ function exibirCartasAntes() {
         <small>Segundo o ChatGPT.</small>
     `;
 
-    document.getElementById("progresso").classList.remove("progress-bar-striped");
-
     hj = document.getElementById("desc-jogador").offsetHeight;
     hc = document.getElementById("desc-computador").offsetHeight;
     if (hj > hc) {
@@ -382,32 +389,6 @@ function exibirCartasAntes() {
         document.getElementById("desc-jogador").style.height = hc + "px";
     }
 
-    numero = 0;
-    setInterval(() => {
-        document.getElementById("progresso").style.width = (numero * 10) + "%";
-
-        numero++;
-
-        if (numero <= 5) {
-            document.getElementById("progresso").classList.add("bg-warning");
-            document.getElementById("progresso").classList.remove("bg-danger");
-        }
-        if (numero > 6 && numero < 10) {
-            document.getElementById("progresso").classList.add("bg-danger");
-            document.getElementById("progresso").classList.remove("bg-warning");
-        }
-        if (numero == 10) {
-            document.getElementById("progresso").classList.add("bg-danger");
-            document.getElementById("progresso").classList.remove("bg-warning");
-            return; // reinicia
-        }
-        else if (numero > 10) {
-            document.getElementById("progresso").classList.add("progress-bar-striped");
-            return;
-        }
-    }, 1000);
-
-
 }
 
 function batalhar(caracteristica) {
@@ -416,8 +397,6 @@ function batalhar(caracteristica) {
     let valorJ = cartaJogador[caracteristica];
     let valorC = cartaComputador[caracteristica];
     let resultado = "";
-
-    numero = 11;
 
     document.getElementById("btn-inteligencia").style.backgroundColor = (caracteristica === 'inteligencia') ? "#f9c74f" : "#838383";
     document.getElementById("btn-carisma").style.backgroundColor = (caracteristica === 'carisma') ? "#f9c74f" : "#838383";
@@ -432,7 +411,7 @@ function batalhar(caracteristica) {
     document.getElementById("valor-inteligencia").innerHTML = cartaComputador.inteligencia;
     document.getElementById("valor-carisma").innerHTML = cartaComputador.carisma;
     document.getElementById("valor-coragem").innerHTML = cartaComputador.coragem;
-    
+
 
     if (valorJ > valorC) {
         resultado = `<span style="font-size:3rem">🎉</span><br>Você venceu esta rodada!`;
@@ -451,11 +430,15 @@ function batalhar(caracteristica) {
     jogador.shift();
     computador.shift();
 
-    document.getElementById("resultado").innerHTML = `<h2>${resultado}</h2>`;
+    const aguarde = `<div class="d-flex align-items-center mt-4 text-white">
+                    <strong role="status">Carregando...</strong>
+                    <div class="spinner-border ms-auto" aria-hidden="true"></div>
+                    </div>`;
+    document.getElementById("resultado").innerHTML = `<h2>${resultado}</h2>${aguarde}`;
     document.getElementById("resultado").style.color = cor;
     document.getElementById("resultado").style.display = "block";
 
-    tamanho = ((document.getElementById("pergunta").offsetWidth - 700) / 2);
+    tamanho = ((document.getElementById("pergunta").offsetWidth - 360) / 2);
     if (tamanho > 0) {
         document.getElementById("resultado").style.marginLeft = `${tamanho}px`;
     }
@@ -470,6 +453,8 @@ function continuar() {
     document.getElementById("names").style.display = "none";
     document.getElementById("board").style.display = "none";
     document.getElementById("batalha-container").classList.remove("d-none");
+    document.getElementById("photo-personagens").classList.add("d-none");
+    document.getElementById("batalha-personagens").classList.remove("d-none");
     atualizarContador();
     exibirCartasAntes();
     document.getElementById("progresso").scrollIntoView();
@@ -486,9 +471,9 @@ function proximaRodada() {
         document.getElementById("resultado").style.display = "block";
         document.getElementById("resultado").style.color = "#f9c74f";
         document.getElementById("resultado").style.color = "#f9c74f";
-        document.getElementById("progresso").classList.add("d-none");
         document.getElementById("pergunta").classList.add("d-none");
-        document.getElementById("botoes").classList.add("d-none");
+        document.getElementById("carta-jogador").classList.add("d-none");
+        document.getElementById("carta-computador").classList.add("d-none");
 
         // document.getElementById("botoes").innerHTML = "";
         return;
