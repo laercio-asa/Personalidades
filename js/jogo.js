@@ -6,6 +6,7 @@ let erradas = 0;
 let cartas = 5;
 let jogador;
 let computador
+let nomeJogador = "";
 
 fetch('./js/personagens.json')
     .then(response => response.json())
@@ -29,6 +30,10 @@ function iniciar() {
 
 function iniciar_jogo(c) {
     cartas = c;
+
+    nomeJogador =  prompt("Deseja informar seu nome?");
+    nomeJogador = nomeJogador ? nomeJogador.trim() : "Jogador";
+
     const selecionados = sortearSemRepeticao(personalidades, (cartas * 2));
     equipe = sortearSemRepeticao(selecionados, cartas);
     opcoes = selecionados.map(item => item.nome);
@@ -299,7 +304,7 @@ function atualizarContador() {
         `
         <div class="row d-md-flex d-none">
             <div class="col-auto h2 fw-bold py-2 px-4 ms-5 bg-primary rounded-pill">${jogador.length}</div>
-            <div class="col-md col-8 text-primary pt-3 h3  text-start">👤 você</div>
+            <div class="col-md col-8 text-primary pt-3 h3  text-start">👤 ${nomeJogador}</div>
             <div class="col-md-auto d-md-flex d-none h3 pt-3">x</div>
             <div class="col-md col-8 ms-auto text-success pt-3 h3 text-end">computador 💻</div>
             <div class="col-auto h2 fw-bold py-2 px-4 me-5 bg-primary rounded-pill">${computador.length}</div>
