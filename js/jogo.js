@@ -23,15 +23,13 @@ function iniciar() {
     // 2. Chame o método show() para abrir o modal
     myModal.show();
 
-    document.getElementById("nome-jogador").focus();
-
     posicao();
 }
 
 function iniciar_jogo(c) {
     cartas = c;
 
-    nomeJogador =  prompt("Deseja informar seu nome?");
+    nomeJogador = prompt("Deseja informar seu nome?");
     nomeJogador = nomeJogador ? nomeJogador.trim() : "Jogador";
 
     const selecionados = sortearSemRepeticao(personalidades, (cartas * 2));
