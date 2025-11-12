@@ -625,5 +625,148 @@
         "descricao": "Ator, rapper e ativista ambiental, criador do projeto JUST Water e de ações humanitárias.",
         "img": "Jaden_Smith.jpg",
         "raridade": "comum"
+    },
+    {
+        "id": "57",
+        "nome": "Machado de Assis",
+        "inteligencia": 10,
+        "carisma": 8.5,
+        "coragem": 8.5,
+        "area": "Literatura",
+        "descricao": "Maior nome da literatura brasileira, fundador da Academia Brasileira de Letras e autor de clássicos como 'Dom Casmurro'.",
+        "img": "Machado_assis.jpg",
+        "raridade": "comum"
+    },
+    {
+        "id": "58",
+        "nome": "Carolina Maria de Jesus",
+        "inteligencia": 9.5,
+        "carisma": 9.0,
+        "coragem": 10,
+        "area": "Literatura / Sociedade",
+        "descricao": "Escritora e símbolo da resistência negra, autora de 'Quarto de Despejo', que retrata a vida na favela com voz autêntica e poderosa.",
+        "img": "Carolina_Jesus.jpg",
+        "raridade": "raro"
+    },
+    {
+        "id": "59",
+        "nome": "Cartola",
+        "inteligencia": 8.5,
+        "carisma": 9.5,
+        "coragem": 9.0,
+        "area": "Música / Samba",
+        "descricao": "Compositor e cantor brasileiro, um dos fundadores da Estação Primeira de Mangueira e ícone do samba de raiz.",
+        "img": "cartola.jpg",
+        "raridade": "comum"
+    },
+    {
+        "id": "60",
+        "nome": "Elza Soares",
+        "inteligencia": 9.0,
+        "carisma": 10,
+        "coragem": 10,
+        "area": "Música / Cultura",
+        "descricao": "Cantora brasileira, voz marcante da resistência e empoderamento feminino, considerada uma das maiores do século XX.",
+        "img": "ElzaSoares.jpg",
+        "raridade": "raro"
+    },
+    {
+        "id": "61",
+        "nome": "Pelé",
+        "inteligencia": 8.5,
+        "carisma": 10,
+        "coragem": 9.5,
+        "area": "Esporte / Futebol",
+        "descricao": "Rei do Futebol, tricampeão mundial pela seleção brasileira e ícone global do esporte.",
+        "img": "pele.jpg",
+        "raridade": "comum"
+    },
+    {
+        "id": "62",
+        "nome": "Milton Nascimento",
+        "inteligencia": 9.5,
+        "carisma": 9.5,
+        "coragem": 9.0,
+        "area": "Música / MPB",
+        "descricao": "Cantor e compositor mineiro, uma das vozes mais importantes da música popular brasileira e da canção latino-americana.",
+        "img": "MiltonNascimento.jpg",
+        "raridade": "raro"
+    },
+    {
+        "id": "63",
+        "nome": "Glória Maria",
+        "inteligencia": 9.0,
+        "carisma": 9.5,
+        "coragem": 9.5,
+        "area": "Jornalismo / Televisão",
+        "descricao": "Pioneira do jornalismo brasileiro, uma das primeiras repórteres negras a ganhar destaque nacional.",
+        "img": "GloriaMaria.jpg",
+        "raridade": "raro"
+    },
+    {
+        "id": "64",
+        "nome": "Nelson Mandela",
+        "inteligencia": 10,
+        "carisma": 10,
+        "coragem": 10,
+        "area": "Política / Direitos Humanos",
+        "descricao": "Líder sul-africano e símbolo mundial da luta contra o apartheid e pela igualdade racial.",
+        "img": "NelsonMandela.jpg",
+        "raridade": "raro"
+    },
+    {
+        "id": "65",
+        "nome": "Bob Marley",
+        "inteligencia": 8.5,
+        "carisma": 10,
+        "coragem": 9.0,
+        "area": "Música / Cultura",
+        "descricao": "Cantor jamaicano e ícone do reggae, defensor da paz, da espiritualidade e da resistência cultural.",
+        "img": "BobMarley.jpg",
+        "raridade": "comum"
+    },
+    {
+        "id": "66",
+        "nome": "Djavan",
+        "inteligencia": 9.0,
+        "carisma": 9.5,
+        "coragem": 8.5,
+        "area": "Música / MPB",
+        "descricao": "Cantor e compositor alagoano, conhecido pela mistura refinada de jazz, samba e pop brasileiro.",
+        "img": "Djavan.jpg",
+        "raridade": "comum"
+    },
+    {
+        "id": "67",
+        "nome": "Sabotage",
+        "inteligencia": 8.5,
+        "carisma": 9.5,
+        "coragem": 10,
+        "area": "Música / Rap",
+        "descricao": "Rapper e compositor paulistano, referência do hip hop nacional e símbolo da resistência periférica.",
+        "img": "Sabotage.jpg",
+        "raridade": "raro"
+    },
+    {
+        "id": "68",
+        "nome": "Snoop Dogg",
+        "inteligencia": 8.0,
+        "carisma": 10,
+        "coragem": 8.5,
+        "area": "Música / Entretenimento",
+        "descricao": "Rapper norte-americano, ícone global do hip hop e da cultura pop, com carreira de sucesso desde os anos 1990.",
+        "img": "Sabotage.jpg",
+        "raridade": "comum"
+    },
+    {
+        "id": "69",
+        "nome": "Grande Otelo",
+        "inteligencia": 8.5,
+        "carisma": 10,
+        "coragem": 9.5,
+        "area": "Cinema / Teatro",
+        "descricao": "Ator brasileiro pioneiro, ícone da comédia e do cinema nacional, enfrentou o racismo com talento e humor.",
+        "img": "GrandeOtelo.jpg",
+        "raridade": "raro"
     }
 ]

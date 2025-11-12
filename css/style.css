@@ -273,7 +273,7 @@ button.secondary {
     font-size: 1.05rem;
 }
 
-#resultado {
+/* #resultado {
     position: absolute;
     background-color: #161615;
     width: 360px;
@@ -281,7 +281,7 @@ button.secondary {
     padding: 50px;
     display: none;
     z-index: 1080;
-}
+} */
 
 .img-batalha {
     height: 180px;

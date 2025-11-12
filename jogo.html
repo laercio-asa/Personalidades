@@ -44,7 +44,6 @@
             <div id="progresso">
 
             </div>
-            <div id="resultado" class="text-center rounded-5 border border-warning shadow-lg"></div>
             <div id="pergunta"></div>
           </div>
 
@@ -63,8 +62,7 @@
         <small>Dica: você pode trocar um nome arrastando-o outro nome em cima do anterior.</small>
       </div>
       <div id="batalha-personagens" class="footer d-none">
-        <div class="score"><span id="valor-jogador"></span>👤 x 💻 <span
-            id="valor-computador"></span></div>
+        <div class="score"><span id="valor-jogador"></span>👤 x 💻 <span id="valor-computador"></span></div>
     </footer>
   </div>
 
@@ -106,29 +104,29 @@
             <li class="list-group-item">
               <small>O potencial, as raízes que estão sendo plantadas.</small>
               <button id="btn-inteligencia"
-                class="btn btn-warning btn-escolha rounded-pill w-50 d-flex justify-content-between align-items-start h2" data-bs-dismiss="modal"
-                onclick="iniciar_jogo(5)">🌱 Semente
+                class="btn btn-warning btn-escolha rounded-pill w-50 d-flex justify-content-between align-items-start h2"
+                data-bs-dismiss="modal" onclick="iniciar_jogo(5)">🌱 Semente
               </button>
             </li>
             <li class="list-group-item">
               <small>Resistência, comunidade e a luta pela liberdade.</small>
               <button id="btn-inteligencia"
-                class="btn btn-warning btn-escolha rounded-pill w-50 d-flex justify-content-between align-items-start h2" data-bs-dismiss="modal"
-                onclick="iniciar_jogo(10)">🏘️ Quilombo
+                class="btn btn-warning btn-escolha rounded-pill w-50 d-flex justify-content-between align-items-start h2"
+                data-bs-dismiss="modal" onclick="iniciar_jogo(10)">🏘️ Quilombo
               </button>
             </li>
             <li class="list-group-item">
               <small>Sabedoria, longevidade e conexão com os ancestrais.</small>
               <button id="btn-inteligencia"
-                class="btn btn-warning btn-escolha rounded-pill w-50 d-flex justify-content-between align-items-start h2" data-bs-dismiss="modal"
-                onclick="iniciar_jogo(15)">🌳Baobá
+                class="btn btn-warning btn-escolha rounded-pill w-50 d-flex justify-content-between align-items-start h2"
+                data-bs-dismiss="modal" onclick="iniciar_jogo(15)">🌳Baobá
               </button>
             </li>
             <li class="list-group-item">
               <small>Nível mais elevado de conhecimento e maestria, consciência plena na cultura Yorùbá</small>
               <button id="btn-inteligencia"
-                class="btn btn-warning btn-escolha rounded-pill w-50 d-flex justify-content-between align-items-start h2" data-bs-dismiss="modal"
-                onclick="iniciar_jogo(25)"> 👑 Orí
+                class="btn btn-warning btn-escolha rounded-pill w-50 d-flex justify-content-between align-items-start h2"
+                data-bs-dismiss="modal" onclick="iniciar_jogo(25)"> 👑 Orí
               </button>
             </li>
           </ul>
@@ -136,6 +134,26 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="resultadoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="resultadoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="resultadoModalLabel">🔥 Batalha de Personalidades</h1>
+        </div>
+        <div class="modal-body text-center">
+          <div id="resultado" class="text-center"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-warning rounded-pill fw-bold px-3" onclick="proximaRodada();"
+            data-bs-dismiss="modal">Continuar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"

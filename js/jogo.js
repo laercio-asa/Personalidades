@@ -459,22 +459,16 @@ function batalhar(caracteristica) {
     jogador.shift();
     computador.shift();
 
-    const aguarde = `<div class="d-flex align-items-center mt-4 text-white">
-                    <strong role="status">Carregando...</strong>
-                    <div class="spinner-border ms-auto" aria-hidden="true"></div>
-                    </div>`;
-    document.getElementById("resultado").innerHTML = `<h2>${resultado}</h2>${aguarde}`;
+    document.getElementById("resultado").innerHTML = `<h2>${resultado}</h2>`;
     document.getElementById("resultado").style.color = cor;
-    document.getElementById("resultado").style.display = "block";
 
-    tamanho = ((document.getElementById("pergunta").offsetWidth - 360) / 2);
-    if (tamanho > 0) {
-        document.getElementById("resultado").style.marginLeft = `${tamanho}px`;
-    }
+    var myModal = new bootstrap.Modal(document.getElementById('resultadoModal'), {});
+    myModal.show();
+
+
     // document.getElementById("botoes").innerHTML = "";
     document.getElementById("progresso").scrollIntoView();
     atualizarContador();
-    setTimeout(proximaRodada, 4000);
 }
 
 function continuar() {
@@ -491,7 +485,6 @@ function continuar() {
 
 function proximaRodada() {
     // document.getElementById("resultado").innerHTML = "";
-    document.getElementById("resultado").style.display = "none";
     if (jogador.length === 0 || computador.length === 0) {
         atualizarContador();
         let vencedorFinal =
@@ -503,6 +496,9 @@ function proximaRodada() {
         document.getElementById("pergunta").classList.add("d-none");
         document.getElementById("carta-jogador").classList.add("d-none");
         document.getElementById("carta-computador").classList.add("d-none");
+
+        var myModal = new bootstrap.Modal(document.getElementById('resultadoModal'), {});
+        myModal.show();
 
         // document.getElementById("botoes").innerHTML = "";
         return;
