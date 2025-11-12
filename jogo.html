@@ -42,7 +42,7 @@
         <div class="row col-md-8 m-auto px-md-2 px-0">
           <div class="col-12">
             <div id="progresso">
-              
+
             </div>
             <div id="resultado" class="text-center rounded-5 border border-warning shadow-lg"></div>
             <div id="pergunta"></div>
@@ -63,7 +63,8 @@
         <small>Dica: você pode trocar um nome arrastando-o outro nome em cima do anterior.</small>
       </div>
       <div id="batalha-personagens" class="footer d-none">
-        <div class="score">Suas Cartas: <span id="valor-jogador"></span> - Cartas computador:<span id="valor-computador"></span></div>
+        <div class="score">Suas Cartas: <span id="valor-jogador"></span> - Cartas computador:<span
+            id="valor-computador"></span></div>
     </footer>
   </div>
 
@@ -83,6 +84,56 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-warning rounded-pill fw-bold px-3" onclick="continuar();"
             data-bs-dismiss="modal">Continuar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="inicialModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="inicialModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="inicialModalLabel">🔥 Vamos começar o jogo!
+          </h1>
+        </div>
+        <div class="modal-body text-center">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="nome-jogador" placeholder="informe o seu nome" maxlength="120" autofocus tabindex="0">
+            <label for="floatingInput">Informe o seu nome</label>
+            
+          </div>
+          <ul class="list-group text-start">
+            <li class="list-group-item">
+              <small>O potencial, as raízes que estão sendo plantadas.</small>
+              <button id="btn-inteligencia"
+                class="btn btn-warning btn-escolha rounded-pill w-50 d-flex justify-content-between align-items-start h2" data-bs-dismiss="modal"
+                onclick="iniciar_jogo(5)">🌱 Semente
+              </button>
+            </li>
+            <li class="list-group-item">
+              <small>Resistência, comunidade e a luta pela liberdade.</small>
+              <button id="btn-inteligencia"
+                class="btn btn-warning btn-escolha rounded-pill w-50 d-flex justify-content-between align-items-start h2" data-bs-dismiss="modal"
+                onclick="iniciar_jogo(10)">🏘️ Quilombo
+              </button>
+            </li>
+            <li class="list-group-item">
+              <small>Sabedoria, longevidade e conexão com os ancestrais.</small>
+              <button id="btn-inteligencia"
+                class="btn btn-warning btn-escolha rounded-pill w-50 d-flex justify-content-between align-items-start h2" data-bs-dismiss="modal"
+                onclick="iniciar_jogo(15)">🌳Baobá
+              </button>
+            </li>
+            <li class="list-group-item">
+              <small>Nível mais elevado de conhecimento e maestria, consciência plena na cultura Yorùbá</small>
+              <button id="btn-inteligencia"
+                class="btn btn-warning btn-escolha rounded-pill w-50 d-flex justify-content-between align-items-start h2" data-bs-dismiss="modal"
+                onclick="iniciar_jogo(25)"> 👑 Orí
+              </button>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

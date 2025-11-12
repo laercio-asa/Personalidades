@@ -3,22 +3,36 @@ let equipe;
 let opcoes;
 let state;
 let erradas = 0;
-const cartas = 10;
+let cartas = 5;
 let jogador;
 let computador
+
 fetch('./js/personagens.json')
     .then(response => response.json())
     .then(data => personalidades = data)
     .then(() => iniciar());
 
 function iniciar() {
+    var myModal = new bootstrap.Modal(document.getElementById('inicialModal'), {
+        // Opções podem ser configuradas aqui, por exemplo:
+        // keyboard: false
+    });
+
+    // 2. Chame o método show() para abrir o modal
+    myModal.show();
+
+    document.getElementById("nome-jogador").focus();
+
+}
+
+function iniciar_jogo(c) {
+    cartas = c;
     const selecionados = sortearSemRepeticao(personalidades, (cartas * 2));
     equipe = sortearSemRepeticao(selecionados, cartas);
     opcoes = selecionados.map(item => item.nome);
 
     jogador = equipe;
     computador = selecionados.filter(item => !jogador.includes(item));
-
 
     state = {
         points: 0,
