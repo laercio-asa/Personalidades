@@ -295,7 +295,7 @@ button.secondary {
     }
 }
 
-#tempo {
+.tempo {
     font-family: "Kode Mono", monospace;
     font-size: 1rem;
     color: yellow;

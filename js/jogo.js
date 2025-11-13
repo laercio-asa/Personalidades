@@ -27,6 +27,8 @@ function iniciar() {
 }
 
 function mostrarPersonalidades() {
+    document.getElementById("tituloTexto").innerHTML = `Conheça todas as personalidades!`;
+    document.getElementById("score").innerHTML = `Total de personalidades: ${personalidades.length}`;
     equipe = personalidades;
     equipe.sort((a, b) => a.nome.localeCompare(b.nome));;
     renderPhotos(1);
@@ -42,24 +44,29 @@ function iniciar_jogo(c) {
 
     if (c == 5) {
         iconeNivel = 'semente.png';
+        nivelCartas = 0;
     }
     else if (c == 10) {
         iconeNivel = 'quilombo.png';
+        nivelCartas = 2;
     }
     else if (c == 15) {
         iconeNivel = 'baoba.png';
+        nivelCartas = 3;
     }
     else if (c == 20) {
         iconeNivel = 'ori.png';
+        nivelCartas = 5;
     }
-
+    document.getElementById("score").innerHTML = 'Acertos: <span id="points">0</span>/<span id="total">0</span>';
+    document.getElementById("tituloTexto").innerHTML = `acerte os nomes<span class="d-md-inline d-none"> de sua equipe!</span>`;
     nomeJogador = prompt("Deseja informar seu nome?");
     nomeJogador = nomeJogador ? nomeJogador.trim() : "Jogador";
 
     document.querySelector(".nome-jogador").textContent = nomeJogador + " ";
     document.querySelector(".icone-nivel").src = "../img/" + iconeNivel;
 
-    const selecionados = sortearSemRepeticao(personalidades, (cartas * 2));
+    const selecionados = sortearSemRepeticao(personalidades, ((cartas * 2) + nivelCartas));
     equipe = sortearSemRepeticao(selecionados, cartas);
     opcoes = selecionados.map(item => item.nome);
 
@@ -117,17 +124,20 @@ function renderPhotos(tipo = 0) {
         card.className = 'card border-0';
         card.setAttribute('data-aos', 'flip-left');
         const raridade = p.raridade == "raro" ? 'border border-5 border-warning' : '';
-        if (tipo == 1) { 
+        if (tipo == 1) {
+            area = `${p.area}`;
+            console.log(p.area);
             zone = `<div class="dropZone correct" data-photo="${p.id}" role="button" tabindex="0">
               ${p.nome}
             </div>`;
         } else {
+            area = "Dica";
             zone = `<div class="dropZone" data-photo="${p.id}" aria-label="Solte um nome aqui" role="button" tabindex="0">
               Solte o nome aqui
             </div>`;
         };
         card.innerHTML = `
-          <div class="badge2" tabindex="0" data-bs-custom-class="custom-popover" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-title="Dica" data-bs-content="${p.descricao}">🚨</div>
+          <div class="badge2" tabindex="0" data-bs-custom-class="custom-popover" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-title="${area}" data-bs-content="${p.descricao}">🚨</div>
           <div class="imgbox">
             <img class="${raridade}" src="./img/${p.img}" alt="Foto para adivinhar o personagem ${idx + 1}" onerror="this.alt='Falha ao carregar imagem'; this.style.objectFit='contain'; this.style.background='#0b1220'"/>
             ${zone}
@@ -524,22 +534,41 @@ function proximaRodada() {
 
         const min = Math.floor(segundos / 60);
         const sec = segundos % 60;
-        const tempoTotal = `<h4>Tempo Total: ${String(min).padStart(2, '0')}:${String(sec).padStart(2, '0')}</h4>`;
-
-        const totalPersonalidade = `<h4>Você acertou ${cartas - erradas} personalidade(s).</h4>`
-
-        const totalCartas = `<h4>Você ficou com ${jogador.length} cartas(s).</h4>`
-
 
         let vencedorFinal =
             jogador.length == computador.length ? `<span style="color:#ffc011ff;">Empatou, os dois ganharam!</span>` : (jogador.length > computador.length ? `<span style="color:#516bffff;"><img src="../img/ganhou.png" height="100"><br>Você venceu o computador!</span>` : `<span style="color:#59fc39ff;"><img src="../img/perdeu.png" height="100"><br>O computador venceu!</span>`);
-        document.getElementById("resultadoFinal").innerHTML = `<h2>${vencedorFinal}</h2>${tempoTotal}${totalPersonalidade}${totalCartas}`;
+
+        let resultadoFinal = `
+            <ol class="list-group list-group-numbered">
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                    <div class="fw-bold">Tempo Total</div>
+                    </div>
+                    <span class="tempo">${String(min).padStart(2, '0')}:${String(sec).padStart(2, '0')}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                    <div class="fw-bold">Acerto de Personalidades</div>
+                    </div>
+                    <span class="badge text-bg-primary rounded-pill" style="font-size:1rem">${cartas - erradas}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                    <div class="fw-bold">Cartas na mão</div>
+                    </div>
+                    <span class="badge text-bg-primary rounded-pill" style="font-size:1rem">${jogador.length}</span>
+                </li>
+                </ol>
+        `;
+
+        document.getElementById("resultadoFinal").innerHTML = `<h2>${vencedorFinal}</h2>${resultadoFinal}`;
         document.getElementById("resultadoFinal").style.display = "block";
         document.getElementById("resultadoFinal").style.color = "#f9c74f";
         document.getElementById("resultadoFinal").style.color = "#f9c74f";
         document.getElementById("pergunta").classList.add("d-none");
         document.getElementById("carta-jogador").classList.add("d-none");
         document.getElementById("carta-computador").classList.add("d-none");
+
 
 
 

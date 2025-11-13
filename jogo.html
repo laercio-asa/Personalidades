@@ -20,14 +20,22 @@
   <div class="wrap container-fluid">
     <header class="position-fixed pe-4 w-100" id="menu">
       <div class="row">
-        <div class="col">
+        <div class="col-md col-12">
           <h1 id="titulo" class="py-2"><img class="icone-nivel" src="" height="40px"></img> <span
-              class="nome-jogador"></span>acerte os nomes de sua equipe!</h1>
+              class="nome-jogador"></span><span id="tituloTexto">Jogo de Personalidades Pretas!</span></h1>
         </div>
         <div class="col-auto">
           <div class="controls py-2" id="controls">
-            <div id="tempo">00:00</div>
-            <a id="resetBtn" class="btn btn-secondary btn-sm" href="jogo.html" title="Reiniciar jogo">↺ Reiniciar</a>
+            <div id="tempo" class="tempo">00:00</div>
+            <a id="resetBtn" class="btn btn-danger btn-sm" href="jogo.html" title="Reiniciar jogo">↺ Reiniciar</a>
+            <button id="ajudaBtn" class="btn btn-warning btn-sm" href="jogo.html" data-bs-toggle="modal"
+              data-bs-target="#regraModal2">
+              <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                data-bs-title="Regras do Jogo">❓</span></button>
+            <button id="sobreBtn" class="btn btn-secondary btn-sm" href="jogo.html" data-bs-toggle="modal"
+              data-bs-target="#sobreModal2">
+              <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                data-bs-title="Sobre o Jogo">🤖</span>
           </div>
         </div>
       </div>
@@ -62,7 +70,7 @@
 
     <footer class="fixed-bottom bg-dark">
       <div id="photo-personagens" class="footer">
-        <div class="score">Acertos: <span id="points">0</span>/<span id="total">0</span></div>
+        <div class="score" id="score">Acertos: <span id="points">0</span>/<span id="total">0</span></div>
         <small>Dica: você pode trocar um nome arrastando-o outro nome em cima do anterior.</small>
       </div>
       <div id="batalha-personagens" class="footer d-none">
@@ -131,9 +139,22 @@
             </li>
             <li class="list-group-item">
               <small>Conheça todas as personalidades do jogo</small><br>
-              <button id="btn-inteligencia" class="btn btn-info text-center btn-escolha w-100 rounded-pill w-50 text-start h2"
-                data-bs-dismiss="modal" onclick="mostrarPersonalidades();">Mostrar Personalidades
-              </button>
+              <div class="d-flex justify-content-between">
+                <button id="btn-inteligencia" class="btn btn-info text-center btn-escolha rounded-pill text-start h2"
+                  data-bs-dismiss="modal" onclick="mostrarPersonalidades();">Mostrar Personalidades
+                </button>
+                <span>
+                  <button id="ajudaBtn" class="btn btn-warning h2" href="jogo.html" data-bs-toggle="modal"
+                    data-bs-target="#regraModal">
+                    <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                      data-bs-title="Regras do Jogo">❓</span></button>
+                  <button id="sobreBtn" class="btn btn-secondary h2" href="jogo.html" data-bs-toggle="modal"
+                    data-bs-target="#sobreModal">
+                    <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                      data-bs-title="Sobre o Jogo">🤖</span>
+                  </button>
+                </span>
+              </div>
             </li>
           </ul>
         </div>
@@ -178,6 +199,137 @@
     </div>
   </div>
 
+
+  <div class="modal fade" id="regraModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" >
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 text-danger" id="regraModalLabel">❓Regra do Jogo</h1>
+          
+        </div>
+        <div class="modal-body">
+          <div>
+            <p>O jogo consiste em duas fases principais:</p>
+            <p>Fase de associação de nomes e a fase de batalha de personalidades.
+              Nesta fase, você deve arrastar e soltar os nomes das personalidades pretas
+              contemporâneas para as fotos correspondentes. Cada acerto aumenta sua pontuação, enquanto erros
+              não penalizam, mas não contribuem para a pontuação final.
+            </p>
+            <p>
+              A próxima fase é a fase de batalha de personalidades.
+              Você irá enfrentar as cartas do computador escolha a melhor
+              caracteristica da sua personalidade para vencer, no caso de empate as cartas são descartadas. Vence quem
+              ficar com todas as cartas.
+              <br>
+            </p>
+          </div>
+          <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+              Níveis de Dificuldade
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">Semente - Cinco Personalidades para você e para o
+              computador</a>
+            <a href="#" class="list-group-item list-group-item-action">Quilombo - Dez Personalidades para você e doze
+              para o computador</a>
+            <a href="#" class="list-group-item list-group-item-action">Baobá - Quinze Personalidades para você e dezoito
+              para o computador</a>
+            <a href="#" class="list-group-item list-group-item-action disabled" aria-disabled="true">Orí - Vinte
+              Personalidades para você e vinte e três para o computador</a>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-target="#inicialModal" data-bs-toggle="modal">Voltar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="sobreModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" >
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 text-success" id="sobreModalLabel">🤖 Sobre o Jogo</h1>
+          
+        </div>
+        <div class="modal-body">
+          <p>O jogo foi criado como parte do projeto da Freira Preta 2024, com o objetivo de promover o conhecimento
+            sobre personalidades pretas contemporâneas e suas contribuições para a sociedade. Desenvolvido pelo
+            professor Laercio Sá.</p>
+          <p>Esperamos que você aproveite o jogo e aprenda mais sobre essas figuras inspiradoras!</p>
+          <p>Disponivel para download no GitHUB</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-target="#inicialModal" data-bs-toggle="modal">Voltar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="modal fade" id="regraModal2" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" >
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 text-danger" id="regraModalLabel2">❓Regra do Jogo</h1>
+          
+        </div>
+        <div class="modal-body">
+          <div>
+            <p>O jogo consiste em duas fases principais:</p>
+            <p>Fase de associação de nomes e a fase de batalha de personalidades.
+              Nesta fase, você deve arrastar e soltar os nomes das personalidades pretas
+              contemporâneas para as fotos correspondentes. Cada acerto aumenta sua pontuação, enquanto erros
+              não penalizam, mas não contribuem para a pontuação final.
+            </p>
+            <p>
+              A próxima fase é a fase de batalha de personalidades.
+              Você irá enfrentar as cartas do computador escolha a melhor
+              caracteristica da sua personalidade para vencer, no caso de empate as cartas são descartadas. Vence quem
+              ficar com todas as cartas.
+              <br>
+            </p>
+          </div>
+          <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+              Níveis de Dificuldade
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">Semente - Cinco Personalidades para você e para o
+              computador</a>
+            <a href="#" class="list-group-item list-group-item-action">Quilombo - Dez Personalidades para você e doze
+              para o computador</a>
+            <a href="#" class="list-group-item list-group-item-action">Baobá - Quinze Personalidades para você e dezoito
+              para o computador</a>
+            <a href="#" class="list-group-item list-group-item-action disabled" aria-disabled="true">Orí - Vinte
+              Personalidades para você e vinte e três para o computador</a>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary"  data-bs-dismiss="modal">Voltar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="sobreModal2" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" >
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 text-success" id="sobreModalLabel2">🤖 Sobre o Jogo</h1>
+          
+        </div>
+        <div class="modal-body">
+          <p>O jogo foi criado como parte do projeto da Freira Preta 2024, com o objetivo de promover o conhecimento
+            sobre personalidades pretas contemporâneas e suas contribuições para a sociedade. Desenvolvido pelo
+            professor Laercio Sá.</p>
+          <p>Esperamos que você aproveite o jogo e aprenda mais sobre essas figuras inspiradoras!</p>
+          <p>Disponivel para download no GitHUB</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary"  data-bs-dismiss="modal">Voltar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
@@ -188,6 +340,9 @@
   <script>
     let popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
     let popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
   </script>
   <script src="./js/temporizador.js"></script>
   <script src="./js/jogo.js"></script>
