@@ -25,10 +25,6 @@ function iniciar() {
 
     posicao();
 
-    fetch('https://feirapretaeducac1.websiteseguro.com/php/ranking.php')
-    .then(response => response.text())
-    .then(data => console.log(data))
-
 }
 
 function mostrarPersonalidades() {
@@ -552,17 +548,12 @@ function proximaRodada() {
 
         console.log("tempo=" + segundos + "&personalidade=" + (cartas - erradas) + "&cartas=" + jogador.length + "&nome=" + nomeJogador);
 
-        // $.ajax({
-        //     url: "https://feirapretaeducac1.websiteseguro.com/php/ranking.php",
-        //     type: "POST",
-        //     data: "tempo=" + segundos + "&personalidade=" + (cartas - erradas) + "&cartas=" + jogador.length + "&nome=" + nomeJogador,
-        //     success: function (result) {
-
-        //     }
-        // });
+        fetch("https://feirapretaeducac1.websiteseguro.com/php/ranking.php?tempo = " + segundos + " & personalidade=" + (cartas - erradas) + " & cartas=" + jogador.length + " & nome=" + nomeJogador.replaceAll(" ","%20"))
+            .then(response => response.text())
+            .then(data => console.log(data))
 
         let vencedorFinal =
-            jogador.length == computador.length ? `<span style="color:#ffc011ff;">Empatou, os dois ganharam!</span>` : (jogador.length > computador.length ? `<span style="color:#516bffff;"><img src="./img/ganhou.png" height="100"><br>Você venceu o computador!</span>` : `<span style="color:#59fc39ff;"><img src="./img/perdeu.png" height="100"><br>O computador venceu!</span>`);
+        jogador.length == computador.length ? `<span style="color:#ffc011ff;">Empatou, os dois ganharam!</span>` : (jogador.length > computador.length ? `<span style="color:#516bffff;"><img src="./img/ganhou.png" height="100"><br>Você venceu o computador!</span>` : `<span style="color:#59fc39ff;"><img src="./img/perdeu.png" height="100"><br>O computador venceu!</span>`);
 
         let resultadoFinal = `
             <ol class="list-group list-group-numbered">
