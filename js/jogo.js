@@ -14,7 +14,6 @@ fetch('./js/personagens.json')
     .then(() => iniciar());
 
 function iniciar() {
-
     var myModal = new bootstrap.Modal(document.getElementById('inicialModal'), {
         // Opções podem ser configuradas aqui, por exemplo:
         // keyboard: false
