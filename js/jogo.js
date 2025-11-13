@@ -14,6 +14,7 @@ fetch('./js/personagens.json')
     .then(() => iniciar());
 
 function iniciar() {
+
     var myModal = new bootstrap.Modal(document.getElementById('inicialModal'), {
         // Opções podem ser configuradas aqui, por exemplo:
         // keyboard: false
@@ -23,10 +24,15 @@ function iniciar() {
     myModal.show();
 
     posicao();
+
+    fetch('https://feirapretaeducac1.websiteseguro.com/php/ranking.php')
+    .then(response => response.text())
+    .then(data => console.log(data))
+
 }
 
 function mostrarPersonalidades() {
-    dica='';
+    dica = '';
     document.getElementById("dica").innerHTML = dica;
     document.getElementById("tituloTexto").innerHTML = `Conheça todas as personalidades!`;
     document.getElementById("score").innerHTML = `Total de personalidades: ${personalidades.length}`;
@@ -38,7 +44,7 @@ function mostrarPersonalidades() {
 }
 
 function iniciar_jogo(c) {
-    dica='Dica: você pode trocar um nome arrastando-o outro nome em cima do anterior.';
+    dica = 'Dica: você pode trocar um nome arrastando-o outro nome em cima do anterior.';
     document.getElementById("dica").innerHTML = dica;
     setInterval(atualizarTempo, 1000);
 
@@ -526,7 +532,7 @@ function continuar() {
     document.getElementById("batalha-personagens").classList.remove("d-none");
     atualizarContador();
     exibirCartasAntes();
-    dica='Escolha a melhor caracteristica de seu personagem para vencer a batalha!.';
+    dica = 'Escolha a melhor caracteristica de seu personagem para vencer a batalha!.';
     document.getElementById("dica").innerHTML = dica;
     document.getElementById("progresso").scrollIntoView();
 }
@@ -538,6 +544,22 @@ function proximaRodada() {
 
         const min = Math.floor(segundos / 60);
         const sec = segundos % 60;
+
+        if (nomeJogador == "Jogador" || nomeJogador == "") {
+            nomeJogador = prompt("Parabéns, gostaria de informar o seu nome?");
+        }
+        if (nomeJogador.trim() == "") { nomeJogador = "Jogador"; }
+
+        console.log("tempo=" + segundos + "&personalidade=" + (cartas - erradas) + "&cartas=" + jogador.length + "&nome=" + nomeJogador);
+
+        // $.ajax({
+        //     url: "https://feirapretaeducac1.websiteseguro.com/php/ranking.php",
+        //     type: "POST",
+        //     data: "tempo=" + segundos + "&personalidade=" + (cartas - erradas) + "&cartas=" + jogador.length + "&nome=" + nomeJogador,
+        //     success: function (result) {
+
+        //     }
+        // });
 
         let vencedorFinal =
             jogador.length == computador.length ? `<span style="color:#ffc011ff;">Empatou, os dois ganharam!</span>` : (jogador.length > computador.length ? `<span style="color:#516bffff;"><img src="./img/ganhou.png" height="100"><br>Você venceu o computador!</span>` : `<span style="color:#59fc39ff;"><img src="./img/perdeu.png" height="100"><br>O computador venceu!</span>`);
@@ -572,10 +594,6 @@ function proximaRodada() {
         document.getElementById("pergunta").classList.add("d-none");
         document.getElementById("carta-jogador").classList.add("d-none");
         document.getElementById("carta-computador").classList.add("d-none");
-
-
-
-
 
         var myModal = new bootstrap.Modal(document.getElementById('finalModal'), {});
         myModal.show();
