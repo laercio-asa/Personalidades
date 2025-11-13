@@ -66,7 +66,7 @@ function iniciar_jogo(c) {
     nomeJogador = nomeJogador ? nomeJogador.trim() : "Jogador";
 
     document.querySelector(".nome-jogador").textContent = nomeJogador + " ";
-    document.querySelector(".icone-nivel").src = "../img/" + iconeNivel;
+    document.querySelector(".icone-nivel").src = "./img/" + iconeNivel;
 
     const selecionados = sortearSemRepeticao(personalidades, ((cartas * 2) + nivelCartas));
     equipe = sortearSemRepeticao(selecionados, cartas);
@@ -489,16 +489,16 @@ function batalhar(caracteristica) {
 
 
     if (valorJ > valorC) {
-        resultado = `<img src="../img/vitoria.png" height="100"><br>Você venceu esta rodada!`;
+        resultado = `<img src="./img/vitoria.png" height="100"><br>Você venceu esta rodada!`;
         jogador.push(cartaJogador, cartaComputador);
         cor = "#fcec12ff";
     } else if (valorJ < valorC) {
-        resultado = `<img src="../img/derrota.png" height="100"><br>Você perdeu!`;
+        resultado = `<img src="./img/derrota.png" height="100"><br>Você perdeu!`;
         computador.push(cartaJogador, cartaComputador);
         cor = "#8606dbff";
         // cartas descartadas
     } else {
-        resultado = `<img src="../img/empate.png" height="100"><br>Empate!<br>Ambas as cartas foram descartadas.`;
+        resultado = `<img src="./img/empate.png" height="100"><br>Empate!<br>Ambas as cartas foram descartadas.`;
         cor = "#ffc011ff";
     }
 
@@ -540,7 +540,7 @@ function proximaRodada() {
         const sec = segundos % 60;
 
         let vencedorFinal =
-            jogador.length == computador.length ? `<span style="color:#ffc011ff;">Empatou, os dois ganharam!</span>` : (jogador.length > computador.length ? `<span style="color:#516bffff;"><img src="../img/ganhou.png" height="100"><br>Você venceu o computador!</span>` : `<span style="color:#59fc39ff;"><img src="../img/perdeu.png" height="100"><br>O computador venceu!</span>`);
+            jogador.length == computador.length ? `<span style="color:#ffc011ff;">Empatou, os dois ganharam!</span>` : (jogador.length > computador.length ? `<span style="color:#516bffff;"><img src="./img/ganhou.png" height="100"><br>Você venceu o computador!</span>` : `<span style="color:#59fc39ff;"><img src="./img/perdeu.png" height="100"><br>O computador venceu!</span>`);
 
         let resultadoFinal = `
             <ol class="list-group list-group-numbered">
