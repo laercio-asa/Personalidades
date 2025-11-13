@@ -27,6 +27,8 @@ function iniciar() {
 }
 
 function mostrarPersonalidades() {
+    dica='';
+    document.getElementById("dica").innerHTML = dica;
     document.getElementById("tituloTexto").innerHTML = `Conheça todas as personalidades!`;
     document.getElementById("score").innerHTML = `Total de personalidades: ${personalidades.length}`;
     equipe = personalidades;
@@ -37,7 +39,8 @@ function mostrarPersonalidades() {
 }
 
 function iniciar_jogo(c) {
-
+    dica='Dica: você pode trocar um nome arrastando-o outro nome em cima do anterior.';
+    document.getElementById("dica").innerHTML = dica;
     setInterval(atualizarTempo, 1000);
 
     cartas = c;
@@ -524,6 +527,8 @@ function continuar() {
     document.getElementById("batalha-personagens").classList.remove("d-none");
     atualizarContador();
     exibirCartasAntes();
+    dica='Escolha a melhor caracteristica de seu personagem para vencer a batalha!.';
+    document.getElementById("dica").innerHTML = dica;
     document.getElementById("progresso").scrollIntoView();
 }
 
