@@ -24,7 +24,21 @@ function iniciar() {
     myModal.show();
 
     posicao();
+}
 
+
+// Exemplo simplificado
+const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+async function tocarAudio() {
+    url = "./audio/musica.mp3";
+  const response = await fetch(url);
+  const arrayBuffer = await response.arrayBuffer();
+  const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+  const source = audioContext.createBufferSource();
+  source.buffer = audioBuffer;
+  source.connect(audioContext.destination);
+  source.start();
 }
 
 function mostrarPersonalidades() {
@@ -40,6 +54,9 @@ function mostrarPersonalidades() {
 }
 
 function iniciar_jogo(c) {
+
+    tocarAudio();
+    
     dica = 'Dica: você pode trocar um nome arrastando-o outro nome em cima do anterior.';
     document.getElementById("dica").innerHTML = dica;
     setInterval(atualizarTempo, 1000);

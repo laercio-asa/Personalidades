@@ -29,18 +29,19 @@
         <div class="col-auto">
           <div class="controls py-2" id="controls">
             <div id="tempo" class="tempo">00:00</div>
-            <a id="resetBtn" class="btn btn-danger btn-sm" title="Reiniciar jogo"><img
-                src="./img/home.png" height="26"> Reiniciar</a>
-            <button id="ajudaBtn" class="btn btn-warning btn-sm" href="jogo.html" data-bs-toggle="modal"
+            <a id="resetBtn" class="btn btn-danger btn-sm" title="Reiniciar jogo"><img src="./img/home.png" height="26">
+              Reiniciar</a>
+            <button id="ajudaBtn" class="btn btn-warning btn-sm" onclick="tocarAudio();">
+              <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                data-bs-title="Regras do Jogo"><img src="./img/audio.png" height="26"></span></button>
+            <button id="ajudaBtn" class="btn btn-warning btn-sm" data-bs-toggle="modal"
               data-bs-target="#regraModal2">
               <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                 data-bs-title="Regras do Jogo"><img src="./img/configuracoes.png" height="26"></span></button>
-            <button id="ajudaBtn" class="btn btn-warning btn-sm" data-bs-toggle="modal"
-              data-bs-target="#rankingModal2">
+            <button id="ajudaBtn" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#rankingModal2">
               <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                 data-bs-title="Ranking"><img src="./img/ranking.png" height="26"></span></button>
-            <button id="sobreBtn" class="btn btn-secondary btn-sm" data-bs-toggle="modal"
-              data-bs-target="#sobreModal2">
+            <button id="sobreBtn" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#sobreModal2">
               <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                 data-bs-title="Sobre o Jogo"><img src="./img/sobre.png" height="26"></span>
           </div>
@@ -287,7 +288,7 @@
           <h1 class="modal-title fs-5" id="rankingModalLabel"><img src="./img/ranking.png" height="30"> Ranking</h1>
         </div>
         <div class="modal-body">
-          
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-target="#inicialModal" data-bs-toggle="modal"><img
@@ -297,18 +298,18 @@
     </div>
   </div>
 
-    <div class="modal fade" id="rankingModal2" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal fade" id="rankingModal2" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
         <div class="modal-header bg-secondary text-white">
           <h1 class="modal-title fs-5" id="rankingModalLabel2"><img src="./img/ranking.png" height="30"> Ranking</h1>
         </div>
         <div class="modal-body">
-          
+
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><img
-              src="./img/reiniciar.png" height="26"> Voltar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><img src="./img/reiniciar.png"
+              height="26"> Voltar</button>
         </div>
       </div>
     </div>
