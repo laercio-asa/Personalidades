@@ -44,14 +44,17 @@ async function tocarAudio() {
         source.connect(audioContext.destination);
         source.start();
         audioStarted = 1;
+        document.getElementById("iconeAudio").src="./img/audio.png"
     }
     else if (audioStarted == 1) {
         audioContext.suspend();
         audioStarted = 2;
+        document.getElementById("iconeAudio").src="./img/audio-sem.png"
     }
     else {
         audioContext.resume();
         audioStarted = 1;
+        document.getElementById("iconeAudio").src="./img/audio.png"
     }
     console.log(audioStarted);
 }

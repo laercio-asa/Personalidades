@@ -33,7 +33,7 @@
               Reiniciar</a>
             <button id="ajudaBtn" class="btn btn-warning btn-sm" onclick="tocarAudio();">
               <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                data-bs-title="Regras do Jogo"><img src="./img/audio.png" height="26"></span></button>
+                data-bs-title="Áudio!"><img id="iconeAudio" src="./img/audio-sem.png" height="26"></span></button>
             <button id="ajudaBtn" class="btn btn-warning btn-sm" data-bs-toggle="modal"
               data-bs-target="#regraModal2">
               <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
@@ -109,7 +109,7 @@
 
   <!-- Modal -->
   <div class="modal fade" id="inicialModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="inicialModalLabel">
+    aria-labelledby="inicialModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
