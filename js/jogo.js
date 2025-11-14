@@ -29,16 +29,31 @@ function iniciar() {
 
 // Exemplo simplificado
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+let source;
+let audioStarted = 0;
 
 async function tocarAudio() {
     url = "./audio/musica.mp3";
-  const response = await fetch(url);
-  const arrayBuffer = await response.arrayBuffer();
-  const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
-  const source = audioContext.createBufferSource();
-  source.buffer = audioBuffer;
-  source.connect(audioContext.destination);
-  source.start();
+    console.log(audioStarted);
+    if (audioStarted == 0) {
+        const response = await fetch(url);
+        const arrayBuffer = await response.arrayBuffer();
+        const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+        source = audioContext.createBufferSource();
+        source.buffer = audioBuffer;
+        source.connect(audioContext.destination);
+        source.start();
+        audioStarted = 1;
+    }
+    else if (audioStarted == 1) {
+        audioContext.suspend();
+        audioStarted = 2;
+    }
+    else {
+        audioContext.resume();
+        audioStarted = 1;
+    }
+    console.log(audioStarted);
 }
 
 function mostrarPersonalidades() {
@@ -56,7 +71,7 @@ function mostrarPersonalidades() {
 function iniciar_jogo(c) {
 
     tocarAudio();
-    
+
     dica = 'Dica: você pode trocar um nome arrastando-o outro nome em cima do anterior.';
     document.getElementById("dica").innerHTML = dica;
     setInterval(atualizarTempo, 1000);
