@@ -41,6 +41,7 @@ async function tocarAudio() {
         const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
         source = audioContext.createBufferSource();
         source.buffer = audioBuffer;
+        source.loop = true;
         source.connect(audioContext.destination);
         source.start();
         audioStarted = 1;

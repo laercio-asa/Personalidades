@@ -29,13 +29,13 @@
         <div class="col-auto">
           <div class="controls py-2" id="controls">
             <div id="tempo" class="tempo">00:00</div>
-            <a id="resetBtn" class="btn btn-danger btn-sm" href="./jogo.html" title="Reiniciar jogo"><img src="./img/home.png" height="26">
+            <a id="resetBtn" class="btn btn-danger btn-sm" href="./jogo.html" title="Reiniciar jogo"><img
+                src="./img/home.png" height="26">
               Reiniciar</a>
             <button id="ajudaBtn" class="btn btn-warning btn-sm" onclick="tocarAudio();">
               <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                 data-bs-title="Áudio!"><img id="iconeAudio" src="./img/audio-sem.png" height="26"></span></button>
-            <button id="ajudaBtn" class="btn btn-warning btn-sm" data-bs-toggle="modal"
-              data-bs-target="#regraModal2">
+            <button id="ajudaBtn" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#regraModal2">
               <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                 data-bs-title="Regras do Jogo"><img src="./img/configuracoes.png" height="26"></span></button>
             <button id="ajudaBtn" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#rankingModal2">
@@ -97,7 +97,7 @@
         <div class="modal-body text-center">
           <h3><img src="./img/vitoria.png" height="100"><br>Parabéns <span class="nome-jogador"></span>!</h3>
           <h5 id="texto-modal" class="my-3"></h5>
-          <h5>Agora você já conhece todos as Personalidade vamos para a Batalha!</h5>
+          <h5>Agora que você já conhece todos as Personalidade vamos para a Batalha!</h5>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-warning rounded-pill fw-bold px-3" onclick="continuar();"
@@ -305,7 +305,22 @@
           <h1 class="modal-title fs-5" id="rankingModalLabel2"><img src="./img/ranking.png" height="30"> Ranking</h1>
         </div>
         <div class="modal-body">
-
+          <ol class="list-group list-group-numbered mb-2">
+            <li class="list-group-item">Tempo</li>
+            <li class="list-group-item">A list item</li>
+            <li class="list-group-item">A list item</li>
+            <li class="list-group-item">A list item</li>
+          </ol>
+          <ol class="list-group list-group-numbered mb-2">
+            <li class="list-group-item">Cartas</li>
+            <li class="list-group-item">A list item</li>
+            <li class="list-group-item">A list item</li>
+          </ol>
+          <ol class="list-group list-group-numbered">
+            <li class="list-group-item">A list item</li>
+            <li class="list-group-item">A list item</li>
+            <li class="list-group-item">A list item</li>
+          </ol>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><img src="./img/reiniciar.png"
