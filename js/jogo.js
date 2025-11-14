@@ -7,6 +7,7 @@ let cartas = 5;
 let jogador;
 let computador
 let nomeJogador = "";
+let nivel = 1;
 
 fetch('./js/personagens.json')
     .then(response => response.json())
@@ -85,18 +86,22 @@ function iniciar_jogo(c) {
     if (c == 5) {
         iconeNivel = 'semente.png';
         nivelCartas = 0;
+        nivel = 1;
     }
     else if (c == 10) {
         iconeNivel = 'quilombo.png';
         nivelCartas = 2;
+        nivel = 2;
     }
     else if (c == 15) {
         iconeNivel = 'baoba.png';
         nivelCartas = 3;
+        nivel = 3;
     }
     else if (c == 20) {
         iconeNivel = 'ori.png';
         nivelCartas = 5;
+        nivel = 4;
     }
     document.getElementById("score").innerHTML = 'Acertos: <span id="points">0</span>/<span id="total">0</span>';
     document.getElementById("tituloTexto").innerHTML = `acerte os nomes<span class="d-md-inline d-none"> de sua equipe!</span>`;
@@ -584,7 +589,7 @@ function proximaRodada() {
 
         console.log("tempo=" + segundos + "&personalidade=" + (cartas - erradas) + "&cartas=" + jogador.length + "&nome=" + nomeJogador);
 
-        fetch("https://feirapretaeducac1.websiteseguro.com/php/ranking.php?tempo=" + segundos + "&personalidade=" + (cartas - erradas) + "&cartas=" + jogador.length + "&nome=" + nomeJogador.replaceAll(" ", "%20"))
+        fetch("https://feirapretaeducac1.websiteseguro.com/php/ranking.php?tempo=" + segundos + "&personalidade=" + (cartas - erradas) + "&cartas=" + jogador.length + "&nivel=" + nivel + "&nome=" + nomeJogador.replaceAll(" ", "%20"))
             .then(response => response.json())
 
         let vencedorFinal =
