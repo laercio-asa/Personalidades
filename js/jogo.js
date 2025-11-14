@@ -30,7 +30,7 @@ function iniciar() {
 function mostrarPersonalidades() {
     dica = '';
     document.getElementById("dica").innerHTML = dica;
-    document.getElementById("tituloTexto").innerHTML = `Conheça todas as personalidades!`;
+    document.getElementById("tituloTexto").innerHTML = `<img src="./img/flaticon.png" height="36">  Conheça todas as personalidades!`;
     document.getElementById("score").innerHTML = `Total de personalidades: ${personalidades.length}`;
     equipe = personalidades;
     equipe.sort((a, b) => a.nome.localeCompare(b.nome));;
@@ -548,12 +548,11 @@ function proximaRodada() {
 
         console.log("tempo=" + segundos + "&personalidade=" + (cartas - erradas) + "&cartas=" + jogador.length + "&nome=" + nomeJogador);
 
-        fetch("https://feirapretaeducac1.websiteseguro.com/php/ranking.php?tempo = " + segundos + " & personalidade=" + (cartas - erradas) + " & cartas=" + jogador.length + " & nome=" + nomeJogador.replaceAll(" ","%20"))
-            .then(response => response.text())
-            .then(data => console.log(data))
+        fetch("https://feirapretaeducac1.websiteseguro.com/php/ranking.php?tempo=" + segundos + "&personalidade=" + (cartas - erradas) + "&cartas=" + jogador.length + "&nome=" + nomeJogador.replaceAll(" ", "%20"))
+            .then(response => response.json())
 
         let vencedorFinal =
-        jogador.length == computador.length ? `<span style="color:#ffc011ff;">Empatou, os dois ganharam!</span>` : (jogador.length > computador.length ? `<span style="color:#516bffff;"><img src="./img/ganhou.png" height="100"><br>Você venceu o computador!</span>` : `<span style="color:#59fc39ff;"><img src="./img/perdeu.png" height="100"><br>O computador venceu!</span>`);
+            jogador.length == computador.length ? `<span style="color:#ffc011ff;">Empatou, os dois ganharam!</span>` : (jogador.length > computador.length ? `<span style="color:#516bffff;"><img src="./img/ganhou.png" height="100"><br>Você venceu o computador!</span>` : `<span style="color:#59fc39ff;"><img src="./img/perdeu.png" height="100"><br>O computador venceu!</span>`);
 
         let resultadoFinal = `
             <ol class="list-group list-group-numbered">

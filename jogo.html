@@ -23,20 +23,26 @@
       <div class="row">
         <div class="col-md col-12">
           <h1 id="titulo" class="py-2"><img class="icone-nivel" src="" height="40px"></img> <span
-              class="nome-jogador"></span><span id="tituloTexto">Jogo de Personalidades Pretas!</span></h1>
+              class="nome-jogador"></span><span id="tituloTexto"><img src="./img/flaticon.png" height="36"> Jogo de
+              Personalidades Pretas!</span></h1>
         </div>
         <div class="col-auto">
           <div class="controls py-2" id="controls">
             <div id="tempo" class="tempo">00:00</div>
-            <a id="resetBtn" class="btn btn-danger btn-sm" href="jogo.html" title="Reiniciar jogo">↺ Reiniciar</a>
+            <a id="resetBtn" class="btn btn-danger btn-sm" title="Reiniciar jogo"><img
+                src="./img/home.png" height="26"> Reiniciar</a>
             <button id="ajudaBtn" class="btn btn-warning btn-sm" href="jogo.html" data-bs-toggle="modal"
               data-bs-target="#regraModal2">
               <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                data-bs-title="Regras do Jogo">❓</span></button>
-            <button id="sobreBtn" class="btn btn-secondary btn-sm" href="jogo.html" data-bs-toggle="modal"
+                data-bs-title="Regras do Jogo"><img src="./img/configuracoes.png" height="26"></span></button>
+            <button id="ajudaBtn" class="btn btn-warning btn-sm" data-bs-toggle="modal"
+              data-bs-target="#rankingModal2">
+              <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                data-bs-title="Ranking"><img src="./img/ranking.png" height="26"></span></button>
+            <button id="sobreBtn" class="btn btn-secondary btn-sm" data-bs-toggle="modal"
               data-bs-target="#sobreModal2">
               <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                data-bs-title="Sobre o Jogo">🤖</span>
+                data-bs-title="Sobre o Jogo"><img src="./img/sobre.png" height="26"></span>
           </div>
         </div>
       </div>
@@ -94,7 +100,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-warning rounded-pill fw-bold px-3" onclick="continuar();"
-            data-bs-dismiss="modal">Continuar</button>
+            data-bs-dismiss="modal"><img src="./img/iniciar.png" height="32"> Continuar</button>
         </div>
       </div>
     </div>
@@ -142,17 +148,21 @@
               <small>Conheça todas as personalidades do jogo</small><br>
               <div class="d-flex justify-content-between">
                 <button id="btn-inteligencia" class="btn btn-info text-center btn-escolha rounded-pill text-start h2"
-                  data-bs-dismiss="modal" onclick="mostrarPersonalidades();">Mostrar Personalidades
+                  data-bs-dismiss="modal" onclick="mostrarPersonalidades();"><img src="./img/flaticon.png" height="24">
+                  Personalidades
                 </button>
                 <span>
-                  <button id="ajudaBtn" class="btn btn-warning h2" href="jogo.html" data-bs-toggle="modal"
-                    data-bs-target="#regraModal">
+                  <button id="ajudaBtn" class="btn btn-warning h2" data-bs-toggle="modal" data-bs-target="#regraModal">
                     <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                      data-bs-title="Regras do Jogo">❓</span></button>
-                  <button id="sobreBtn" class="btn btn-secondary h2" href="jogo.html" data-bs-toggle="modal"
+                      data-bs-title="Regras do Jogo"><img src="./img/configuracoes.png" height="26"></span></button>
+                  <button id="rankingBtn" class="btn btn-warning h2" data-bs-toggle="modal"
+                    data-bs-target="#rankingModal">
+                    <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                      data-bs-title="Ranking"><img src="./img/ranking.png" height="26"></span></button>
+                  <button id="sobreBtn" class="btn btn-secondary h2" data-bs-toggle="modal"
                     data-bs-target="#sobreModal">
                     <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                      data-bs-title="Sobre o Jogo">🤖</span>
+                      data-bs-title="Sobre o Jogo"><img src="./img/sobre.png" height="26"></span>
                   </button>
                 </span>
               </div>
@@ -176,7 +186,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-warning rounded-pill fw-bold px-3" onclick="proximaRodada();"
-            data-bs-dismiss="modal">Continuar</button>
+            data-bs-dismiss="modal"><img src="./img/iniciar.png" height="32"> Continuar</button>
         </div>
       </div>
     </div>
@@ -194,7 +204,8 @@
           <div id="resultadoFinal" class="text-center"></div>
         </div>
         <div class="modal-footer">
-          <a class="btn btn-warning rounded-pill fw-bold px-3" href="./jogo.html">Jogar novamente</a>
+          <a class="btn btn-warning rounded-pill fw-bold px-3" href="./jogo.html"><img src="./img/iniciar.png"
+              height="32"> Jogar novamente</a>
         </div>
       </div>
     </div>
@@ -205,8 +216,10 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5 text-danger" id="regraModalLabel">❓Regra do Jogo</h1>
-
+          <div class="modal-header bg-warning text-white">
+            <h1 class="modal-title fs-5" id="regraModalLabel2"><img src="./img/configuracoes.png" height="30"> Regra do
+              Jogo</h1>
+          </div>
         </div>
         <div class="modal-body">
           <div>
@@ -239,8 +252,8 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-target="#inicialModal"
-            data-bs-toggle="modal">Voltar</button>
+          <button type="button" class="btn btn-secondary" data-bs-target="#inicialModal" data-bs-toggle="modal"><img
+              src="./img/reiniciar.png" height="26"> Voltar</button>
         </div>
       </div>
     </div>
@@ -249,9 +262,8 @@
   <div class="modal fade" id="sobreModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5 text-success" id="sobreModalLabel">🤖 Sobre o Jogo</h1>
-
+        <div class="modal-header bg-secondary text-white">
+          <h1 class="modal-title fs-5" id="sobreModalLabel"><img src="./img/sobre.png" height="30"> Sobre o Jogo</h1>
         </div>
         <div class="modal-body">
           <p>O jogo foi criado como parte do projeto da Freira Preta 2025, com o objetivo de promover o conhecimento
@@ -261,8 +273,42 @@
           <p>Disponivel para download no GitHUB</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-target="#inicialModal"
-            data-bs-toggle="modal">Voltar</button>
+          <button type="button" class="btn btn-secondary" data-bs-target="#inicialModal" data-bs-toggle="modal"><img
+              src="./img/reiniciar.png" height="26"> Voltar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="rankingModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header bg-secondary text-white">
+          <h1 class="modal-title fs-5" id="rankingModalLabel"><img src="./img/ranking.png" height="30"> Ranking</h1>
+        </div>
+        <div class="modal-body">
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-target="#inicialModal" data-bs-toggle="modal"><img
+              src="./img/reiniciar.png" height="26"> Voltar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="modal fade" id="rankingModal2" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header bg-secondary text-white">
+          <h1 class="modal-title fs-5" id="rankingModalLabel2"><img src="./img/ranking.png" height="30"> Ranking</h1>
+        </div>
+        <div class="modal-body">
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><img
+              src="./img/reiniciar.png" height="26"> Voltar</button>
         </div>
       </div>
     </div>
@@ -271,9 +317,9 @@
   <div class="modal fade" id="regraModal2" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5 text-danger" id="regraModalLabel2">❓Regra do Jogo</h1>
-
+        <div class="modal-header bg-warning text-white">
+          <h1 class="modal-title fs-5" id="regraModalLabel2"><img src="./img/configuracoes.png" height="30"> Regra do
+            Jogo</h1>
         </div>
         <div class="modal-body">
           <div>
@@ -306,7 +352,8 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><img src="./img/reiniciar.png"
+              height="26"> Voltar</button>
         </div>
       </div>
     </div>
@@ -316,8 +363,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5 text-success" id="sobreModalLabel2">🤖 Sobre o Jogo</h1>
-
+          <h1 class="modal-title fs-5" id="sobreModalLabel"><img src="./img/sobre.png" height="30"> Sobre o Jogo</h1>
         </div>
         <div class="modal-body">
           <p>O jogo foi criado como parte do projeto da Freira Preta 2025, com o objetivo de promover o conhecimento
@@ -327,7 +373,8 @@
           <p>Disponivel para download no GitHUB</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><img src="./img/reiniciar.png"
+              height="26"> Voltar</button>
         </div>
       </div>
     </div>
