@@ -35,13 +35,16 @@
             <button id="ajudaBtn" class="btn btn-warning btn-sm" onclick="tocarAudio();">
               <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                 data-bs-title="Áudio!"><img id="iconeAudio" src="./img/audio-sem.png" height="26"></span></button>
-            <button id="ajudaBtn" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#regraModal2">
+            <button id="ajudaBtn" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#regraModal"
+              onclick="mostrarBtn('regra', 1);">
               <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                 data-bs-title="Regras do Jogo"><img src="./img/configuracoes.png" height="26"></span></button>
-            <button id="ajudaBtn" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#rankingModal2">
+            <button id="ajudaBtn" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#rankingModal"
+              onclick="mostrarRanking(1);">
               <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                 data-bs-title="Ranking"><img src="./img/ranking.png" height="26"></span></button>
-            <button id="sobreBtn" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#sobreModal2">
+            <button id="sobreBtn" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#sobreModal"
+              onclick="mostrarBtn('sobre', 1)">
               <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                 data-bs-title="Sobre o Jogo"><img src="./img/sobre.png" height="26"></span>
           </div>
@@ -153,15 +156,16 @@
                   Personalidades
                 </button>
                 <span>
-                  <button id="ajudaBtn" class="btn btn-warning h2" data-bs-toggle="modal" data-bs-target="#regraModal">
+                  <button id="ajudaBtn" class="btn btn-warning h2" data-bs-toggle="modal" data-bs-target="#regraModal"
+                    onclick="mostrarBtn('regra', 2)">
                     <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                       data-bs-title="Regras do Jogo"><img src="./img/configuracoes.png" height="26"></span></button>
-                  <button id="rankingBtn" class="btn btn-warning h2" data-bs-toggle="modal"
-                    data-bs-target="#rankingModal">
+                  <button id="rankingBtn" class="btn btn-warning h2" data-bs-toggle="modal" onclick="mostrarRanking(2)"
+                    ; data-bs-target="#rankingModal">
                     <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                       data-bs-title="Ranking"><img src="./img/ranking.png" height="26"></span></button>
                   <button id="sobreBtn" class="btn btn-secondary h2" data-bs-toggle="modal"
-                    data-bs-target="#sobreModal">
+                    onclick="mostrarBtn('sobre', 2)" data-bs-target="#sobreModal">
                     <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                       data-bs-title="Sobre o Jogo"><img src="./img/sobre.png" height="26"></span>
                   </button>
@@ -216,125 +220,7 @@
   <div class="modal fade" id="regraModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
-        <div class="modal-header">
-          <div class="modal-header bg-warning text-white">
-            <h1 class="modal-title fs-5" id="regraModalLabel2"><img src="./img/configuracoes.png" height="30"> Regra do
-              Jogo</h1>
-          </div>
-        </div>
-        <div class="modal-body">
-          <div>
-            <p>O jogo consiste em duas fases principais:</p>
-            <p>Fase de associação de nomes e a fase de batalha de personalidades.
-              Nesta fase, você deve arrastar e soltar os nomes das personalidades pretas
-              contemporâneas para as fotos correspondentes. Cada acerto aumenta sua pontuação, enquanto erros
-              não penalizam, mas não contribuem para a pontuação final.
-            </p>
-            <p>
-              A próxima fase é a fase de batalha de personalidades.
-              Você irá enfrentar as cartas do computador escolha a melhor
-              caracteristica da sua personalidade para vencer, no caso de empate as cartas são descartadas. Vence quem
-              ficar com todas as cartas.
-              <br>
-            </p>
-          </div>
-          <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-              Níveis de Dificuldade
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">Semente - Cinco Personalidades para você e para o
-              computador</a>
-            <a href="#" class="list-group-item list-group-item-action">Quilombo - Dez Personalidades para você e doze
-              para o computador</a>
-            <a href="#" class="list-group-item list-group-item-action">Baobá - Quinze Personalidades para você e dezoito
-              para o computador</a>
-            <a href="#" class="list-group-item list-group-item-action disabled" aria-disabled="true">Orí - Vinte
-              Personalidades para você e vinte e três para o computador</a>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-target="#inicialModal" data-bs-toggle="modal"><img
-              src="./img/reiniciar.png" height="26"> Voltar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="sobreModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
         <div class="modal-header bg-secondary text-white">
-          <h1 class="modal-title fs-5" id="sobreModalLabel"><img src="./img/sobre.png" height="30"> Sobre o Jogo</h1>
-        </div>
-        <div class="modal-body">
-          <p>O jogo foi criado como parte do projeto da Freira Preta 2025, com o objetivo de promover o conhecimento
-            sobre personalidades pretas contemporâneas e suas contribuições para a sociedade. Desenvolvido pelo
-            professor Laercio Sá.</p>
-          <p>Esperamos que você aproveite o jogo e aprenda mais sobre essas figuras inspiradoras!</p>
-          <p>Disponivel para download no <a href="https://github.com/laercio-asa/Personalidades" target="_blank">GitHub</a>
-          </p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-target="#inicialModal" data-bs-toggle="modal"><img
-              src="./img/reiniciar.png" height="26"> Voltar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="rankingModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
-        <div class="modal-header bg-secondary text-white">
-          <h1 class="modal-title fs-5" id="rankingModalLabel"><img src="./img/ranking.png" height="30"> Ranking</h1>
-        </div>
-        <div class="modal-body">
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-target="#inicialModal" data-bs-toggle="modal"><img
-              src="./img/reiniciar.png" height="26"> Voltar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="rankingModal2" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
-        <div class="modal-header bg-secondary text-white">
-          <h1 class="modal-title fs-5" id="rankingModalLabel2"><img src="./img/ranking.png" height="30"> Ranking</h1>
-        </div>
-        <div class="modal-body">
-          <ol class="list-group list-group-numbered mb-2">
-            <li class="list-group-item">Tempo</li>
-            <li class="list-group-item">A list item</li>
-            <li class="list-group-item">A list item</li>
-            <li class="list-group-item">A list item</li>
-          </ol>
-          <ol class="list-group list-group-numbered mb-2">
-            <li class="list-group-item">Cartas</li>
-            <li class="list-group-item">A list item</li>
-            <li class="list-group-item">A list item</li>
-          </ol>
-          <ol class="list-group list-group-numbered">
-            <li class="list-group-item">A list item</li>
-            <li class="list-group-item">A list item</li>
-            <li class="list-group-item">A list item</li>
-          </ol>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><img src="./img/reiniciar.png"
-              height="26"> Voltar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="regraModal2" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
-        <div class="modal-header bg-warning text-white">
           <h1 class="modal-title fs-5" id="regraModalLabel2"><img src="./img/configuracoes.png" height="30"> Regra do
             Jogo</h1>
         </div>
@@ -369,17 +255,17 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><img src="./img/reiniciar.png"
-              height="26"> Voltar</button>
+          <button type="button" class="btn btn-secondary" id="btn-regra" data-bs-target="#inicialModal"
+            data-bs-toggle="modal"><img src="./img/reiniciar.png" height="26"> Voltar</button>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="modal fade" id="sobreModal2" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal fade" id="sobreModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header bg-secondary text-white">
           <h1 class="modal-title fs-5" id="sobreModalLabel"><img src="./img/sobre.png" height="30"> Sobre o Jogo</h1>
         </div>
         <div class="modal-body">
@@ -387,11 +273,83 @@
             sobre personalidades pretas contemporâneas e suas contribuições para a sociedade. Desenvolvido pelo
             professor Laercio Sá.</p>
           <p>Esperamos que você aproveite o jogo e aprenda mais sobre essas figuras inspiradoras!</p>
-          <p>Disponivel para download no <a href="https://github.com/laercio-asa/Personalidades" target="_blank">GitHub</a>
+          <p>Disponivel para download no <a href="https://github.com/laercio-asa/Personalidades"
+              target="_blank">GitHub</a>
+          </p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><img src="./img/reiniciar.png"
-              height="26"> Voltar</button>
+          <button type="button" class="btn btn-secondary" id="btn-sobre" data-bs-target="#inicialModal"
+            data-bs-toggle="modal"><img src="./img/reiniciar.png" height="26"> Voltar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="rankingModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered modal-lg  modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header bg-secondary text-white">
+          <h1 class="modal-title fs-5" id="rankingModalLabel"><img src="./img/ranking.png" height="30"> Ranking</h1>
+        </div>
+        <div class="modal-body">
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                  aria-expanded="false" aria-controls="collapseOne">
+                  <img src="./img/semente.png" height="18"> Nível Semente
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="accordion-body" id="nivel-0">
+
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  <img src="./img/flaticon.png" height="18"> Nível Quilombo
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body" id="nivel-1">
+
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  <img src="./img/baoba.png" height="18"> Nível Baobá
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body" id="nivel-2">
+
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  <img src="./img/ori.png" height="18"> Nível Orí
+                </button>
+              </h2>
+              <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body" id="nivel-3">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="btn-ranking" data-bs-target="#inicialModal"
+            data-bs-toggle="modal"><img src="./img/reiniciar.png" height="26"> Voltar</button>
         </div>
       </div>
     </div>

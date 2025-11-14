@@ -1,4 +1,5 @@
 let personalidades;
+let nivelRanking;
 let equipe;
 let opcoes;
 let state;
@@ -35,7 +36,6 @@ let audioStarted = 0;
 
 async function tocarAudio() {
     url = "./audio/musica.mp3";
-    console.log(audioStarted);
     if (audioStarted == 0) {
         const response = await fetch(url);
         const arrayBuffer = await response.arrayBuffer();
@@ -46,19 +46,18 @@ async function tocarAudio() {
         source.connect(audioContext.destination);
         source.start();
         audioStarted = 1;
-        document.getElementById("iconeAudio").src="./img/audio.png"
+        document.getElementById("iconeAudio").src = "./img/audio.png"
     }
     else if (audioStarted == 1) {
         audioContext.suspend();
         audioStarted = 2;
-        document.getElementById("iconeAudio").src="./img/audio-sem.png"
+        document.getElementById("iconeAudio").src = "./img/audio-sem.png"
     }
     else {
         audioContext.resume();
         audioStarted = 1;
-        document.getElementById("iconeAudio").src="./img/audio.png"
+        document.getElementById("iconeAudio").src = "./img/audio.png"
     }
-    console.log(audioStarted);
 }
 
 function mostrarPersonalidades() {
@@ -171,7 +170,6 @@ function renderPhotos(tipo = 0) {
         const raridade = p.raridade == "raro" ? 'border border-5 border-warning' : '';
         if (tipo == 1) {
             area = `${p.area}`;
-            console.log(p.area);
             zone = `<div class="dropZone correct" data-photo="${p.id}" role="button" tabindex="0">
               ${p.nome}
             </div>`;
@@ -323,19 +321,7 @@ function placeNameOnPhoto(zone, name, chip) {
 
         // 2. Chame o método show() para abrir o modal
         myModal.show();
-        /*
-                setTimeout(() => {
-                    //alert('🎉 Parabéns! Agora você já conhece todos as Personalidades!\nVamos para a Batalha das Personalidades!');            
-                    document.getElementById("titulo").innerHTML = "🔥 Batalha de Personalidades";
-                    document.getElementById("names").style.display = "none";
-                    document.getElementById("board").style.display = "none";
-                    document.getElementById("batalha-container").classList.remove("d-none");
-                    atualizarContador();
-                    exibirCartasAntes();
-        
-                }, 120);
-                */
-        //console.log(`Vitória com ${erradas} tentativas erradas.`);
+
     }
 }
 
@@ -353,13 +339,6 @@ $('#resetBtn')?.addEventListener('click', () => {
     state.points = 0; state.placed.clear(); updateScore(); renderPhotos(0); renderOptions();
     iniciar();
 });
-
-// ======= Inicialização =======
-// (function init() {
-//     renderPhotos();
-//     renderOptions();
-//     updateScore();
-// })();
 
 
 
@@ -587,8 +566,6 @@ function proximaRodada() {
         }
         if (nomeJogador.trim() == "") { nomeJogador = "Jogador"; }
 
-        console.log("tempo=" + segundos + "&personalidade=" + (cartas - erradas) + "&cartas=" + jogador.length + "&nome=" + nomeJogador);
-
         fetch("https://feirapretaeducac1.websiteseguro.com/php/ranking.php?tempo=" + segundos + "&personalidade=" + (cartas - erradas) + "&cartas=" + jogador.length + "&nivel=" + nivel + "&nome=" + nomeJogador.replaceAll(" ", "%20"))
             .then(response => response.json())
 
@@ -642,3 +619,30 @@ function proximaRodada() {
     exibirCartasAntes();
 }
 
+function mostrarRanking(tipo) {
+    fetch("https://feirapretaeducac1.websiteseguro.com/php/posicao.php")
+        .then(response => response.json())
+        .then(data => nivelRanking = data)
+        .then(() => ranking(tipo));
+}
+
+function ranking(tipo) {
+    nivelRanking.forEach((p, id) => {
+        document.getElementById("nivel-" + id).innerHTML = p[0];
+    });
+    mostrarBtn('ranking', tipo)
+}
+
+
+function mostrarBtn(botao, tipo) {
+    if (tipo == 2) {
+        document.getElementById("btn-"+botao).setAttribute('data-bs-toggle',"modal");
+        document.getElementById("btn-"+botao).setAttribute('data-bs-target',`#inicialModal`);
+        document.getElementById("btn-"+botao).removeAttribute('data-bs-dismiss');
+    }
+    else {
+        document.getElementById("btn-"+botao).removeAttribute('data-bs-toggle');
+        document.getElementById("btn-"+botao).removeAttribute('data-bs-target');
+        document.getElementById("btn-"+botao).setAttribute('data-bs-dismiss',"modal");
+    }
+}
