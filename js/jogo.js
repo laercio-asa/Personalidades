@@ -388,8 +388,9 @@ function exibirCartasAntes() {
     document.getElementById("carta-jogador").innerHTML = `
         <div class="card h-100 bg-black ${$raro} text-white" data-aos="flip-left" data-aos-offset="0">
             <div class="row p-0 m-0">
-                <h6 class="text-center p-1 mb-0 text-primary fw-bold">SUA CARTA!</h6>
+                
                 <div class="col-6 p-0 m-0">
+                    <h6 class="p-1 mb-0 text-primary fw-bold">SUA CARTA!</h6>
                     <h4 class="text-center bg-primary p-2 mb-0">${cartaJogador.nome}</h4>
                     <div class="img-batalha" style="
                         background-image: url(./img/${cartaJogador.img || ''});
@@ -405,13 +406,14 @@ function exibirCartasAntes() {
                     "></div>
                 </div>
                 <div class="col-12 col-sm-6 p-2 m-0">
+                    <h6 class="text-center p-1 mb-0 text-primary fw-bold">&nbsp;</h6>
                     <h6 class="card-title bg-primary p-1">🎯 ${cartaJogador.area}</h6>
                     <p class="card-text p-2" id="desc-jogador">${cartaJogador.descricao}</p>
                 </div
             </div>
             <div class="card-body p-1">
                 <ol class="list-group list-group-flush">
-                 <li class="list-group-item list-group-item-black">Escolha uma das caracteristicas de sua Personalidade
+                 <li class="list-group-item list-group-item-black">Escolha uma das caracteristicas<span class="d-md-inline d-none"> de sua Personalidade</span>
                  </li>
                 <li class="list-group-item list-group-item-black">
                     <div class="ms-2 me-auto">
@@ -442,8 +444,8 @@ function exibirCartasAntes() {
     document.getElementById("carta-computador").innerHTML = `
         <div class="card h-100 bg-black ${$raro} text-white" data-aos="flip-left" data-aos-offset="0">
             <div class="row p-0 m-0">
-                <h6 class="text-center p-1 mb-0 text-success fw-bold">CARTA COMPUTADOR!</h6>
-                <div class="col-6 p-0 m-0">
+                <div class="col-12 col-sm-6 p-0 m-0">
+                <h6 class="p-1 mb-0 text-success fw-bold">CARTA COMPUTADOR!</h6>
                     <h4 class="text-center bg-success p-2 mb-0">${cartaComputador.nome}</h4>
                     <div style="
                         height: 180px;
@@ -453,13 +455,14 @@ function exibirCartasAntes() {
                     "></div>
                 </div>
                 <div class="col-12 col-sm-6 p-2 m-0">
+                    <h6 class="text-center p-1 mb-0 text-primary fw-bold">&nbsp;</h6>
                     <h6 class="card-title bg-success p-1">🎯 ${cartaComputador.area}</h6>
                     <p class="card-text p-2" id="desc-computador">${cartaComputador.descricao}</p>
                 </div>
             </div>
             <div class="card-body p-1">
                 <ol class="list-group list-group-flush">
-                 <li class="list-group-item list-group-item-black">&nbsp;
+                 <li class="list-group-item list-group-item-black d-md-inline d-none">&nbsp;
                  </li>
                 <li class="list-group-item list-group-item-black d-flex justify-content-between align-items-start pb-2 pt-3">
                     <div class="ms-2 me-auto">
