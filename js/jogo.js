@@ -372,7 +372,7 @@ function atualizarContador() {
             <div class="col-md mb-1 col-8 text-primary pt-2 h4 text-end">${nomeJogador.toUpperCase()}</div>
             <div class="col-auto mb-0 h3 fw-bold py-1 px-4 mx-0 bg-primary rounded">${jogador.length}</div>
             <div class="col-md-auto mb-1 d-md-flex d-none h4 pt-1">vs</div>
-            <div class="col-auto mb-0 h3 fw-bold py-1 px-4 mx-0 bg-primary rounded">${computador.length}</div>
+            <div class="col-auto mb-0 h3 fw-bold py-1 px-4 mx-0 bg-success rounded">${computador.length}</div>
             <div class="col-md mb-1 col-8 ms-auto text-success pt-2 h4 text-start">COMPUTADOR</div>
         </div>
         `;
