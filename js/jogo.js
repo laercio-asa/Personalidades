@@ -369,11 +369,11 @@ function atualizarContador() {
     document.getElementById("contador").innerHTML =
         `
         <div class="row d-md-flex d-none">
-            <div class="col-auto h2 fw-bold py-2 px-4 ms-5 bg-primary rounded-pill">${jogador.length}</div>
-            <div class="col-md col-8 text-primary pt-3 h3  text-start">👤 ${nomeJogador}</div>
-            <div class="col-md-auto d-md-flex d-none h3 pt-3">x</div>
-            <div class="col-md col-8 ms-auto text-success pt-3 h3 text-end">computador 💻</div>
-            <div class="col-auto h2 fw-bold py-2 px-4 me-5 bg-primary rounded-pill">${computador.length}</div>
+            <div class="col-md mb-1 col-8 text-primary pt-2 h4 text-end">${nomeJogador.toUpperCase()}</div>
+            <div class="col-auto mb-0 h3 fw-bold py-1 px-4 mx-0 bg-primary rounded">${jogador.length}</div>
+            <div class="col-md-auto mb-1 d-md-flex d-none h4 pt-1">vs</div>
+            <div class="col-auto mb-0 h3 fw-bold py-1 px-4 mx-0 bg-primary rounded">${computador.length}</div>
+            <div class="col-md mb-1 col-8 ms-auto text-success pt-2 h4 text-start">COMPUTADOR</div>
         </div>
         `;
     document.getElementById("valor-jogador").innerHTML = jogador.length;
@@ -388,14 +388,14 @@ function exibirCartasAntes() {
     document.getElementById("carta-jogador").innerHTML = `
         <div class="card h-100 bg-black ${$raro} text-white" data-aos="flip-left" data-aos-offset="0">
             <div class="row p-0 m-0">
-                <div class="col-6 col-md-12 p-0 m-0">
-                    <h6 class="text-center p-1 mb-0 text-primary fw-bold">SUA CARTA!</h6>
+                <h6 class="text-center p-1 mb-0 text-primary fw-bold">SUA CARTA!</h6>
+                <div class="col-6 p-0 m-0">
                     <h4 class="text-center bg-primary p-2 mb-0">${cartaJogador.nome}</h4>
                     <div class="img-batalha" style="
                         background-image: url(./img/${cartaJogador.img || ''});
                     "></div>
                 </div>
-                <div class="col-6 col-md-12 d-md-none d-block p-0 m-0">
+                <div class="col-6 col-sm-12 d-sm-none d-block p-0 m-0">
                     <h6 class="text-center p-1 mb-0 text-success fw-bold">Computador!</h6>
                     <h4 class="text-center bg-success p-2 mb-0">${cartaComputador.nome}</h4>
                     <div class="badge2"><a href="#carta-computador">🚨</a></div>
@@ -404,29 +404,33 @@ function exibirCartasAntes() {
                         background-image: url(./img/${cartaComputador.img || ''});
                     "></div>
                 </div>
+                <div class="col-12 col-sm-6 p-2 m-0">
+                    <h6 class="card-title bg-primary p-1">🎯 ${cartaJogador.area}</h6>
+                    <p class="card-text p-2" id="desc-jogador">${cartaJogador.descricao}</p>
+                </div
             </div>
             <div class="card-body p-1">
-                <h5 class="card-title bg-primary p-1">🎯 ${cartaJogador.area}</h5>
-                <p class="card-text p-2" id="desc-jogador">${cartaJogador.descricao}</p>
                 <ol class="list-group list-group-flush">
+                 <li class="list-group-item list-group-item-black">Escolha uma das caracteristicas de sua Personalidade
+                 </li>
                 <li class="list-group-item list-group-item-black">
                     <div class="ms-2 me-auto">
-                    <div class="fw-bold" ><button id="btn-inteligencia" class="btn btn-warning w-100 btn-escolha rounded-pill w-100 d-flex justify-content-between align-items-start"
-                    onclick="batalhar('inteligencia')">🧠 Inteligência <span id="inteligencia" class="badge text-bg-primary rounded" style="font-size: 1em;">${cartaJogador.inteligencia}</span></button></div>
+                    <div class="fw-bold" ><button id="btn-inteligencia" class="btn btn-warning btn-escolha w-75 rounded-pill d-flex justify-content-between align-items-start"
+                    onclick="batalhar('inteligencia')">🧠 Inteligência <span id="inteligencia" class="badge text-bg-primary rounded" style="font-size: 1rem;">${cartaJogador.inteligencia}</span></button></div>
                     </div>
                     
                 </li>
                 <li class="list-group-item list-group-item-black">
                     <div class="ms-2 me-auto">
-                    <div class="fw-bold" ><button id="btn-carisma" class="btn btn-warning w-100 btn-escolha rounded-pill w-100 d-flex justify-content-between align-items-start" 
-                    onclick="batalhar('carisma')">💬 Carisma <span id="carisma" class="badge text-bg-primary rounded" style="font-size: 1em;">${cartaJogador.carisma}</span></button></div>
+                    <div class="fw-bold" ><button id="btn-carisma" class="btn btn-warning btn-escolha w-75 rounded-pill d-flex justify-content-between align-items-start" 
+                    onclick="batalhar('carisma')">💬 Carisma <span id="carisma" class="badge text-bg-primary rounded" style="font-size: 1rem;">${cartaJogador.carisma}</span></button></div>
                     </div>
                     
                 </li>
                 <li class="list-group-item list-group-item-black">
                     <div class="ms-2 me-auto">
-                    <div class="fw-bold"><button id="btn-coragem" class="btn btn-warning w-100 btn-escolha rounded-pill w-100 d-flex justify-content-between align-items-start" 
-                    onclick="batalhar('coragem')">🔥 Coragem <span id="coragem" class="badge text-bg-primary rounded" style="font-size: 1em; margin-top:5px;">${cartaJogador.coragem}</span></button></div>
+                    <div class="fw-bold"><button id="btn-coragem" class="btn btn-warning btn-escolha w-75 rounded-pill d-flex justify-content-between align-items-start" 
+                    onclick="batalhar('coragem')">🔥 Coragem <span id="coragem" class="badge text-bg-primary rounded" style="font-size: 1rem;">${cartaJogador.coragem}</span></button></div>
                     </div>
                 </li>
                 </ol>
@@ -437,31 +441,39 @@ function exibirCartasAntes() {
     $raro = cartaComputador.raridade == "raro" ? 'border border-5 border-warning' : 'border border-success';
     document.getElementById("carta-computador").innerHTML = `
         <div class="card h-100 bg-black ${$raro} text-white" data-aos="flip-left" data-aos-offset="0">
-            <h6 class="text-center p-1 mb-0 text-success fw-bold">CARTA COMPUTADOR!</h6>
-            <h4 class="text-center bg-success p-2 mb-0">${cartaComputador.nome}</h4>
-            <div style="
-                height: 180px;
-                background-image: url(./img/${cartaComputador.img || ''});
-                background-position: center;
-                background-size: contain;
-            "></div>
+            <div class="row p-0 m-0">
+                <h6 class="text-center p-1 mb-0 text-success fw-bold">CARTA COMPUTADOR!</h6>
+                <div class="col-6 p-0 m-0">
+                    <h4 class="text-center bg-success p-2 mb-0">${cartaComputador.nome}</h4>
+                    <div style="
+                        height: 180px;
+                        background-image: url(./img/${cartaComputador.img || ''});
+                        background-position: center;
+                        background-size: contain;
+                    "></div>
+                </div>
+                <div class="col-12 col-sm-6 p-2 m-0">
+                    <h6 class="card-title bg-success p-1">🎯 ${cartaComputador.area}</h6>
+                    <p class="card-text p-2" id="desc-computador">${cartaComputador.descricao}</p>
+                </div>
+            </div>
             <div class="card-body p-1">
-                <h5 class="card-title bg-success p-1">🎯 ${cartaComputador.area}</h5>
-                <p class="card-text p-2" id="desc-computador">${cartaComputador.descricao}</p>
                 <ol class="list-group list-group-flush">
-                <li class="list-group-item list-group-item-black d-flex justify-content-between align-items-start py-3">
+                 <li class="list-group-item list-group-item-black">&nbsp;
+                 </li>
+                <li class="list-group-item list-group-item-black d-flex justify-content-between align-items-start pb-2 pt-3">
                     <div class="ms-2 me-auto">
                     <div class="fw-bold h5">🧠 Inteligência:</div>
                     </div>
                     <span class="badge text-bg-success rounded" style="font-size: 1em;" id="valor-inteligencia">?</span>
                 </li>
-                <li class="list-group-item list-group-item-black d-flex justify-content-between align-items-start pt-3">
+                <li class="list-group-item list-group-item-black d-flex justify-content-between align-items-start pb-2 pt-3">
                     <div class="ms-2 me-auto">
                     <div class="fw-bold h5">💬 Carisma:</div>
                     </div>
                     <span class="badge text-bg-success rounded" style="font-size: 1em;" id="valor-carisma">?</span>
                 </li>
-                <li class="list-group-item list-group-item-black d-flex justify-content-between align-items-start py-3">
+                <li class="list-group-item list-group-item-black d-flex justify-content-between align-items-start pb-2 pt-3">
                     <div class="ms-2 me-auto">
                     <div class="fw-bold h5">🔥 Coragem:</div>
                     </div>
@@ -473,8 +485,8 @@ function exibirCartasAntes() {
     `;
 
     document.getElementById("pergunta").innerHTML = `
-        <h2 class="text-center">Qual característica de <span class="text-primary">${cartaJogador.nome}</span> é mais forte que a de <span class="text-success">${cartaComputador.nome}</span>?</h2>
-        <small>Segundo o ChatGPT.</small>
+        <h5 class="text-center mb-1">Qual característica de <span class="text-primary">${cartaJogador.nome}</span> é mais forte que a de <span class="text-success">${cartaComputador.nome}</span>? <small style="font-size:0.8rem">(Segundo o ChatGPT.)</small></h5>
+        
     `;
 
     hj = document.getElementById("desc-jogador").offsetHeight;
@@ -548,9 +560,15 @@ function continuar() {
     document.getElementById("batalha-personagens").classList.remove("d-none");
     atualizarContador();
     exibirCartasAntes();
-    dica = 'Escolha a melhor caracteristica de seu personagem para vencer a batalha!.';
+    dica = 'Escolha a melhor caracteristica de seu personagem para vencer a batalha de trunfo!.';
     document.getElementById("dica").innerHTML = dica;
     document.getElementById("progresso").scrollIntoView();
+    var myToastEl = document.getElementById('liveToast');
+
+    var myToast = new bootstrap.Toast(myToastEl);
+
+    myToast.show();
+
 }
 
 function proximaRodada() {
@@ -636,13 +654,13 @@ function ranking(tipo) {
 
 function mostrarBtn(botao, tipo) {
     if (tipo == 2) {
-        document.getElementById("btn-"+botao).setAttribute('data-bs-toggle',"modal");
-        document.getElementById("btn-"+botao).setAttribute('data-bs-target',`#inicialModal`);
-        document.getElementById("btn-"+botao).removeAttribute('data-bs-dismiss');
+        document.getElementById("btn-" + botao).setAttribute('data-bs-toggle', "modal");
+        document.getElementById("btn-" + botao).setAttribute('data-bs-target', `#inicialModal`);
+        document.getElementById("btn-" + botao).removeAttribute('data-bs-dismiss');
     }
     else {
-        document.getElementById("btn-"+botao).removeAttribute('data-bs-toggle');
-        document.getElementById("btn-"+botao).removeAttribute('data-bs-target');
-        document.getElementById("btn-"+botao).setAttribute('data-bs-dismiss',"modal");
+        document.getElementById("btn-" + botao).removeAttribute('data-bs-toggle');
+        document.getElementById("btn-" + botao).removeAttribute('data-bs-target');
+        document.getElementById("btn-" + botao).setAttribute('data-bs-dismiss', "modal");
     }
 }
